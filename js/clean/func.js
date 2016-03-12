@@ -870,7 +870,7 @@ function StartBuyProductCO(product_id) {
 
 function StartBuyProductSale(product_id) {
     ShowLoading();
-    ga('send', 'event', 'OrderCreate', 'AddToCartSale', product_id, $('#current_product_price').val().replace(/[^\d,+]/g, ""));
+    GA_event('send', 'event', 'OrderCreate', 'AddToCartSale', product_id, $('#current_product_price').val().replace(/[^\d,+]/g, ""));
     MobileUser.basket.addToCartSale(product_id, AfterBuyProduct);
 }
 
