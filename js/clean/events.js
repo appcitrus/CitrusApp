@@ -639,5 +639,10 @@ $(document).ready(function() {
         city_enter = true;
         selectCity(so.attr('city_id'), so.attr('city_name'), so.attr('region'));
     })
+
+    $.each( $('.footer_copy'), function(key, val){
+        $(val).html('<span>©  Цитрус -гаджеты и аксессуары 2000-' + new Date().getFullYear())+'<span><span class="app_version"> v. ' + app_ver_print+'</span>'; 
+    });
+
 });
 /*END Автоподстановка города*/

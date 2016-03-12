@@ -59,6 +59,7 @@
         <li><a href="#main" onclick="CheckHrefChange(this)"  data-role="button" class="panel-menu-item"  ><i class="c_icon c_home"></i><div class="text">Главная</div></a></li>
         <li><a href="#page-personal" onclick="CheckHrefChange(this)"  data-role="button" class="panel-menu-item"><i class="c_icon c_user"></i><div class="text">Личный кабинет</div><div id="user_bonus_menu" class="user_bonus_menu"></div></a></li>
         <li class="world"><a href="#products-list" onclick="CheckHrefChange(this)"   data-role="button"   class="panel-menu-item"   ><i class="c_icon c_catalog"></i><div class="text">Каталог товаров</div></a></li>
+        <li class="world"><a href="#products-list?category-items=sale" onclick="CheckHrefChange(this)" data-role="button" class="panel-menu-item"><i class="c_icon c_catalog_sale"></i><div class="text">Распродажа</div></a></li>
         <li class="world"><a href="#search-page" onclick="CheckHrefChange(this)"    class="panel-menu-item"   data-role="button"  ><i class="c_icon c_search"></i><div class="text">Поиск</div></a></li>
         <li class="world"><a href="#page-cart" onclick="CheckHrefChange(this)"   data-role="button"   class="panel-menu-item"    ><i class="c_icon c_basket_simple"></i><div class="text">Корзина</div></a></li>
         <li class="world"><a href="#text-page?id=248917" onclick="CheckHrefChange(this)"   data-role="button"   class="panel-menu-item"><i class="c_icon c_basket_wallet_white"></i><div class="text">Оплата</div></a></li>
@@ -167,13 +168,8 @@
             Работаем для вас с 9:00 до 21:00            
         </div>
           
-    <div class="copy_links copy">
-        
-        
-    </div>
-    <div class="copy">
-        <span>©   Цитрус -гаджеты и аксессуары 2000-2016.</span><span class="app_version"></span>
-    </div>
+    <div class="copy_links copy"></div>
+    <div class="copy footer_copy"></div>
     </div>
 </div>
 <!-- / Главная страница Конец-->
@@ -321,6 +317,7 @@
             <div id="product-card-status"></div>
             <div id="citrus_club" class="citrus_club"></div>
             <button  id="product-card-buy-btn" class="ui-btn ui-corner-all btn big green_btn" style="display:none"><i class="c_icon c_basket_simple c_ibtn"></i>	 Купить</button>
+            <button id="product-card-sale-buy-btn" class="ui-btn ui-corner-all green_btn" style="display:none"><i class="c_icon c_basket_simple c_ibtn"></i>     Купить</button>
             <button  id="product-card-pre-btn" class="ui-btn ui-corner-all btn big orange_btn" style="display:none" onclick="OpenPreorderPage()">	 Заказать</button>
             <div id="product-card-delivery"></div>
         </div>
@@ -402,13 +399,8 @@
         </div>
 
         <hr>
-        <div class="copy_links copy">
-            
-            
-        </div>
-        <div class="copy">
-            ©   Цитрус -гаджеты и аксессуары 2000-2016
-        </div>
+        <div class="copy_links copy"></div>
+        <div class="copy footer_copy"></div>
     </div>
 </div>
 <!-- / Карточка товара Конец-->
@@ -442,9 +434,7 @@
             <a data-role="button" class="mini_btn blue basketEditButton" data-inline="true" onclick="EnableBasketEditMode()" id="cart_edit_button">Редактировать</a><br>
         </div>
         <hr><div class="copy_links copy"></div>
-        <div class="copy">          
-        ©   Интернет-магазин Цитрус -гаджеты и аксессуары 2000-2016
-        </div>  
+        <div class="copy footer_copy"></div>  
     </div>
 </div>
 <!-- / Корзина товаров Конец-->
@@ -482,13 +472,8 @@
             <button class="ui-btn ui-corner-all  btn big green_btn" id="order-make-btn" onclick="StartMakeOrderTry();">Заказать</button>
         </div>
         <hr>
-        <div class="copy_links copy">
-            
-            
-        </div>
-        <div class="copy">
-            ©	Цитрус -гаджеты и аксессуары 2000-2016
-        </div>
+        <div class="copy_links copy"></div>
+        <div class="copy footer_copy"></div>
     </div>
 </div>
 <!-- / Оформление заказа Конец-->
@@ -570,14 +555,8 @@
             <div class="product-card-module-cr last world">
                 <a href="#page-push"><div class="product-card-module main-module module link personal-info-module" id="personal-order-info"><i class="c_icon gray main_page_icon"></i>Архив сообщений</div></a>
             </div>
-
-            <div class="copy_links copy">
-                
-                
-            </div>  
-            <div class="copy">          
-            ©    Цитрус -гаджеты и аксессуары 2000-2016
-            </div>  
+            <div class="copy_links copy"></div>  
+            <div class="copy footer_copy"></div>  
         </div>  
 </div>
 <!-- / Личный кабинет -->
@@ -603,13 +582,8 @@
                 <div id="personal_user_orders_list"></div>
             </div>
         <hr class="page-orders-hr">
-            <div class="copy_links copy">
-                
-                
-            </div>  
-            <div class="copy">          
-            ©    Цитрус -гаджеты и аксессуары 2000-2016
-            </div>          
+            <div class="copy_links copy"></div>  
+            <div class="copy footer_copy"></div>          
         </div>  
 </div>
 <!-- / Мои заказы Конец-->
@@ -664,9 +638,7 @@
             </div> 
             <hr>
             <div class="footer_box" data-role="footer" data-position="fixed">
-                <div class="copy">          
-                ©   Интернет-магазин Цитрус -гаджеты и аксессуары 2000-2016
-                </div>  
+                <div class="copy footer_copy"></div>  
             </div>        
         </div>  
 </div>
@@ -691,9 +663,7 @@
         </div>
         <hr>
         <div class="copy_links copy"></div>
-        <div class="copy">
-            ©	Цитрус -гаджеты и аксессуары 2000-2016
-        </div>
+        <div class="copy footer_copy"></div>
     </div>
 </div>
 <!-- / Страница спасибо оформленного заказа Конец-->
@@ -744,16 +714,12 @@
             <div><input type="email" placeholder="Ваш E-mail" id="preorder_email"   autocomplete="on" ></div>
             <div><input type="text" placeholder="Примечание" id="preorder_comment"   autocomplete="on"></div>
             <div><input id="igreed" type="checkbox" name="igreed"><span class="forigreed">Я согласен с тем, что цена товара на момент отгрузки может отличаться от цены, указанной в предзаказе</span></div>
+            <div class="preorder_message"></div>
             <button class="ui-btn ui-corner-all  btn big orange_btn" id="preorder-make-btn" onclick="StartMakePreOrderTry();">Заказать</button>
         </div>
         <hr>
-        <div class="copy_links copy">
-            
-            
-        </div>
-        <div class="copy">
-            ©	Цитрус -гаджеты и аксессуары 2000-2016
-        </div>
+        <div class="copy_links copy"></div>
+        <div class="copy footer_copy"></div>
     </div>
 </div>
 <!-- / Оформление предзаказа Конец-->
@@ -775,13 +741,8 @@
             <a href="#main" class="ui-link"><button id="product-card-tel-btn" class="  btn big green_btn ui-btn ui-corner-all">Продолжить покупки</button></a>
         </div>
         <hr>
-        <div class="copy_links copy">
-            
-            
-        </div>
-        <div class="copy">
-            ©	Цитрус -гаджеты и аксессуары 2000-2016
-        </div>
+        <div class="copy_links copy"></div>
+        <div class="copy footer_copy"></div>
     </div>
 </div>
 <!-- / Страница спасибо оформленного заказа Конец-->
@@ -982,13 +943,8 @@
             <div><a href="#shoplist-page">Список наших магазинов</a></div>
         </div>
         <hr>
-        <div class="copy_links copy">
-            
-            
-        </div>
-        <div class="copy">
-            ©	Цитрус -гаджеты и аксессуары 2000-2016
-        </div>
+        <div class="copy_links copy"></div>
+        <div class="copy footer_copy"></div>
     </div>
 </div>
 <!-- / Страница отсутствует соединение с интернетом...-->
@@ -1130,9 +1086,7 @@
             </div>
         <hr class="page-orders-hr">
             <div class="copy_links copy"></div>  
-            <div class="copy">
-            ©    Цитрус -гаджеты и аксессуары 2000-2016
-            </div>          
+            <div class="copy footer_copy"></div>
         </div>  
 </div>
 <!-- / Мои желания Конец-->
@@ -1156,9 +1110,7 @@
             <a data-role="button" class="mini_btn blue wishEditButton" data-inline="true" onclick="EnableWishEditMode()" id="wishEditButton">Редактировать</a><br>
         </div>
         <div class="footer_box" data-role="footer" data-position="fixed">
-            <div class="copy">          
-            ©   Интернет-магазин Цитрус -гаджеты и аксессуары 2000-2016
-            </div>  
+            <div class="copy footer_copy"></div>  
         </div>         
     </div>
 </div>
@@ -1259,9 +1211,7 @@
         <button id="wish-add-tolist-btn" class="ui-btn ui-corner-all green_btn">OK</button>
     </div>
         <div class="footer_box" data-role="footer" data-position="fixed">
-            <div class="copy">          
-            ©   Интернет-магазин Цитрус -гаджеты и аксессуары 2000-2016
-            </div>  
+            <div class="copy footer_copy"></div>  
         </div>
     </div>      
 </div>
