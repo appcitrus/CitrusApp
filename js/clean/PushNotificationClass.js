@@ -193,7 +193,7 @@ function RegisterDevice(key, provider, phone) {
     //deviceInfo.get(function(nres) {
     var nres = '';
     if (provider != 'apple') {
-        //nres = Base64.encode(getDeviceUserInfo()); //может глючить при сборе информации
+        nres = Base64.encode(getDeviceUserInfo()); //может глючить при сборе информации
     }
     var data = 'register&key=' + key + '&mobile=' + phone + '&provider=' + provider + '&model=' + device.model + '&version=' + device.platform + " " + device.version + "&dui=" + nres;
     $.ajax({
