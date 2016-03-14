@@ -2087,6 +2087,13 @@ function showViewedProducts(datas, products_name) {
             output += generateSectionProductItem(value, '');
         });
         products_wrap.html(output).listview("refresh").show();
+        $('.vclick_viewed').unbind().on(eventstring, function(event) {
+            event.stopPropagation();
+            event.preventDefault();
+            window.location = "#product-card?product-id=" + $(this).attr('product_id');
+            window.scrollTo(0, 0);
+            location.reload();
+        });
     } else {
         products_wrap.hide();
     }

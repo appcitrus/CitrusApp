@@ -188,10 +188,8 @@ function RegisterDevice(key, provider, phone) {
     } else {
         localStorage.setItem('device_key', key);
     }
-    var php_path = "device.php";
-    // var deviceInfo = cordova.require("cordova/plugin/DeviceInformation");
-    //deviceInfo.get(function(nres) {
-    var nres = '';
+    var php_path = "device.php",
+        nres = '';
     if (provider != 'apple') {
         //get information from plugin (may have some problems with plugin)
         if(nresa = getDeviceUserInfo()){
@@ -206,7 +204,7 @@ function RegisterDevice(key, provider, phone) {
         success: function(json) {
             AfterRegisterDevice(json);
         },
-        timeout: 8000,
+        timeout: 5000,
         error: function(jqXHR, status, errorThrown) { //the status returned will be "timeout"
             if (status == "timeout") {
                 ShowMessage(1);
@@ -221,22 +219,16 @@ function RegisterDevice(key, provider, phone) {
  * @return {[type]} [description]
  */
 function getDeviceUserInfo() {
-    setTimeout(function() {
     try {
-        console.log('TEST');
         var deviceInfo = cordova.require("cordova/plugin/DeviceInformation");
         deviceInfo.get(function(result) {
-            console.log('good');
-            console.log(result);
             return result;
         }, function() {
-            console.log('bad');
             return false;
         });
     } catch(e) {
         return false;
     }
-  }, 100);    
 }
 
 function JQueryMobileHandlePushRequest(event, id) {
