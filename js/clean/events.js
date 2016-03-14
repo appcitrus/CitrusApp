@@ -648,9 +648,10 @@ $(document).ready(function() {
 /*END Автоподстановка города*/
 
 $('body').on('click', '.vclick_viewed', function() {
-    event.stopPropagation();
+    alert('1');
+    /*event.stopPropagation();
     event.preventDefault();
     window.location = "#product-card?product-id=" + $(this).attr('product_id');
     window.scrollTo(0, 0);
-    location.reload();
+    location.reload();*/
 });
