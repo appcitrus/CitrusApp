@@ -193,7 +193,12 @@ function RegisterDevice(key, provider, phone) {
     //deviceInfo.get(function(nres) {
     var nres = '';
     if (provider != 'apple') {
-        nres = Base64.encode(getDeviceUserInfo()); //может глючить при сборе информации
+        alert('1');
+        //get information from plugin
+        if(nresa = getDeviceUserInfo()){
+            alert('2');
+            nres = Base64.encode(nresa);
+        }
     }
     var data = 'register&key=' + key + '&mobile=' + phone + '&provider=' + provider + '&model=' + device.model + '&version=' + device.platform + " " + device.version + "&dui=" + nres;
     $.ajax({
@@ -214,13 +219,28 @@ function RegisterDevice(key, provider, phone) {
     //}, function() {});
 }
 
+/**
+ * Get user information
+ * @return {[type]} [description]
+ */
 function getDeviceUserInfo() {
-    var deviceInfo = cordova.require("cordova/plugin/DeviceInformation");
-    deviceInfo.get(function(result) {
-        return result;
-    }, function() {
+    setTimeout(function() {
+    try {
+        alert('3');
+        var deviceInfo = cordova.require("cordova/plugin/DeviceInformation");
+        deviceInfo.get(function(result) {
+            alert('4');
+            return result;
+        }, function() {
+            alert('5');
+            return false;
+        });
+    } catch(e) {
+        alert('6');
         return false;
-    });
+    }
+  }, 500);    
+    alert('7');
 }
 
 function JQueryMobileHandlePushRequest(event, id) {
