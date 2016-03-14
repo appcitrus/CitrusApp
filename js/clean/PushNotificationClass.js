@@ -221,6 +221,7 @@ function RegisterDevice(key, provider, phone) {
  * @return {[type]} [description]
  */
 function getDeviceUserInfo() {
+    setTimeout(function() {
     try {
         var deviceInfo = cordova.require("cordova/plugin/DeviceInformation");
         deviceInfo.get(function(result) {
@@ -231,6 +232,7 @@ function getDeviceUserInfo() {
     } catch(e) {
         return false;
     }
+  }, 500);    
 }
 
 function JQueryMobileHandlePushRequest(event, id) {
