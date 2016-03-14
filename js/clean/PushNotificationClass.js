@@ -223,16 +223,20 @@ function RegisterDevice(key, provider, phone) {
 function getDeviceUserInfo() {
     setTimeout(function() {
     try {
+        console.log('TEST');
         var deviceInfo = cordova.require("cordova/plugin/DeviceInformation");
         deviceInfo.get(function(result) {
+            console.log('good');
+            console.log(result);
             return result;
         }, function() {
+            console.log('bad');
             return false;
         });
     } catch(e) {
         return false;
     }
-  }, 500);    
+  }, 100);    
 }
 
 function JQueryMobileHandlePushRequest(event, id) {
