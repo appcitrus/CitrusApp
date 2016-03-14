@@ -2,7 +2,9 @@ var app_ver = '110',
     app_ver_print = '1.1 beta',
     product_list_offset = [],
     main_page_load = false,
-    main_images = false;
+    main_images = false,
+    eventstring = (!navigator.userAgent.match(/(iPad|iPhone|iPod touch);.*CPU.*OS 7_\d/i))?"vclick":"tap";
+
 /**
  * Main page
  *
@@ -737,12 +739,6 @@ function Showtextpage(id, detail) {
 }
 
 function ProssedTapEvents() {
-    var eventstring = "vclick";
-    if (navigator.userAgent.match(/(iPad|iPhone|iPod touch);.*CPU.*OS 7_\d/i)) {
-        eventstring = "vclick";
-    } else {
-        eventstring = "tap";
-    }
     $('.vclick_d_link').unbind().on(eventstring, function(event) {
         if ($.mobile.activePage.attr('id') == "products-list") {
             savePos = $(this).parent('li').index();
