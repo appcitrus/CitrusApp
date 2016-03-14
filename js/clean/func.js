@@ -111,7 +111,7 @@ function LoadMainPageData() {
 }
 
 /**
- * Главный Каталог
+ * The Main catalog
  * @param {[type]} category [description]
  * @param {[type]} position [description]
  * @param {[type]} count    [description]
@@ -159,7 +159,7 @@ function LoadDefaultCatalog(category, position, count) {
             var output = "",
                 count = 0;
 
-            //in need redirect
+            //if need redirect
             if(!!json.redirect && json.redirect.length>2){
                 window.open(json.redirect, '_system', 'location=yes'); return;
             }
@@ -2086,13 +2086,6 @@ function showViewedProducts(datas, products_name) {
             output += generateSectionProductItem(value, '');
         });
         products_wrap.html(output).listview("refresh").show();
-        $('.vclick_viewed').unbind().on(eventstring, function(event) {
-            event.stopPropagation();
-            event.preventDefault();
-            window.location = "#product-card?product-id=" + $(this).attr('product_id');
-            window.scrollTo(0, 0);
-            location.reload();
-        });
     } else {
         products_wrap.hide();
     }
