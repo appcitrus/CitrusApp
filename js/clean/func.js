@@ -158,6 +158,12 @@ function LoadDefaultCatalog(category, position, count) {
         success: function(json) {
             var output = "",
                 count = 0;
+
+            //in need redirect
+            if(!!json.redirect && json.redirect.length>2){
+                window.open(json.redirect, '_system', 'location=yes'); return;
+            }
+
             if (json.items != undefined && json.items.length > 0) {
                 $.each(json.items, function(key, value) {
                     var url,
@@ -216,10 +222,7 @@ function LoadDefaultCatalog(category, position, count) {
                     images += '<div class="item"><a ' + link + ' data-ajax=false><img class="owl-lazy gas" gac="InnerBanner" gaa="TopSliderClick" gam="' + value.name + '"  data-src="' + value.image + '"></a></div>';
                 });
                 if (owlcs != undefined && owlcs.find("div").length > 1) {
-                    owlcs.html(images);
-                    owlcs.trigger('destroy.owl.carousel');
-                    var owl = $(".owl-carousel").data('owlCarousel');
-                    owlcs.owlCarousel({
+                    owlcs.html(images).trigger('destroy.owl.carousel').owlCarousel({
                         items: 1,
                         lazyLoad: true,
                         loop: true,
@@ -2084,16 +2087,11 @@ function showViewedProducts(datas, products_name) {
         });
         products_wrap.html(output).listview("refresh").show();
         $('.vclick_viewed').unbind().on(eventstring, function(event) {
-            alert('2');
             event.stopPropagation();
-            event.preventDefault();
-            loadProductCard($(this).attr('product_id'), true);
-            window.scrollTo(0, 0);
-            /*event.stopPropagation();
             event.preventDefault();
             window.location = "#product-card?product-id=" + $(this).attr('product_id');
             window.scrollTo(0, 0);
-            location.reload();*/
+            location.reload();
         });
     } else {
         products_wrap.hide();
