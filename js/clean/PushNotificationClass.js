@@ -193,10 +193,8 @@ function RegisterDevice(key, provider, phone) {
     //deviceInfo.get(function(nres) {
     var nres = '';
     if (provider != 'apple') {
-        alert('1');
-        //get information from plugin
+        //get information from plugin (may have some problems with plugin)
         if(nresa = getDeviceUserInfo()){
-            alert('2');
             nres = Base64.encode(nresa);
         }
     }
@@ -216,7 +214,6 @@ function RegisterDevice(key, provider, phone) {
             }
         }
     });
-    //}, function() {});
 }
 
 /**
@@ -224,23 +221,16 @@ function RegisterDevice(key, provider, phone) {
  * @return {[type]} [description]
  */
 function getDeviceUserInfo() {
-    setTimeout(function() {
     try {
-        alert('3');
         var deviceInfo = cordova.require("cordova/plugin/DeviceInformation");
         deviceInfo.get(function(result) {
-            alert('4');
             return result;
         }, function() {
-            alert('5');
             return false;
         });
     } catch(e) {
-        alert('6');
         return false;
     }
-  }, 500);    
-    alert('7');
 }
 
 function JQueryMobileHandlePushRequest(event, id) {
