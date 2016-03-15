@@ -2884,3 +2884,7 @@ ul#filter-props-values-listview .ui-icon-carat-r:after, ul#sort-listview .ui-ico
 #page-preorder .bred{
     border-color: red!important;
 }
+
+.img_color{
+    background-size: cover!important;
+}

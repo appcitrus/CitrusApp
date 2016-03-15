@@ -448,7 +448,7 @@ function loadProductCard(id, owl){
         var owlreinit = owl;
     }
     $.ajax({
-        url: "http://m.citrus.ua/ajax/product.php?id=" + parseInt(id) + sale_uri,
+        url: "http://m.citrus.ua/ajax/product.php?ht=a&id=" + parseInt(id) + sale_uri,
         dataType: 'json',
         async: false,
         success: function(json) {
@@ -559,13 +559,16 @@ function loadProductCard(id, owl){
                             product_not_available = 'product_not_available';
                         }
                         var active = "";
-                        if (item_value.active == "Y") {
+                        if (item_value.active == "Y"){
                             var active = "active";
                         }
-                        if (item_value.type == "color") {
+                        if (item_value.type == "color"){
                             variations += '<div class="v_volor_item"><div class="v_color_p v_color_c ' + active + '"><div class="v_color_w"><a product_id="' + item_value.id + '" class="vclick_link_product"><div class="v_color" style="background-color:' + item_value.value + '"></div></a></div></div></div>';
                         }
-                        if (item_value.type == "text") {
+                        if (item_value.type == "img_color"){
+                            variations += '<div class="v_volor_item"><div class="v_color_p v_color_c ' + active + '"><div class="v_color_w"><a product_id="' + item_value.id + '" class="vclick_link_product"><div class="v_color img_color" style="background:url(' + item_value.value + ')"></div></a></div></div></div>';
+                        }
+                        if (item_value.type == "text"){
                             variations += '<div class="v_color_p v_color_p_text ' + active + '"><div class="v_color_w v_color_w_text ' + product_not_available + '"><a   product_id="' + item_value.id + '"  class="vclick_link_product"><div class="v_color v_color_text ' + product_not_available + '">' + item_value.value + '</div></a></div></div>';
                         }
                     });
