@@ -200,7 +200,31 @@
 }
 
 .ricent_viewes {
-    background-image: url(../img/svg/gray/ricent-viewes.svg);
+    background-image: url(../img/svg/prev_viewed.svg);
+}
+
+.c_accessories {
+    background-image: url(../img/svg/accessories.svg);
+}
+
+.c_bundle {
+    background-image: url(../img/svg/bundle.svg);
+}
+
+.c_reviews {
+    background-image: url(../img/svg/reviews.svg);
+}
+
+.c_description {
+    background-image: url(../img/svg/description.svg);
+}
+
+.c_features {
+    background-image: url(../img/svg/features.svg);
+}
+
+.c_shipping {
+    background-image: url(../img/svg/shipping.svg);
 }
 
 .c_soon {
