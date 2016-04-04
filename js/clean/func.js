@@ -1560,8 +1560,8 @@ function InitShopList() {
         url: "json/shoplist.json",
         dataType: 'json',
         success: function(json) {
-            var output = "";
-            var count = 0;
+            var output = "",
+                count = 0;
             if (json.items !== undefined) $.each(json.items, function(key, value) {
                 var url;
                 var image = '<img src="http://m.citrus.ua/img/png/google_map/mobapp-map-shop-list-icon.png" />';
@@ -1952,8 +1952,7 @@ function getUserBonusPanel() {
 }
 
 function ShowDetailGoogleMape(id) {
-    $('#text-page-content').html("");
-        window.location = "#detail-googlemap?id=" + id;
+    window.open('http://m.citrus.ua/#detail-googlemap?id=' + id, '_system', 'location=yes');
 /*    if (isIOS()) {
         window.open('http://m.citrus.ua/#detail-googlemap?id=' + id, '_system', 'location=yes');
     } else {
