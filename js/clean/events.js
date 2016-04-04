@@ -641,7 +641,7 @@ $(document).ready(function() {
 
     //footer copyright
     $.each( $('.footer_copy'), function(key, val){
-        $(val).html('<span>©  Цитрус -гаджеты и аксессуары 2000-' + new Date().getFullYear())+' _ <span><span class="app_version"> v. ' + app_ver_print+'</span>'; 
+        $(val).html('<span>.©  Цитрус -гаджеты и аксессуары 2000-' + new Date().getFullYear())+' <span><span class="app_version"> v. ' + app_ver_print+'</span>'; 
     });
 
 });
