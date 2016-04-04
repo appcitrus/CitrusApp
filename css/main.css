@@ -1689,9 +1689,9 @@ ul#filter-props-values-listview .ui-icon-carat-r:after, ul#sort-listview .ui-ico
     border-bottom: 1px solid #ddd;
 }
 
-#page-wish a.ui-btn:hover {
+/*#page-wish a.ui-btn:hover {
     background-color: rgba(51, 136, 204, 0.24) !important;
-}
+}*/
 
 #page-wish li h2.product {
     font-weight: 400;
@@ -1816,7 +1816,7 @@ ul#filter-props-values-listview .ui-icon-carat-r:after, ul#sort-listview .ui-ico
 
 /*Old price*/
 
-#product-card-content .ProductOldPriceBox {
+#product-card-old_prices .ProductOldPriceBox {
     margin-top: -2px;
     padding-left: 17px;
     text-align: right;
@@ -1830,7 +1830,7 @@ ul#filter-props-values-listview .ui-icon-carat-r:after, ul#sort-listview .ui-ico
     text-decoration: line-through;
 }
 
-#product-card-content .ProductOldPriceBox .price {
+#product-card-old_prices .ProductOldPriceBox .price {
     font-size: 1.1rem;
     color: #959595;
 }
@@ -2871,4 +2871,20 @@ ul#filter-props-values-listview .ui-icon-carat-r:after, ul#sort-listview .ui-ico
 #promo-page-content .promo-products-text{
     padding-left: 16px !important;
     padding-right: 16px !important;
+}
+
+.c_catalog_sale {
+    background-image: url(../img/svg/sale-icon.svg);
+}
+
+#page-preorder .red{
+    color: red!important;
+}
+
+#page-preorder .bred{
+    border-color: red!important;
+}
+
+.img_color{
+    background-size: cover!important;
 }

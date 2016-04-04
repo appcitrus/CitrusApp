@@ -39,13 +39,12 @@
     <!-- Do not auto hide splash on Android -->
     <preference name="SplashScreenDelay" value="25000"/>
 
-    <gap:plugin name="cordova-plugin-device"  source="npm" version="1.0.1" />
+    <gap:plugin name="cordova-plugin-device" source="npm" />
     <gap:plugin name="cordova-plugin-splashscreen" source="npm" />
     <gap:plugin name="com.phonegap.plugins.pushplugin" version="2.5.0" />
     <gap:plugin name="cordova-plugin-inappbrowser" source="npm" />
     <gap:plugin name="com.phonegap.plugin.statusbar" version="1.1.0" />
     <gap:plugin name="com.danielcwilson.plugins.googleanalytics" version="0.6.1" />
-    <!--<gap:plugin name="com.dawsonloudon.videoplayer" version="1.0.0" />-->
     <gap:plugin name="com.bunkerpalace.cordova.youtubevideoplayer" version="1.0.1" />
     <gap:plugin name="com.sharinglabs.cordova.plugin.datepicker" />
 
@@ -53,7 +52,7 @@
         <param name="URL_SCHEME" value="citrus" />
     </gap:plugin>
 
-    <gap:plugin name="cordova-plugin-whitelist" source="npm" version="1.0.0" />
+    <gap:plugin name="cordova-plugin-whitelist" source="npm"/>
 
     <gap:plugin name="com.vliesaputra.deviceinformation" version="1.0.1" />
     
