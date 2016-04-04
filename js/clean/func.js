@@ -1952,12 +1952,14 @@ function getUserBonusPanel() {
 }
 
 function ShowDetailGoogleMape(id) {
-    if (isIOS()) {
+    $('#text-page-content').html("");
+        window.location = "#detail-googlemap?id=" + id;
+/*    if (isIOS()) {
         window.open('http://m.citrus.ua/#detail-googlemap?id=' + id, '_system', 'location=yes');
     } else {
         $('#text-page-content').html("");
         window.location = "#detail-googlemap?id=" + id;
-    }
+    }*/
 }
 
 function LoadDetailPageMap(id) {
