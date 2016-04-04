@@ -85,7 +85,6 @@ function LoadMainPageData() {
                                     }
                                 }
                             }
-                            $('.app_version').html(' v. ' + app_ver_print);
                         }
                     });
                     //MobileUser.basket.getViewedProducts(showViewedProductsOnMain);
