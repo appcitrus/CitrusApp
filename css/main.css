@@ -2888,3 +2888,103 @@ ul#filter-props-values-listview .ui-icon-carat-r:after, ul#sort-listview .ui-ico
 .img_color{
     background-size: cover!important;
 }
+
+
+#product_countdown_block{
+    display: none;
+}
+
+#product-countdown-listview{
+    margin: 0!important;
+    padding: 1rem;
+}
+
+#product-countdown-listview .item a,
+#product-countdown-listview .item a:hover {
+    display: inline;
+    color: #38c;
+    border: 0;
+    margin: 0;
+    padding: 0;
+    background-color: transparent!important;
+}
+
+.scountdown{
+    clear: both;
+    display: inline-block;
+    margin: 0 auto;
+    text-align: center;
+    width: 100%;
+    padding-bottom: 1rem;
+    padding-top: 1.5rem;
+}
+
+.contdown_text{
+    text-align: left;
+    padding-bottom: 10px;
+}
+
+.countd .cndd{
+    position: relative;
+}
+
+.countd span:not(.colon){
+    border:1px solid #a29e9f;
+     -moz-border-radius: 3px !important;
+    -webkit-border-radius: 3px !important;
+    border-radius: 3px !important;
+    padding: 0.3rem 0;
+    font-size: 2rem;
+    width: 3rem;
+    display: inline-block;
+    text-align: center;
+}
+
+.countd .colon{
+    font-size: 2rem;
+    display: inline-block;
+    padding: 0 0.5rem;
+}
+
+.countd .cndd:before{
+    content: 'Дней';
+    color: #888;
+    position:absolute;
+    font-size: 0.8rem;
+    margin-top:2.9rem;
+    width: 3rem;
+    display: inline-block;
+    text-align: center;
+    left:0; 
+}
+
+.countd .cndH:after{
+    content: 'Часов';
+    color: #888;
+    position:absolute;
+    font-size: 0.8rem;
+    margin-top:2.9rem;
+    margin-left: -2.3rem; 
+}
+
+.countd .cndM:after{
+    content: 'Минут';
+    color: #888;
+    position:absolute;
+    font-size: 0.8rem;
+    margin-top:2.9rem;
+    margin-left: -2.3rem; 
+}
+
+.countd .cndS:after{
+    content: 'Секунд';
+    color: #888;
+    position:absolute;
+    font-size: 0.8rem;
+    margin-top:2.9rem;
+    margin-left: -2.4rem; 
+}
+
+.countd{
+    white-space:nowrap!important;
+}

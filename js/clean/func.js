@@ -675,6 +675,26 @@ function loadProductCard(id, owl){
                 } else {
                     $("#product_actions_block").hide();
                 }
+
+                //countdown
+                var pcb = $("#product_countdown_block"),
+                    output = "";
+                    pcb.hide();
+                if (!!json.product_countdowns) {
+                    //$.getScript("/jquery/jquery.countdown.min.js").done(function() {});
+                    countdowns_items = [];
+                    $.each(json.product_countdowns, function(key, item) {
+                        output += '<li class="item">' + item.content + '</li>';
+                        output += '<div class="scountdown countdown"><div class="contdown_text">Спеши! До конца акции осталось:</div><span class="countd" id="countd'+item.finish+'"></span></div>';
+                        countdowns_items[item.finish]=item.finish_date;
+                    });
+                    pcb.show();
+                    $('#product-countdown-listview').html(output).listview("refresh");
+                    for (key in countdowns_items) {
+                        setCountdown(key,countdowns_items[key]);
+                    }
+                }
+
                 MobileUser.basket.getViewedProducts(showViewedProductsOnProduct);
                 $('#product-card-content').show();
                 ProssedTapEvents();
@@ -2312,4 +2332,23 @@ function generateSectionProductItem(value,lazy) {
 
         return '<li class="section-product-item section-product-item-new ' + lazy + '" item_id="' + value.id + '"><a data-transition="slide" data-ajax=false class="'+value.aclass+' section-product-item" link="#products-list?' + url + '"><table style="width:100%"><tr><td style="vertical-align: middle;text-align:center;width:64px" class="first"><img src="' + value.image + '" ></td><td style="vertical-aling:middle;text-align:left;padding-left:1.1rem;"><div class="box_catalog_status">' + text_flag + ' </div><h2 class="item_name_only ' + dop_class + '">' + value.name + '</h2></td><td style="width:25px"></td>' + delete_td + '</tr></table></a></li>';
     }
+}
+
+/**
+ * set countdown for product card
+ * @param {[type]} id [description]
+ */
+function setCountdown(id,finish_date){
+    $('#countd'+id).countdown(new Date(finish_date))
+     .on('update.countdown', function(event) {
+       var format = '<span class=cndH>%H</span><span class=colon>:</span><span class=cndM>%M</span><span class=colon>:</span><span class=cndS>%S</span>';
+       if(event.offset.totalDays > 0) {
+         format = '<span class=cndd>'+event.offset.totalDays+'</span><span class=colon>:</span>' + format;
+       }
+       $(this).html(event.strftime(format));
+     })
+     .on('finish.countdown', function(event) {
+       $(this).html('Акция закончилась!')
+         .parent().addClass('disabled');
+     });
 }
