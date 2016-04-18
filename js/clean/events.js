@@ -638,7 +638,11 @@ $(document).ready(function() {
 
 });
 
-$(document).on('click', '.vclick_viewed', function() {
+$(document).on('click', '.vclick_viewed', function(event) {
     ShowLoading();
-    loadProductCard($(this).attr('product_id'));
+    event.stopPropagation();
+    event.preventDefault();
+    window.location = "#product-card?product-id=" + $(this).attr('product_id');
+    window.scrollTo(0, 0);
+    location.reload();
 });
