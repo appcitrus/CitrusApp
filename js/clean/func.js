@@ -178,6 +178,7 @@ function LoadDefaultCatalog(category, position, count) {
                         $("#CatalogBack").html(json.parameters.parent_name);
                     }
                     output += generateSectionProductItem(value, lazy);
+                    showFootbar = true;
                 });
             } else {
                 showFootbar = true;
