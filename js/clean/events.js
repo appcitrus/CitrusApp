@@ -514,17 +514,9 @@ $(window).on("navigate", function(event, data) {
     }*/
 });
 $(document).on("pageshow", "#bundle", function() {
-    // Cтраница bundle
-    var id = "",
-        u = $.mobile.path.parseUrl(document.URL);
-    if (u.href.search("id=") !== -1) {
-        if (u.hash != undefined) {
-            var id = u.hash.replace(/.*bundle_id=/, ""),
-                data = "";
-            LoadBundlePage(id, data);
-        } else {
-            alert("404");
-        }
+    // Page bundle
+    if (id = getHashValue('bundle_id')) {
+        LoadBundlePage(id);
     } else {
         alert("404");
     }
@@ -645,7 +637,7 @@ $(document).ready(function() {
     });
 
 });
-$(document).on('click', '.vclick_viewed', function() {
+/*$(document).on('click', '.vclick_viewed', function() {
     ShowLoading();
     window.location = '#product-card?product-id=' + $(this).attr('product_id');
-});
+});*/
