@@ -637,7 +637,8 @@ $(document).ready(function() {
     });
 
 });
-/*$(document).on('click', '.vclick_viewed', function() {
+
+$(document).on('click', '.vclick_viewed', function() {
     ShowLoading();
-    window.location = '#product-card?product-id=' + $(this).attr('product_id');
-});*/
+    loadProductCard($(this).attr('product_id'));
+});
