@@ -1103,25 +1103,21 @@
 <!-- Страница детальное желания Начало -->
 <div data-role="page" id="page-wish" class="app-page  ui-page ui-page-theme-a ui-page-footer-fixed">
     <div data-role="header" data-position="fixed" id="header" class="jqm-header" data-tap-toggle="false" data-theme="b">
-        <a data-iconpos="notext"  class="ui-noshadow c_icon_contr BackButton" onclick="$.mobile.back();" >
-            <i class="c_icon c_back" ></i>
-        </a>
+        <a data-iconpos="notext"  class="ui-noshadow c_icon_contr BackButton" onclick="$.mobile.back();"><i class="c_icon c_back"></i></a>
         <h1><div class="c_main_logo"></div></h1>
-        <a link="#page-cart"  data-role="button"   class="ui-noshadow vclick_link c_icon_contr">            
-            <i class="c_icon c_basket"></i>         
-        </a>
+        <a link="#page-cart" data-role="button" class="ui-noshadow vclick_link c_icon_contr"><i class="c_icon c_basket"></i></a>
     </div>      
  <div class="navPanelChild" id="nav-panel-wish-page"></div>
-    <div data-role="content">
-        <ul data-role="listview" data-theme="b" data-2inset="true" id="wish-listview"></ul>
-        <div class="content-padding wishEditBlock">
-            <span class="removeWishList">Удалить список</span>
-            <a data-role="button" class="mini_btn blue wishEditButton" data-inline="true" onclick="EnableWishEditMode()" id="wishEditButton">Редактировать</a><br>
+        <div data-role="content">
+            <ul data-role="listview" data-theme="b" data-2inset="true" id="wish-listview"></ul>
+            <div class="footer_box" data-role="footer" data-position="fixed">
+            <div class="content-padding wishEditBlock">
+                <span class="removeWishList">Удалить список</span>
+                <a data-role="button" class="mini_btn blue wishEditButton" data-inline="true" onclick="EnableWishEditMode()" id="wishEditButton">Редактировать</a><br>
+            </div>  
+                <div class="copy footer_copy"></div>    
+            </div>      
         </div>
-        <div class="footer_box" data-role="footer" data-position="fixed">
-            <div class="copy footer_copy"></div>  
-        </div>         
-    </div>
 </div>
 <!-- / Страница детальное желание Конец-->
 
@@ -1220,7 +1216,7 @@
         <button id="wish-add-tolist-btn" class="ui-btn ui-corner-all green_btn">OK</button>
     </div>
         <div class="footer_box" data-role="footer" data-position="fixed">
-            <div class="copy footer_copy"></div>  
+            <div class="copy footer_copy"></div>
         </div>
     </div>      
 </div>

@@ -174,7 +174,7 @@ function LoadDefaultCatalog(category, position, count) {
                             lazy = "lazy_load_more";
                         }
                     }
-                    if (json.parameters != undefined && json.parameters.parent_name != undefined && $("#CatalogBack").length > 0) {
+                    if (!!json.parameters && !!json.parameters.parent_name && $("#CatalogBack").length > 0) {
                         $("#CatalogBack").html(json.parameters.parent_name);
                     }
                     output += generateSectionProductItem(value, lazy);
