@@ -221,7 +221,7 @@ function LoadDefaultCatalog(category, position, count) {
                     }
                     images += '<div class="item"><a ' + link + ' data-ajax=false><img class="owl-lazy gas" gac="InnerBanner" gaa="TopSliderClick" gam="' + value.name + '"  data-src="' + value.image + '"></a></div>';
                 });
-                if (owlcs != undefined && owlcs.find("div").length > 1) {
+                if (!!owlcs && owlcs.find("div").length > 1) {
                     owlcs.html(images).trigger('destroy.owl.carousel').owlCarousel({
                         items: 1,
                         lazyLoad: true,
@@ -442,7 +442,7 @@ function DelegateMenu(page) {}
 function loadProductCard(id, owl){
     //Проверка на Распродажу
     var sale_uri = ($.mobile.path.parseUrl(document.URL).href.search("sale=1") !== -1) ? '&sale=1' : '';
-
+    $(".owl-carousel").html('');
     ShowLoading();
     if (arguments.length == 2 && owl != undefined) {
         var owlreinit = owl;
@@ -543,7 +543,7 @@ function loadProductCard(id, owl){
                 }
                 //--------------------------- Image Slider START
                 var images = "";
-                if (json.images != undefined && $.isArray(json.images)) $.each(json.images, function(key, value) {
+                if (!!json.images && $.isArray(json.images)) $.each(json.images, function(key, value) {
                     images += '<div class="item"><div class="cell"> <img class="owl-lazy" data-src="' + value.url + '"></div></div>';
                 });
                 images = '<div id="product-card-images" class="owl-carousel-product-card"  >' + images + '</div>';
@@ -551,7 +551,7 @@ function loadProductCard(id, owl){
                 //--------------------------- Image Slider END
                 //--------------------------- variations init START
                 var variations = '';
-                if (json.variations != undefined && $.isArray(json.variations)) $.each(json.variations, function(key, value) {
+                if (!!json.variations && $.isArray(json.variations)) $.each(json.variations, function(key, value) {
                     variations += '<div class="variation_list_contaner"><div class="variation_type_name">' + value.name + '</div><div class="variation_list_items">';
                     $.each(value.items, function(item_key, item_value) {
                         var product_not_available = '';
@@ -639,7 +639,7 @@ function loadProductCard(id, owl){
                     }
                     $('#bundle-listview').html(output).listview("refresh");
                 }
-                if (json.accs !== undefined) {
+                if (!!json.accs) {
                     var output = "";
                     $.each(json.accs, function(key, value) {
                         if (value != null) {
@@ -659,10 +659,10 @@ function loadProductCard(id, owl){
                 } else {
                     $("#accs_container").hide();
                 }
-                if (owlreinit != undefined && owlreinit == true) {
+                if (!!owlreinit && owlreinit == true) {
                     ReinitowlProductCard();
                 }
-                if (json.product_actions !== undefined) {
+                if (!!json.product_actions) {
                     var output = "";
                     $.each(json.product_actions, function(key, item) {
                         if (item.text_page_id > 0) {
