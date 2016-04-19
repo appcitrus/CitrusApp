@@ -43,7 +43,7 @@ function LoadMainPageData() {
                         images += '<div class="item"><a ' + link + ' data-ajax=false><img class="owl-lazy gas" gac="InnerBanner" gaa="TopSliderClick" gam="' + value.name + '"  data-src="' + value.image + '"></a></div>';
                     });
                     main_images = images;
-                    $(".owl-carousel").html(images).trigger('destroy.owl.carousel').owlCarousel({
+                    $(".owl-carousel-main").html(images).trigger('destroy.owl.carousel').owlCarousel({
                         items: 1,
                         lazyLoad: true,
                         nav: true,
@@ -99,7 +99,7 @@ function LoadMainPageData() {
             }
         });
     } else {
-        $(".owl-carousel").html(main_images).trigger('destroy.owl.carousel').owlCarousel({
+        $(".owl-carousel-main").html(main_images).trigger('destroy.owl.carousel').owlCarousel({
             items: 1,
             lazyLoad: true,
             nav: true,
@@ -442,7 +442,6 @@ function DelegateMenu(page) {}
 function loadProductCard(id, owl){
     //Проверка на Распродажу
     var sale_uri = ($.mobile.path.parseUrl(document.URL).href.search("sale=1") !== -1) ? '&sale=1' : '';
-    $(".owl-carousel").html('');
     ShowLoading();
     if (arguments.length == 2 && owl != undefined) {
         var owlreinit = owl;

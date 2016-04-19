@@ -2995,3 +2995,7 @@ ul#filter-props-values-listview .ui-icon-carat-r:after, ul#sort-listview .ui-ico
 .action_item .ui-icon-carat-r:after{
     right: 0!important;
 }
+
+#search_contaner{
+    padding:0 0.3rem;
+}
