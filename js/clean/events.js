@@ -188,16 +188,16 @@ $(document).on("pageshow", "#sms-page", function() {
 });
 $(document).on("pageshow", "#text-page", function() {
     // Текстовая страница
-    var Id = "";
-    var u = $.mobile.path.parseUrl(document.URL);
+    var id = "",
+        u = $.mobile.path.parseUrl(document.URL);
     if (u.href.search("id=") !== -1) {
         if (u.hash != undefined) {
-            var Id = u.hash.replace(/.*id=/, "");
+            var id = u.hash.replace(/.*id=/, "");
             var data = "";
             if (u.href.search("detail_text=Y") !== -1) {
                 data = "&detail_text=Y";
             }
-            LoadTextPage(Id, data);
+            LoadTextPage(id, data);
         } else {
             alert("404");
         }

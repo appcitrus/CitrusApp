@@ -2989,3 +2989,7 @@ ul#filter-props-values-listview .ui-icon-carat-r:after, ul#sort-listview .ui-ico
 .countd{
     white-space:nowrap!important;
 }
+
+.action_item .ui-icon-carat-r:after{
+    right: 10px!important;
+}

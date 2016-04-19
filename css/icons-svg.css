@@ -306,7 +306,7 @@
     top: 3px;
 }
 
-.product-card-module:after, .ui-icon-carat-r:after {
+.product-card-module:after, .ui-icon-carat-r:after, .ui-showarrow:after{
     content: "";
     background-image: url(../img/svg/gray/arrow.svg);
     background-repeat: no-repeat;
