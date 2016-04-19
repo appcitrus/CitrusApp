@@ -2295,7 +2295,7 @@ function generateSectionProductItem(value,lazy) {
         text_flag = (value.text_flag != null && value.text_flag != false) ? value.text_flag : '',
         text_props = (value.text_props != null && value.text_props != false) ? value.text_props : '',
         dop_class = "";
-    delete_td = (!!value.add_delete_td && value.add_delete_td == 'Y') ? '<td class="delete_td"><img item_id="' + value.id + '" class="delete_img cancel_icon" src="/img/svg/cancel-icon.svg"></td>' : '';
+    delete_td = (!!value.add_delete_td && value.add_delete_td == 'Y') ? '<td class="delete_td"><img item_id="' + value.id + '" class="delete_img cancel_icon" src="//img.citrus.ua/img/svg/cancel-icon.svg"></td>' : '';
     value.id = value.id || '';
     value.aclass = value.aclass || 'vclick_d_link click_ajax_new_link ui-btn ui-btn-icon-right ui-icon-carat-r';
     if (value.price) {
