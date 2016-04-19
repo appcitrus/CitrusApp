@@ -2678,10 +2678,11 @@ ul#filter-props-values-listview .ui-icon-carat-r:after, ul#sort-listview .ui-ico
 }
 
 .footer_box {
-    background: none!important;
+    background: #fff!important;
     border-color: #fff!important;
     text-shadow: none!important;
     font-weight: normal!important;
+    border:none!important;
 }
 
 #page-personal input{
