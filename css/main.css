@@ -2467,7 +2467,7 @@ ul#filter-props-values-listview .ui-icon-carat-r:after, ul#sort-listview .ui-ico
 }
 
 .wishEditBlock {
-    margin-top: 2rem;
+    margin-top: 0.5rem;
     z-index: 10;
 }
 
