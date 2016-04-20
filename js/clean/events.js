@@ -191,9 +191,9 @@ $(document).on("pageshow", "#text-page", function() {
     var id = "",
         u = $.mobile.path.parseUrl(document.URL);
     if (u.href.search("id=") !== -1) {
-        if (u.hash != undefined) {
-            var id = u.hash.replace(/.*id=/, "");
-            var data = "";
+        if (!!u.hash) {
+            var id = u.hash.replace(/.*id=/, ""),
+                data = "";
             if (u.href.search("detail_text=Y") !== -1) {
                 data = "&detail_text=Y";
             }

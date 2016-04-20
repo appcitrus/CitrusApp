@@ -926,6 +926,7 @@ function LoadTextPage(id, data) {
         }
     });
     initSubmitWebForm();
+    CFimagesClear();
 }
 
 function MakeOrder() {
@@ -2117,8 +2118,8 @@ function showViewedProducts(datas, products_name) {
 function initSubmitWebForm() {
     if (typeof $.fn.mask === 'function') $('.phone').mask("+380 (99) 999-99-99");
     $('#text-page-content form').submit(function() {
-        var form_data = $(this).serialize() + '&web_form=Y&web_form_apply=Y';
-        var form_success = "";
+        var form_data = $(this).serialize() + '&web_form=Y&web_form_apply=Y',
+            form_success = "";
         $this = this;
         $.ajax({
             url: 'http://m.citrus.ua/ajax/on/success_form.php',
@@ -2351,4 +2352,13 @@ function setCountdown(id,finish_date){
        $(this).html('Акция закончилась!')
          .parent().addClass('disabled');
      });
+}
+
+/**
+ * CloudFlare Image cache
+ */
+function CFimagesClear(){
+    $.each($('img[data-cfsrc]'), function(key, val){
+        $(val).attr('src',$(val).data('cfsrc')).data('cfsrc','').show(); 
+    });
 }
