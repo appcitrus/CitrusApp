@@ -146,24 +146,25 @@
     -->
     <access origin="http://127.0.0.1*"/> <!-- allow local pages -->
 
-    <access origin="http://citrus.ua/*" subdomains="true"/>
-    <access origin="http://www.citrus.ua/*" subdomains="true"/>
-    <access origin="http://cdn1.citrus.ua/*" subdomains="true"/>
-    <access origin="http://cdn2.citrus.ua/*" subdomains="true"/>
-    <access origin="http://cdn3.citrus.ua/*" subdomains="true"/>
-    <access origin="http://cdn4.citrus.ua/*" subdomains="true"/>
-    <access origin="http://www.citrus.ua/img/*" subdomains="true"/>
-    <access origin="http://www.citrus.ua/img/png/*" subdomains="true"/>
-    <access origin="http://www.citrus.ua/img/svg/*" subdomains="true"/>
-    <access origin="http://www.citrus.ua/img/png/gray/*" subdomains="true"/>
-    <access origin="http://www.citrus.ua/img/svg/gray/*" subdomains="true"/>
-    <access origin="http://www.citrus.ua/img/png/white/*" subdomains="true"/>
-    <access origin="http://www.citrus.ua/img/svg/white/*" subdomains="true"/>
+    <access origin="//citrus.ua/*" subdomains="true"/>
+    <access origin="//www.citrus.ua/*" subdomains="true"/>
+    <access origin="//cdn1.citrus.ua/*" subdomains="true"/>
+    <access origin="//cdn2.citrus.ua/*" subdomains="true"/>
+    <access origin="//cdn3.citrus.ua/*" subdomains="true"/>
+    <access origin="//cdn4.citrus.ua/*" subdomains="true"/>
+    <access origin="//img.citrus.ua/*" subdomains="true"/>
+    <access origin="//www.citrus.ua/img/*" subdomains="true"/>
+    <access origin="//www.citrus.ua/img/png/*" subdomains="true"/>
+    <access origin="//www.citrus.ua/img/svg/*" subdomains="true"/>
+    <access origin="//www.citrus.ua/img/png/gray/*" subdomains="true"/>
+    <access origin="//www.citrus.ua/img/svg/gray/*" subdomains="true"/>
+    <access origin="//www.citrus.ua/img/png/white/*" subdomains="true"/>
+    <access origin="//www.citrus.ua/img/svg/white/*" subdomains="true"/>
 
-    <access origin="http://m.citrus.ua/*" subdomains="true"/>
-    <access origin="http://m.citrus.ua/css/*" subdomains="true"/>
-    <access origin="http://m.citrus.ua/ajax/*" subdomains="true"/>
-    <access origin="http://m.citrus.ua/ajax/on/*" subdomains="true"/>
+    <access origin="//m.citrus.ua/*" subdomains="true"/>
+    <access origin="//m.citrus.ua/css/*" subdomains="true"/>
+    <access origin="//m.citrus.ua/ajax/*" subdomains="true"/>
+    <access origin="//m.citrus.ua/ajax/on/*" subdomains="true"/>
 
     <access origin="tel:0800207020" launch-external="yes" />
     <access origin="geo:*" launch-external="yes" />
