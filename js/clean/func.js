@@ -2359,6 +2359,6 @@ function setCountdown(id,finish_date){
  */
 function CFimagesClear(){
     $.each($('img[data-cfsrc]'), function(key, val){
-        $(val).attr('src',$(val).data('cfsrc')).data('cfsrc','').show(); 
+        $(val).attr('src',$(val).data('cfsrc')).css('visibility','visible').show().data('cfsrc',''); 
     });
 }
