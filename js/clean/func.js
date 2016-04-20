@@ -921,12 +921,12 @@ function LoadTextPage(id, data) {
     }).done(function(data) {
         $.mobile.loading("hide");
         $('#text-page-content').html(data);
+        CFimagesClear();
         if ($("div").is(".social-likes")) {
             $('.social-likes').socialLikes();
         }
     });
     initSubmitWebForm();
-    CFimagesClear();
 }
 
 function MakeOrder() {
