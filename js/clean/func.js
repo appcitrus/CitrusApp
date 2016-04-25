@@ -2363,3 +2363,21 @@ function CFimagesClear(){
         $(val).attr('src',$(val).data('cfsrc')).css('visibility','visible').show().data('cfsrc',''); 
     });
 }
+
+/**
+ * Checks if a value exists in an array
+ * @param  {[type]} needle   [description]
+ * @param  {[type]} haystack [description]
+ * @param  {[type]} strict   [description]
+ * @return {[type]}          [description]
+ */
+function in_array(needle, haystack, strict) {
+    var found = false, key, strict = !!strict;
+    for (key in haystack) {
+        if ((strict && haystack[key] === needle) || (!strict && haystack[key] == needle)) {
+            found = true;
+            break;
+        }
+    }
+    return found;
+}

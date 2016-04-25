@@ -230,9 +230,8 @@ $(document).on('click', '#main-search-input', function() {
 $(document).on("pageshow", "#search-page", function() {});
 // Эвент перехода на новую страницу
 $(document).on("pagebeforeshow", "#products-list", function(event, data) {
-    if (data.prevPage != undefined) {
-        var prev_id = data.prevPage.attr('id');
-        if (prev_id == "filter-page" || prev_id == "filter-values-page" || prev_id == "product-card") {} else {
+    if(!!data.prevPage){
+        if(!in_array(data.prevPage.attr('id'),["filter-page","filter-values-page","product-card"])){
             FilterEnums.Clear();
         }
     }
@@ -241,12 +240,13 @@ var product_list_page_loded = false;
 $(document).bind("pagebeforechange", function(e, data) {
     if (typeof data.toPage === "string") {
         if (data.toPage.indexOf("#products-list") !== -1) {
-            if ($.mobile.activePage != undefined) {
-                var prev_id = $.mobile.activePage.attr('id');
-                if (prev_id == "filter-page" || prev_id == "filter-values-page" || prev_id == "product-card") {} else {
+           
+            if(!!$.mobile.activePage){
+                if(!in_array($.mobile.activePage.attr('id'),["filter-page","filter-values-page","product-card"])){
                     FilterEnums.Clear();
                 }
-            }
+            }   
+
             // Страница каталог товаров
             if (data.toPage.search(re) !== -1) {
                 var u = $.mobile.path.parseUrl(data.toPage),
