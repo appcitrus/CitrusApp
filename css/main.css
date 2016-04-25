@@ -2473,6 +2473,7 @@ ul#filter-props-values-listview .ui-icon-carat-r:after, ul#sort-listview .ui-ico
 
 #wishEditButton {
     float: right;
+    padding: 0.3rem 1rem!important;
 }
 
 .removeWishList {

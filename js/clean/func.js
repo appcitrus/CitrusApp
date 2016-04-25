@@ -2209,6 +2209,7 @@ function DeleteWishItem(item){
         box.animate({
             width: "0%"
         }, 200).remove();
+        $.mobile.loading("hide");
         if (wish_id = getPageIdByUri()) {
             var data = {};
             data.wish_id = wish_id;
