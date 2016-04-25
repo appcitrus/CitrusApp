@@ -155,6 +155,12 @@ $(document).on("pageshow", "#shoplist-page", function() {
     InitShopList();
 });
 var owlcarouselproductcard = undefined;
+
+$(document).on("pagebeforeshow", "#product-card", function(event, data) {
+    ShowLoading();
+    $('#product-card-content').hide();
+});
+
 $(document).on("pageshow", "#product-card", function() {
     // Карточка товара
     var productId = "";
