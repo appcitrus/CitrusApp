@@ -1238,7 +1238,9 @@ function OnMakePreOrderDone(json) {
     }
 }
 
-function ondelFromCart() {}
+function ondelFromCart() {
+    $.mobile.loading("hide");
+}
 
 function DeleteItem(item) {
     if (confirm('Вы уверены,что хотите удалить товар "' + $("#basket_item_name_" + $(item).attr("item_id")).html() + '" из корзины?')) {
