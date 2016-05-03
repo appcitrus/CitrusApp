@@ -1238,12 +1238,6 @@ function OnMakePreOrderDone(json) {
     }
 }
 
-function ondelFromCart() {
-    $.mobile.loading("hide");
-    $('.ui-loader').css('display','none').attr('test', 'test');
-    alert('1');
-}
-
 function DeleteItem(item) {
     if (confirm('Вы уверены,что хотите удалить товар "' + $("#basket_item_name_" + $(item).attr("item_id")).html() + '" из корзины?')) {
         // Save it!
@@ -1257,6 +1251,9 @@ function DeleteItem(item) {
         MobileUser.basket.delFromCart(basket_id, ondelFromCart);
         EnableBasketEditMode();
         StartLoadingBasketItems();
+        
+        $.mobile.loading("hide");
+        $('.ui-loader').css('display','none').attr('test', 'test');
     }
 }
 
