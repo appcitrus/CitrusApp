@@ -1240,7 +1240,8 @@ function OnMakePreOrderDone(json) {
 
 function ondelFromCart() {
     $.mobile.loading("hide");
-    $('.ui-loader').hide();
+    $('.ui-loader').css('display','none').attr('test', 'test');
+    alert('1');
 }
 
 function DeleteItem(item) {
