@@ -851,7 +851,7 @@ function DoLoadBasketItems(json) {
             } else {
                 row2 = '<div class="status">' + value.can_buy_status + '</div>';;
             }
-            cart_items += '<li id="basket_item_li_' + value.basket_id + '" class=""><a data-transition="slide" data-ajax=false class="vclick_d_link"  link="' + url + '"><table style="width:100%"><tr><td class="delete_td"><img  item_id="' + value.basket_id + '" class="delete_img" src="img/png/delete.png"></td><td style="vertical-align: middle;text-align:center;width:64px" class="first"><img src="' + value.image + '" ></td><td class="middle_td"><h2 id="basket_item_name_' + value.basket_id + '" class="item_name_only ' + dop_class + '">' + value.name + '</h2>' + row2 + '</td><td style="width:25px" class="delete_td_2"><div item_id="' + value.basket_id + '" class="select_basket__cnr mini_btn green">' + echoSelectBox(value.qnt) + '</div></td></tr></table></a></li>';
+            cart_items += '<li id="basket_item_li_' + value.basket_id + '" class=""><a data-transition="slide" data-ajax=false class="vclick_d_link"  link="' + url + '"><table style="width:100%"><tr><td class="delete_td"><img  item_id="' + value.basket_id + '" class="delete_img cancel_icon" src="http://img.citrus.ua/img/svg/cancel-icon.svg"></td><td style="vertical-align: middle;text-align:center;width:64px" class="first"><img src="' + value.image + '" ></td><td class="middle_td"><h2 id="basket_item_name_' + value.basket_id + '" class="item_name_only ' + dop_class + '">' + value.name + '</h2>' + row2 + '</td><td style="width:25px" class="delete_td_2"><div item_id="' + value.basket_id + '" class="select_basket__cnr mini_btn green">' + echoSelectBox(value.qnt) + '</div></td></tr></table></a></li>';
         });
         $("#cart-status").html("");
         $('#cart-list').html(cart_items).listview("refresh");
@@ -1243,8 +1243,8 @@ function ondelFromCart() {}
 function DeleteItem(item) {
     if (confirm('Вы уверены,что хотите удалить товар "' + $("#basket_item_name_" + $(item).attr("item_id")).html() + '" из корзины?')) {
         // Save it!
-        var basket_id = $(item).attr("item_id")
-        var li = $("#basket_item_li_" + basket_id);
+        var basket_id = $(item).attr("item_id"),
+            li = $("#basket_item_li_" + basket_id);
         li.animate({
             width: "0%"
         }, 200);
@@ -1253,6 +1253,7 @@ function DeleteItem(item) {
         MobileUser.basket.delFromCart(basket_id, ondelFromCart);
         EnableBasketEditMode();
         StartLoadingBasketItems();
+        $.mobile.loading("hide");
     }
 }
 
