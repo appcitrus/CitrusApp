@@ -1251,9 +1251,7 @@ function DeleteItem(item) {
         MobileUser.basket.delFromCart(basket_id, ondelFromCart);
         EnableBasketEditMode();
         StartLoadingBasketItems();
-        
         $.mobile.loading("hide");
-        $('.ui-loader').css('display','none').attr('test', 'test');
     }
 }
 
