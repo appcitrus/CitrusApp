@@ -1253,7 +1253,6 @@ function DeleteItem(item) {
         MobileUser.basket.delFromCart(basket_id, ondelFromCart);
         EnableBasketEditMode();
         StartLoadingBasketItems();
-        $.mobile.loading("hide");
     }
 }
 
