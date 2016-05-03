@@ -1248,11 +1248,15 @@ function DeleteItem(item) {
         }, 200);
         li.remove();
         $("#cart-list").listview("refresh");
-        MobileUser.basket.delFromCart(basket_id, ondelFromCart);
+        MobileUser.basket.delFromCart(basket_id, afterDeleteItem);
         EnableBasketEditMode();
         StartLoadingBasketItems();
-        $.mobile.loading("hide");
     }
+}
+
+function afterDeleteItem(){
+    $.mobile.loading("hide");
+    alert('1');
 }
 
 function EnableBasketEditMode() {
