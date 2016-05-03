@@ -1254,10 +1254,7 @@ function DeleteItem(item) {
     }
 }
 
-function afterDeleteItem(){
-    $.mobile.loading("hide");
-    alert('1');
-}
+function afterDeleteItem(){}
 
 function EnableBasketEditMode() {
     if ($("#cart-list").hasClass("edit_mode")) {
@@ -2213,12 +2210,12 @@ function DeleteWishItem(item){
         box.animate({
             width: "0%"
         }, 200).remove();
-        $.mobile.loading("hide");
         if (wish_id = getPageIdByUri()) {
             var data = {};
             data.wish_id = wish_id;
             LoadWishAddPage(item_id, 'rem', data);
         }
+        $.mobile.loading("hide");
     }
 }
 
