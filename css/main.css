@@ -2467,11 +2467,6 @@ ul#filter-props-values-listview .ui-icon-carat-r:after, ul#sort-listview .ui-ico
     z-index: 10;
 }
 
-#wishEditButton {
-    float: right;
-    padding: 0.3rem 1rem!important;
-}
-
 .removeWishList {
     display: none;
     color: red;
@@ -2994,4 +2989,11 @@ ul#filter-props-values-listview .ui-icon-carat-r:after, ul#sort-listview .ui-ico
 
 #search_contaner {
     padding: 0 0.3rem;
+}
+
+#wishEditButton {
+    float: right;
+    font-weight: 400!important;
+    padding: 0.5rem 0.7rem!important;
+    font-size: 0.7rem!important;
 }
