@@ -521,15 +521,12 @@ $(document).ready(function() {
 });
 //google-map detail page
 $(document).on("pageshow", "#detail-googlemap", function() {
-    var Id = "";
-    var u = $.mobile.path.parseUrl(document.URL);
-    if (u.href.search("id=") !== -1) {
-        if (u.hash != undefined) {
-            var Id = u.hash.replace(/.*id=/, "");
-            LoadDetailPageMap(Id);
-        } else {
-            alert("404");
-        }
+    var id = getHashValue('id'),
+        type = getHashValue('type'),
+        city_id = getHashValue('city_id'),
+        idd = getHashValue('idd');
+    if (id) {
+        LoadDetailPageMap(id, type, city_id, idd);
     } else {
         alert("404");
     }
