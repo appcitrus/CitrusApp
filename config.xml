@@ -58,7 +58,7 @@
     
     <preference name="android-build-tool" value="gradle" />
 
-    <gap:plugin name="plugin.google.maps.menusito" version="1.2.5">
+    <plugin name="plugin.google.maps.menusito" spec="1.2.5" source="pgb" >
         <param name="API_KEY_FOR_ANDROID" value="AIzaSyCdg9oGCGB6faUdUxZlLol6e2cjtjZ6lHo" />
         <param name="API_KEY_FOR_IOS" value="AIzaSyAGo-_mXT40eJgy9JMGvkEqOCp_bsiKMTg" />
     </gap:plugin>
