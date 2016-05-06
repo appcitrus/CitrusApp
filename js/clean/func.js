@@ -523,13 +523,14 @@ function loadProductCard(id, owl){
                 });
 
                 //show/hide buy buttons
-                $('.g_menu_payment_parts,#product-card-buy-btn,#product-card-pre-btn,#product-card-sale-buy-btn').hide();
+                $('.g_menu_payment_parts,#product-card-buy-btn,#product-card-pre-btn,#product-card-sale-buy-btn, .free_shipping, .delivery-selected-city-selector').hide();
+                $('.change_city').html('Изменить');
                 if(!!json.can_buy){
                     //if sale
                     if (json.can_buy == "Y" && !!json.sale && json.sale=='1') {
                         $('#product-card-sale-buy-btn').show();
                     } else if (json.can_buy == "Y") {
-                        $('#product-card-buy-btn, .g_menu_payment_parts').show();
+                        $('#product-card-buy-btn, .g_menu_payment_parts, .free_shipping').show();
                         $('#product-card-status').hide();
                     } else if (json.can_buy != "N"){
                         $('#product-card-pre-btn, #product-card-status').show();
@@ -697,6 +698,22 @@ function loadProductCard(id, owl){
                 }
 
                 MobileUser.basket.getViewedProducts(showViewedProductsOnProduct);
+                                //get delivery city
+                delivery_city = MobileUser.GetStorage('delivery_city');
+                delivery_city_id = MobileUser.GetStorage('delivery_city_id');
+                if (!!delivery_city && !!delivery_city_id) {
+                    $('.delivery_city').html(delivery_city);
+                    $('#delivery_city').val(delivery_city);
+                    $('#delivery_city_id').val(delivery_city_id);
+                    //get json by shops 
+                    getShopsByProduct(delivery_city_id);
+                } else {
+                    //set json by shops 
+                    setDeliveryCity(false,false,getShopsByProduct);
+                }
+                //init for city autocomplete
+                InitCityAutocomplete();
+
                 $('#product-card-content').show();
                 ProssedTapEvents();
             } else {
@@ -2287,14 +2304,29 @@ function FillPreorderPageFields(json) {
     }
 }
 
-function selectCity(city_id, city_name, region) {
+/**
+ * Confirmation of selected city
+ * @param  {[type]} city_id   [description]
+ * @param  {[type]} city_name [description]
+ * @param  {[type]} region    [description]
+ * @return {[type]}           [description]
+ */
+function selectCity(city_id, city_name, region, np, mp, np1, mp2, el) {
     if (city_id === false) {
         return;
     }
     city_enter = true;
-    $("#preorder_city, #page-preorder-content .ui-input-search input").val(city_name);
-    $('#preorder_city_id').val(city_id);
-    $('#preorder_city_autocomplete,#page-preorder-content .ui-input-clear').hide();
+    $("#preorder_city, #page-preorder-content .ui-input-search input,#personal_city, #page-personal .ui-input-search input, #delivery_city").val(city_name);
+    $('#preorder_city_id, #personal_city, #delivery_city_id').val(city_id);
+    $('#preorder_city_autocomplete,#personal_city_autocomplete,#delivery_city_autocomplete,#page-preorder-content .ui-input-clear,#page-personal .ui-input-clear').hide();
+    $('.delivery-selected-city-selector').hide(); $('.change_city').html('Изменить');
+    $('#Region').val(region);
+    get_shops_in_city(city_id);
+    id = $(el).closest('.ui-content').attr('id');
+    if (!!id && id == 'product-card-content') {
+        datas = setDeliveryCity(city_name, city_id);
+        getShopsByProduct(datas.city_id);
+    }
 }
 /**
  * The generation view for section
@@ -2391,4 +2423,64 @@ function in_array(needle, haystack, strict) {
         }
     }
     return found;
+}
+
+/**
+ * Get datas about geo position by ip
+ * set options at site
+ */
+function setDeliveryCity(city_name, city_id, callback) {
+    if (!!city_name && !!city_id) {
+        return setDeliveryCityValue(city_name, city_id);
+    } else {
+        $.ajax({
+            url: "/api/phone.php?json_datas=1",
+            success: function(data) {
+                var datas = JSON.parse(data);
+                if(!!callback){
+                    callback(datas.cid);
+                }
+                return setDeliveryCityValue(datas.city, datas.cid);
+            },
+            timeout: 1000
+        });
+    }
+    $('.delivery-selected-city-selector').hide();
+}
+/**
+ * Setting values in cities Storage
+ * @param {[type]} city_name [description]
+ * @param {[type]} city_id   [description]
+ */
+function setDeliveryCityValue(city_name, city_id) {
+    MobileUser.SetStorage('delivery_city', city_name);
+    MobileUser.SetStorage('delivery_city_id', city_id);
+    $('.delivery_city').html(city_name);
+    $('#delivery_city').val(city_name);
+    $('#delivery_city_id').val(city_id);
+    return {
+        city_name: city_name,
+        city_id: city_id
+    };
+}
+/**
+ * Get json of shops
+ * @param  {[type]} city_id        [description]
+ * @return {[type]}            [description]
+ */
+function getShopsByProduct(city_id) {
+    var product_idd = $('#current_product_idd').val();
+    $.getJSON("http://m.citrus.ua/api/shops.php", {
+        id: city_id,
+        product: product_idd
+    }, function(data) {
+        output = '';
+        if (!!data.items) {
+            for (item_key in data.items) {
+                var item = data.items[item_key];
+                output += "<li class='shops_items " + item.class + "'><div class='shops_item'><a onclick=\"openShopList('" + city_id + "','" + item.class + "','" + product_idd + "')\">" + item.mobtext + "</a></div></li>"
+            }
+        }
+        $('.delivery-availableoptions').html(output);
+    });
 }

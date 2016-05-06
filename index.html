@@ -353,17 +353,38 @@
                 </div>
             </div>
 
-        <div class="product-card-module-cr module-close free_shipping">
-            <div id="product-card-info" class="product-card-module main-module module" onclick="moduletoggle(this);"><i class="c_icon c_shipping gray main_page_icon"></i>Бесплатная доставка</div>
-            <div class="product-card-info-content">
-                    <ul>
-                        <li>в <a href="#shoplist-page">ближайший</a> магазин &laquo;Цитрус&raquo;</li>
-                        <li>курьером домой или в офис (Киев, Одесса) </li>
-                        <li>в почтомат ПриватБанка </li><br>
-                        <a onclick="Showtextpage(154639)">Подробнее о доставке »</a> 
-                    </ul>
+            <div class="product-card-module-cr module-open free_shipping">
+                <div id="product-card-info" class="product-card-module main-module module" onclick="moduletoggle(this);"><i class="c_icon c_shipping gray main_page_icon"></i>Доставка</div>
+                <div class="product-card-info-content">
+
+                    <div class="delivery-selected-city">
+                        Город: <span class="delivery_city">Киев</span><span class="change_city">Изменить</span>
+                        <div class="delivery-selected-city-selector">
+                            <div>
+                                <ul id="delivery_city_autocomplete" data-role="listview" data-inset="true" data-filter="true" data-filter-placeholder="Город" data-filter-theme="d"></ul>
+                                <div class="suggestions ui-listview suggestions_selector"></div>
+                                <input type="hidden" id="delivery_city" name="delivery_city">
+                                <input type="hidden" id="delivery_city_id" name="delivery_city_id"/>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="delivery-availableoptions"></div>
+                        
+                    <div class="product-card-module-cr module-close more_delivery">
+                        <div id="product-card-info" class="product-card-module main-module module" onclick="moduletoggle(this);">Подробнее о доставке</div>
+                        <div class="product-card-info-content">
+                            <ul>
+                                <li>в <a href="#shoplist-page">ближайший</a> магазин &laquo;Цитрус&raquo;</li>
+                                <li>курьером домой или в офис (Киев, Одесса) </li>
+                                <li>в почтомат ПриватБанка </li><br>
+                                <a onclick="Showtextpage(154639)">Подробнее о доставке »</a> 
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
             </div>
-        </div>
 
         <div class="product-card-module-cr">
             <a data-transition="slide" id="product-card-wish-add-link"  data-ajax=false><div id="product-card-info" class="product-card-module main-module module link"><span class="wish_heartrose">В список желаний</span></div></a>

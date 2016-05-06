@@ -582,7 +582,7 @@ $(document).on("pageshow", "#page-preorder", function() {
 var firstClick = true,
     city_enter = false;
 $(document).ready(function() {
-    $('body').on('click', '#page-preorder-content .ui-input-search input', function() {
+    $('body').on('click', '#page-preorder-content .ui-input-search input, #page-personal .ui-input-search input, #product-card-content .ui-input-search input', function() {
         var selCity = $(this),
             sug = $('.suggestions');
         sug.show();
@@ -637,6 +637,16 @@ $(document).ready(function() {
         selectCity(so.attr('city_id'), so.attr('city_name'), so.attr('region'));
     })
 
+    //Autocompletion cities (selectors)
+    suggestions_array = ["Киев|908,'Киев','Киевская',1,1,1,4", "Днепропетровск|616,'Днепропетровск','Днепропетровская',1,0,true,1", "Донецк|642,'Донецк','Киевская',1,0,1,2", "Одесса|1551,'Одесса','Одесская',1,1,1,10", "Горловка|502,'Горловка','Донецкая',1,0,1,29", "Запорожье|742,'Запорожье','Запорожская',1,0,1,3", "Измаил|815,'Измаил','Одесская',1,0,1,65", "Черноморск (Ильичевск)|824,'Ильичевск','Одесская',1,0,1,54", "Николаев|1427,'Николаев','Николаевская',1,0,1,9", "Харьков|2249,'Харьков','Харьковская',1,0,1,13", "Южный|2429,'Южный','Одесская',0,0,1,186"];
+    suggestions_result = '';
+    for (key in suggestions_array) {
+        suggestions_variant = suggestions_array[key].split('|');
+        suggestions_result += '<div class="suggestion-i" onclick="selectCity(' + suggestions_variant[1] + ',this)"><a href="#">' + suggestions_variant[0] + '</a></div>'
+    }
+    suggestions_result += '<div class="suggestion-i"><a href="#">Введите другой город ...</a></div>';
+    $('.suggestions_selector').html(suggestions_result);
+
     //footer copyright
     $.each( $('.footer_copy'), function(key, val){
         $(val).html('<span>©  Цитрус -гаджеты и аксессуары 2000-' + new Date().getFullYear()+' <span><span class="app_version"> v. ' + app_ver_print+'</span>'); 
@@ -651,4 +661,16 @@ $(document).on('click', '.vclick_viewed', function(event) {
     window.location = "#product-card?product-id=" + $(this).attr('product_id');
     window.scrollTo(0, 0);
     location.reload();
+});
+
+$(document).on('click', '.change_city', function() {
+    var mp = $(this),
+        dsc = mp.closest('.delivery-selected-city').find('.delivery-selected-city-selector');
+    if (dsc.is(":visible")){
+        mp.html('Изменить');
+        dsc.slideUp();
+    } else {
+        mp.html('Cкрыть');
+        dsc.slideDown();
+    }
 });

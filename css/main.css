@@ -3056,3 +3056,80 @@ ul#filter-props-values-listview .ui-icon-carat-r:after, ul#sort-listview .ui-ico
 .rb-custom.active:after, .cb-custom.active:after {
     background-color: #F6731B;
 }​
+
+
+.more_delivery .product-card-module{
+    background: #fff!important;
+    cursor: pointer;
+}
+
+.delivery-selected-city-selector{
+    display: none;
+}
+
+.delivery-selected-city-selector .ui-input-search.ui-input-has-clear .ui-btn.ui-input-clear{
+    right: 0!important; 
+}
+
+.delivery-selected-city {
+    padding: 1rem 0;
+    padding-left: 16px;
+    padding-right: 15px;
+    border-bottom: 1px solid #bbb;
+}
+
+.change_city{
+    color: #38c;
+    cursor: pointer;
+    float: right;
+}
+
+.shops_items .shops_item{
+    background-image: url(../img/svg/gray/arrow.svg);
+    background-repeat: no-repeat;
+    background-color: transparent;
+    padding-right: 65px!important;
+    background-position: right center;
+}
+
+.shops_items{
+    background-repeat: no-repeat;
+    list-style: none;
+    padding-left: 65px!important;
+    padding-right: 25px!important;
+    background-size: 30px;
+    background-position: 15px;
+    padding: 1rem 20px;
+}
+
+.shops_items.kurier{
+    background-image: url(../img/svg/shop-list-icon-kurier.svg);
+}
+
+.shops_items.new-post{
+    background-image: url(../img/svg/shop-list-icon-new-post.svg?);
+}
+
+.shops_items.privat-bank{
+    background-image: url(../img/svg/shop-list-icon-privat-bank.svg);
+}
+
+.shops_items.shop{
+    background-image: url(../img/svg/shop-list-icon-shop.svg);
+}
+
+.shops_items a{
+    color: #000;
+}
+
+.shops_items a:hover{
+    cursor: pointer;
+}
+
+#kurier_message .red{
+    color: red;
+}
+
+.content_detail_map .green_btn{
+    font-size: 1rem;
+}
