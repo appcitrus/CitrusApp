@@ -455,6 +455,7 @@ function loadProductCard(id, owl){
                 $('#product-card-content').show();
                 MobileUser.basket.setViewedProduct(id);
                 $('#current_product_id').val(id);
+                $('#current_product_idd').val(json.idd);
                 $('#product-card-name').html(json.name);
                 $("#state_and_specbonus").html("");
                 if (json.state != null && json.state != undefined) {
@@ -2481,7 +2482,6 @@ function getShopsByProduct(city_id) {
                 output += "<li class='shops_items " + item.class + "'><div class='shops_item'><a onclick=\"openShopList('" + city_id + "','" + item.class + "','" + product_idd + "')\">" + item.mobtext + "</a></div></li>"
             }
         }
-        console.log(output);
         $('.delivery-availableoptions').html(output);
     });
 }
