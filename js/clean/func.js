@@ -2001,8 +2001,15 @@ function getUserBonusPanel() {
     }
 }
 
-function ShowDetailGoogleMape(id) {
-    window.open('http://m.citrus.ua/#detail-googlemap?id=' + id, '_system', 'location=yes');
+/**
+ * Redirect to a detailed page with a map
+ * @param {[type]} id      [description]
+ * @param {[type]} type    [description]
+ * @param {[type]} city_id [description]
+ * @param {[type]} idd     [description]
+ */
+function ShowDetailGoogleMape(id, type, city_id, idd) {
+    window.open("http://m.citrus.ua/#detail-googlemap?id=" + id + ((!!type) ? "&type=" + type + "&city_id=" + city_id + "&idd=" + idd : ""), '_system', 'location=yes');
 /*    if (isIOS()) {
         window.open('http://m.citrus.ua/#detail-googlemap?id=' + id, '_system', 'location=yes');
     } else {
@@ -2061,9 +2068,9 @@ function LoadBundlePage(id) {
                 StartBuyBundle(json.id);
             });
             var output = url = "";
-            if (json.bundle_goods != undefined) {
+            if (!!json.bundle_goods) {
                 $.each(json.bundle_goods, function(bundle_key, value) {
-                    if (value != undefined) {
+                    if (!!value) {
                         var text_flag = (value.text_flag != null) ? value.text_flag : '',
                             dop_class = "";
                         if (value.price) {
@@ -2081,8 +2088,8 @@ function LoadBundlePage(id) {
                             } else {
                                 row2 = '<div class="status">' + value.can_buy_status + '</div>';;
                             }
-                            var prop = (value.props != undefined) ? value.props : "";
-                            var bonuses = (value.bonuses != undefined && parseInt(value.bonuses) > 5) ? '<div class="props">+' + parseInt(value.bonuses) + ' грн на бонусный счет</div>' : '';
+                            var prop = (value.props != undefined) ? value.props : "",
+                                bonuses = (value.bonuses != undefined && parseInt(value.bonuses) > 5) ? '<div class="props">+' + parseInt(value.bonuses) + ' грн на бонусный счет</div>' : '';
                             output += '<li><a data-transition="slide" data-ajax=false class="vclick_d_link click_ajax_new_link ui-btn ui-btn-icon-right ui-icon-carat-r"  link="' + url + '"><table style="width:100%"><tr><td style="vertical-align: middle;text-align:center;width:64px" class="first"><img src="' + value.image + '" ></td><td style="vertical-align:middle;text-align:left;padding-left:1.1rem;"><div class="box_catalog_status">' + text_flag + ' </div><h2 class="item_name_only ' + dop_class + '">' + value.name + '</h2><div class="props">' + prop + '</div>' + row2 + bonuses + payment_parts + '</td><td style="width:25px"></td></tr></table></a></li>';
                         } else {
                             output += '<li><a data-transition="slide" data-ajax=false class="vclick_d_link click_ajax_new_link ui-btn ui-btn-icon-right ui-icon-carat-r" link="#products-list?' + url + '"><table style="width:100%"><tr><td style="vertical-align: middle;text-align:center;width:64px"  class="first"><img src="' + value.image + '" ></td><td style="vertical-aling:middle;text-align:left;padding-left:1.1rem;"><div class="box_catalog_status">' + text_flag + ' </div><h2 class="item_name_only ' + dop_class + '">' + value.name + '</h2></td><td style="width:25px"></td></tr></table></a></li>';
@@ -2484,4 +2491,236 @@ function getShopsByProduct(city_id) {
         }
         $('.delivery-availableoptions').html(output);
     });
+}
+
+/**
+ * Open own list with the stores
+ * @param  {[type]} city_id [description]
+ * @param  {[type]} type    [description]
+ * @param  {[type]} idd     [description]
+ * @return {[type]}         [description]
+ */
+function openShopList(city_id, type, idd) {
+    window.location = "#shoplist-page?city_id=" + city_id + "&type=" + type + "&product_idd=" + idd;
+}
+
+/**
+ * get getJSONShopList request
+ * @param  {Function} callback    [description]
+ * @param  {[type]}   id          [description]
+ * @param  {[type]}   type        [description]
+ * @param  {[type]}   city_id     [description]
+ * @param  {[type]}   product_idd [description]
+ * @param  {[type]}   map         [description]
+ * @return {[type]}               [description]
+ */
+function getDetailPageMap(callback, id, type, city_id, product_idd, map){
+    $.getJSON("/api/shops.php?getJSONShopList=1", {
+        id: city_id,
+        product: product_idd
+    }, function(data) {
+        if (!!data[type]){
+            //get one item value
+            if(id>0){
+                for (item_key in data[type]) {
+                    var item = data[type][item_key];
+                    if(item.id==id){
+                        callback(item, map, type, city_id, product_idd);
+                    }
+                }
+            }else{
+                //get array of items
+                callback(data[type], map, type, city_id, product_idd);
+            }
+        }
+    });
+    
+    /*
+    //cache for storage
+    var detailPageMapGetStorage = {};
+     var d = new Date(),
+        dd = d.getDate().toString()+d.getMonth().toString()+d.getHours().toString(),
+        hashString = 'shopListSt' + hashCode(callback.toString() + id.toString() + type.toString() + city_id.toString() + product_idd.toString() + dd);
+        hashString = hashString.toString();
+        // getHashStorage = MobileUser.GetStorage(hashString);
+        getHashStorage = detailPageMapGetStorage[hashString];
+    if(!!getHashStorage){
+        if(id>0){
+            callback(getHashStorage, map, type, city_id, product_idd);
+        }else{
+            callback(getHashStorage, map, type, city_id, product_idd);
+        }
+    }else{
+        // MobileUser.SetStorage(hashString, JSON.stringify(data[type]));
+        // detailPageMapGetStorage[hashString] = data[type];
+    }*/
+}
+
+/**
+ * Add product to order with delivery options
+ */
+function addToCartbyDelivery(){
+    ShowLoading();
+    ga('send', 'event', 'OrderCreate', 'addToCartbyDelivery', $('#current_product_id').val(), $('#current_product_price').val().replace(/[^\d,+]/g, ""));
+
+    //set props for order
+    if(type = getHashValue('type')){
+        switch (type) {
+            case "shop":
+                d_id = 1;
+                break
+            case "new-post":
+                d_id = 4;
+                break
+            case "privat-bank":
+                d_id = 10;
+                break
+            default:
+                d_id = 0;
+        }
+        MobileUser.SetStorage('order_prop_delivery_id', d_id);
+    }
+
+    if(id = getHashValue('id')){
+        MobileUser.SetStorage('order_prop_store_id', id);
+    }
+
+    if(city_id = getHashValue('city_id')){
+        MobileUser.SetStorage('order_prop_city_id', city_id);
+    }
+
+    MobileUser.basket.addToCartDelivery(getHashValue('idd'), AfterBuyProduct);
+}
+
+/**
+ * Add product to cart by Kurier
+ */
+function addToCartbyKurier(){
+    
+    if($('#kurier_street').val()==''||$('#kurier_house').val()==''){
+        $('#kurier_street,#kurier_house').closest('.ui-input-text').addClass('error');
+        $('#kurier_message').html('<span class="red">Заполните обязательные поля</span>');
+        return false;
+    }
+
+    MobileUser.SetStorage('order_prop_delivery_id', 2);
+
+    if(id = getHashValue('id')){
+        MobileUser.SetStorage('order_prop_store_id', id);
+    }
+
+    if(id = getHashValue('city_id')){
+        MobileUser.SetStorage('order_prop_city_id', id);
+    }
+
+    if(kurier_street = $('#kurier_street').val()){
+        MobileUser.SetStorage('order_prop_kurier_street', kurier_street);
+    }
+
+    if(kurier_house = $('#kurier_house').val()){
+        MobileUser.SetStorage('order_prop_kurier_house', kurier_house);
+    }
+
+    if(kurier_case = $('#kurier_case').val()){
+        MobileUser.SetStorage('order_prop_kurier_case', kurier_case);
+    }
+    
+    if(kurier_apartment = $('#kurier_apartment').val()){
+        MobileUser.SetStorage('order_prop_kurier_apartment', kurier_apartment);
+    }
+
+    MobileUser.basket.addToCartDelivery(getHashValue('idd'), AfterBuyProduct);
+}
+
+/**
+ * Converts some field on map
+ * @param  {[type]} item [description]
+ * @return {[type]}      [description]
+ */
+function convertFields(item){
+    work_hours = htmlDecode(item.time ? item.time : item.weekday_work_hours);
+    phone = htmlDecode(item.Phone ? item.Phone : item.phone);
+    item.adress_print = htmlDecode(item.adress ? item.adress : (item.addressRu?item.addressRu:item.DescriptionRu));
+    item.city = htmlDecode(item.cityRu ? item.cityRu : item.city);
+    item.city_print = htmlDecode(item.CityDescriptionRu ? item.CityDescriptionRu : item.city);
+    item.work_hours_print = htmlDecode(work_hours ? 'Время работы: ' + work_hours : '');
+    item.phone_print = htmlDecode(phone ? 'Телефон: '+ phone : '');
+    item.time_print = htmlDecode(item.time ? item.time : '');
+
+    //revers coordinates for NP
+    if (item.addressRu) {
+        tmp_x = item.x;
+        item.x = item.y;
+        item.y = tmp_x;
+    }
+
+    return item;
+}
+
+/**
+ * Generage hashCode by string value
+ * @param  {[type]} val [description]
+ * @return {[type]}     [description]
+ */
+function hashCode(val) {
+    var hash = 0, i, chr, len;
+    if (val.length === 0) return hash;
+    for (i = 0, len = val.length; i < len; i++) {
+        chr   = val.charCodeAt(i);
+        hash  = ((hash << 5) - hash) + chr;
+        hash |= 0;
+    }
+    return hash;
+};
+
+/**
+ * get value parametr from hash
+ * @param  {[type]} key [description]
+ * @return {[type]}     [description]
+ */
+function getHashValue(key) {
+    var matches = location.hash.match(new RegExp('([^_]' + key + ')=([^&]*)'));
+    return matches ? matches[2] : null;
+}
+/**
+ * View for ShopList
+ * @param {[type]} json [description]
+ */
+function DrawShopList(json) {
+    var output = "",
+        count = 0;
+    if (!!json.items) {
+        $.each(json.items, function(key, value) {
+            var url,
+                image = '<img src="/img/png/google_map/mobapp-map-shop-list-icon.png" />';
+            if (value.PROPERTY_CITY_PHONE_VALUE == undefined || value.PROPERTY_CITY_PHONE_VALUE == "") {
+                value.PROPERTY_CITY_PHONE_VALUE = "0 800 501-522"
+            }
+            output += '<li><a onclick="ShowDetailGoogleMape(' + value.ID + ')" data-transition="slide" data-ajax=false   "> <table style="width:100%"><tr><td style="vertical-align: middle;text-align:center;width:64px" class="first img_map">' + image + '</td><td style="vertical-align:middle;text-align:left;padding-left:1.1rem;"> ' + '<h2 class="item_name_only product">' + value.city + ", " + htmlDecode(value.NAME) + '</h2><div class="preview_text">' + 'Телефон: ' + value.PROPERTY_CITY_PHONE_VALUE + "</br>Время работы: " + value.PROPERTY_CITY_WORK_TIME_VALUE + '</div></td> ' + '</tr></table></a></li>';
+        });
+    }
+    $('#shoplist-listview').html(output).listview("refresh");
+    $.mobile.loading("hide");
+    ProssedTapEvents();
+}
+
+/**
+ * Result of Detail ShopList
+ * @param {[type]} items [description]
+ */
+function LoadDetailShopList(items, map, type, city_id, product_idd){
+    output = '',
+        count = 0;
+    if (!!items){
+        for (item_key in items){
+            var item = items[item_key],
+                url,
+                image = '<img src="../img/svg/shop-list-icon-' + type + '.svg" />';
+            item = convertFields(item);
+            output += '<li><a onclick="ShowDetailGoogleMape(' + item.id + ',\'' + type + '\',\'' + city_id + '\',\'' + product_idd + '\')" data-transition="slide" data-ajax=false"><table style="width:100%"><tr><td style="vertical-align: middle;text-align:center;width:64px" class="first img_map">' + image + '</td><td style="vertical-align:middle;text-align:left;padding-left:1.1rem;"> ' + '<h2 class="item_name_only product">' + item.city_print + ", " + item.adress_print + '</h2><div class="preview_text">' + item.phone_print + "</br>" + item.work_hours_print + '</div></td> ' + '</tr></table></a></li>';
+        }
+    }
+    $('#shoplist-listview').html(output).listview("refresh");
+    $.mobile.loading("hide");
+    ProssedTapEvents();
 }

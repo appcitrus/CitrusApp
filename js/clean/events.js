@@ -152,7 +152,23 @@ $(document).on("pageshow", "#online-page", function() {
     });
 });
 $(document).on("pageshow", "#shoplist-page", function() {
-    InitShopList();
+    ShowLoading();
+    var type = getHashValue('type'),
+        city_id = getHashValue('city_id'),
+        product_idd = getHashValue('product_idd');
+    if (city_id) {
+        $('#shoplist-listview').html("");
+        //redirect for kurier delivery type
+        if (type == 'kurier'){
+            window.location = "#page-kurier?city_id=" + city_id + "&idd=" + product_idd;
+        } else {
+            //for all types of delivery than the courier
+            getDetailPageMap(LoadDetailShopList, false, type, city_id, product_idd);
+        }
+    } else {
+        //load shops list
+        InitShopList();
+    }
 });
 var owlcarouselproductcard = undefined;
 

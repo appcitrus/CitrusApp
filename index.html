@@ -1274,11 +1274,38 @@
             <a onclick="window.location='#page-wishes'" class="show-page-wish">Смотреть списки</a>
         </div>
 
-        <button id="wish-back-to-product-btn" class="ui-btn ui-corner-all green_btn">Вернуться к товару</button
+        <button id="wish-back-to-product-btn" class="ui-btn ui-corner-all green_btn">Вернуться к товару</button>
     </div>      
 </div>
-</div>
 <!-- / Страница Список желаний DONE Конец-->
+
+<!-- Страница kurier Начало -->
+<div data-role="page" id="page-kurier" class="app-page ui-page ui-page-theme-a ui-page-footer-fixed">
+    <div data-role="header" data-position="fixed" id="header" class="jqm-header" data-tap-toggle="false" data-theme="b">
+        <a data-iconpos="notext" class="ui-noshadow c_icon_contr BackButton" onclick="window.history.go(-2);"><i class="c_icon c_back"></i></a>
+        <h1><div class="fa_custom_logo"></div></h1>
+    </div>      
+ <div class="navPanelChild" id="kurier-page-content"></div>
+    <div data-role="content" >
+            <div class="content-padding">
+                <h1>Оформление доставки</h1>
+                <div id="kurier_message"></div>
+                <p>Доставка товаров в г.Киев и в г.Одесса</p>
+                <span>Введите адрес доставки</span>
+                <div><input type="text" disabled="disabled" id="kurier_city" name="kurier_city" maxlength="40" autocomplete="off"></div>
+                <div><input type="text" placeholder="улица" id="kurier_street" name="kurier_street" maxlength="40" autocomplete="off"></div>
+                <div><input type="text" placeholder="дом" id="kurier_house" name="kurier_house" maxlength="40" autocomplete="off"></div>
+                <div><input type="text" placeholder="корпус" id="kurier_case" name="kurier_case" maxlength="40" autocomplete="off"></div>
+                <div><input type="text" placeholder="квартира" id="kurier_apartment" name="kurier_apartment" maxlength="40" autocomplete="off"></div>
+                <button onclick="addToCartbyKurier()" id="kurier-card-buy-btn" class="ui-btn ui-corner-all green_btn"><i class="c_icon c_basket_simple c_ibtn"></i>  Заказать доставку</button>
+            </div>
+            <hr>
+        <div class="footer_box" data-role="footer" data-position="fixed">
+            <div class="copy footer_copy"></div>
+        </div> 
+    </div>  
+</div>
+<!-- / Страница kurier Конец-->
 
 <div data-role="dialog" id="timeout">Ошибка. Проверьте соединение с интернет ...</div>
 
