@@ -151,6 +151,14 @@ $(document).on("pageshow", "#online-page", function() {
         onlineLoadScript();
     });
 });
+$(document).on("pageshow", "#page-kurier", function() {
+    var city_id = getHashValue('city_id');
+    if(city_id){
+        $('#kurier_city').val((city_id=='1551')?'Одесса':'Киев');
+    }else{
+        alert("404");
+    }
+});
 $(document).on("pageshow", "#shoplist-page", function() {
     ShowLoading();
     var type = getHashValue('type'),
