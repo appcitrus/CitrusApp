@@ -2481,6 +2481,7 @@ function getShopsByProduct(city_id) {
                 output += "<li class='shops_items " + item.class + "'><div class='shops_item'><a onclick=\"openShopList('" + city_id + "','" + item.class + "','" + product_idd + "')\">" + item.mobtext + "</a></div></li>"
             }
         }
+        console.log(output);
         $('.delivery-availableoptions').html(output);
     });
 }
