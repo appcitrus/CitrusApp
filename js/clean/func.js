@@ -2010,8 +2010,8 @@ function getUserBonusPanel() {
  */
 function ShowDetailGoogleMape(id, type, city_id, idd) {
     $('#text-page-content').html("");
-    window.location = "#detail-googlemap?id=" + id + ((!!type) ? "&type=" + type + "&city_id=" + city_id + "&idd=" + idd : "");
-    // window.open("http://m.citrus.ua/#detail-googlemap?id=" + id + ((!!type) ? "&type=" + type + "&city_id=" + city_id + "&idd=" + idd : ""), '_system', 'location=yes');
+    window.open("http://m.citrus.ua/#detail-googlemap?id=" + id + ((!!type) ? "&type=" + type + "&city_id=" + city_id + "&idd=" + idd : ""), '_system', 'location=yes');
+    // window.location = "#detail-googlemap?id=" + id + ((!!type) ? "&type=" + type + "&city_id=" + city_id + "&idd=" + idd : "");
 /*    if (isIOS()) {
         window.open('http://m.citrus.ua/#detail-googlemap?id=' + id, '_system', 'location=yes');
     } else {
