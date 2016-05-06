@@ -2515,7 +2515,7 @@ function openShopList(city_id, type, idd) {
  * @return {[type]}               [description]
  */
 function getDetailPageMap(callback, id, type, city_id, product_idd, map){
-    $.getJSON("/api/shops.php?getJSONShopList=1", {
+    $.getJSON("http://m.citrus.ua/api/shops.php?getJSONShopList=1", {
         id: city_id,
         product: product_idd
     }, function(data) {
@@ -2534,26 +2534,6 @@ function getDetailPageMap(callback, id, type, city_id, product_idd, map){
             }
         }
     });
-    
-    /*
-    //cache for storage
-    var detailPageMapGetStorage = {};
-     var d = new Date(),
-        dd = d.getDate().toString()+d.getMonth().toString()+d.getHours().toString(),
-        hashString = 'shopListSt' + hashCode(callback.toString() + id.toString() + type.toString() + city_id.toString() + product_idd.toString() + dd);
-        hashString = hashString.toString();
-        // getHashStorage = MobileUser.GetStorage(hashString);
-        getHashStorage = detailPageMapGetStorage[hashString];
-    if(!!getHashStorage){
-        if(id>0){
-            callback(getHashStorage, map, type, city_id, product_idd);
-        }else{
-            callback(getHashStorage, map, type, city_id, product_idd);
-        }
-    }else{
-        // MobileUser.SetStorage(hashString, JSON.stringify(data[type]));
-        // detailPageMapGetStorage[hashString] = data[type];
-    }*/
 }
 
 /**
@@ -2692,7 +2672,7 @@ function DrawShopList(json) {
     if (!!json.items) {
         $.each(json.items, function(key, value) {
             var url,
-                image = '<img src="/img/png/google_map/mobapp-map-shop-list-icon.png" />';
+                image = '<img src="../img/png/google_map/mobapp-map-shop-list-icon.png" />';
             if (value.PROPERTY_CITY_PHONE_VALUE == undefined || value.PROPERTY_CITY_PHONE_VALUE == "") {
                 value.PROPERTY_CITY_PHONE_VALUE = "0 800 501-522"
             }
