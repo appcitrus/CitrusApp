@@ -2672,7 +2672,7 @@ function DrawShopList(json) {
     if (!!json.items) {
         $.each(json.items, function(key, value) {
             var url,
-                image = '<img src="../img/png/google_map/mobapp-map-shop-list-icon.png" />';
+                image = '<img src="http://m.citrus.ua/img/png/google_map/mobapp-map-shop-list-icon.png" />';
             if (value.PROPERTY_CITY_PHONE_VALUE == undefined || value.PROPERTY_CITY_PHONE_VALUE == "") {
                 value.PROPERTY_CITY_PHONE_VALUE = "0 800 501-522"
             }
@@ -2695,7 +2695,7 @@ function LoadDetailShopList(items, map, type, city_id, product_idd){
         for (item_key in items){
             var item = items[item_key],
                 url,
-                image = '<img src="../img/svg/shop-list-icon-' + type + '.svg" />';
+                image = '<img src="http://m.citrus.ua/img/svg/shop-list-icon-' + type + '.svg" />';
             item = convertFields(item);
             output += '<li><a onclick="ShowDetailGoogleMape(' + item.id + ',\'' + type + '\',\'' + city_id + '\',\'' + product_idd + '\')" data-transition="slide" data-ajax=false"><table style="width:100%"><tr><td style="vertical-align: middle;text-align:center;width:64px" class="first img_map">' + image + '</td><td style="vertical-align:middle;text-align:left;padding-left:1.1rem;"> ' + '<h2 class="item_name_only product">' + item.city_print + ", " + item.adress_print + '</h2><div class="preview_text">' + item.phone_print + "</br>" + item.work_hours_print + '</div></td> ' + '</tr></table></a></li>';
         }
