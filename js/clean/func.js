@@ -1417,20 +1417,18 @@ function ShowFilterEnums(id, name, section_id) {
             data: JSON.stringify(json_props)
         },
         success: function(json) {
-            var output = "";
-            var filter_items = "";
-            if (json != undefined && json.length > 0) {
+            var output = "",
+                filter_items = "";
+            if (!!json && json.length > 0) {
                 FilterEnums.active_prop_id = id;
                 $.each(json, function(key, value) {
-                    //if(value.usage != undefined && value.usage=="1"){
-                    var check_box = "checkbox_24x24";
-                    var check_box_ch = "N";
+                    var check_box = "",
+                        check_box_ch = "N";
                     if ($.inArray(value.id, FilterEnums.enums) !== -1) {
-                        check_box = "checkbox-hover_24x24";
+                        check_box = "active";
                         check_box_ch = "Y";
                     }
-                    filter_items += '<li><a class="ui-btn ui-btn-icon-right ui-icon-carat-r check_a" onclick="ToggleEnums(this);"  checked_box="' + check_box_ch + '"  enum_id="' + value.id + '"><table style="width:100%"><tr><td style="vertical-align:middle;text-align:left;padding-left:1.1rem;"><h2 class="item_name_only">' + value.value + '</h2></td><td style="width:40px"><img class="check_img"  src="img/png/' + check_box + '.png"></td></tr></table></a></li>';
-                    //} 
+                    filter_items += '<li><a class="ui-btn ui-btn-icon-right ui-icon-carat-r check_a" onclick="ToggleEnums(this);"  checked_box="' + check_box_ch + '"  enum_id="' + value.id + '"><table style="width:100%"><tr><td style="vertical-align:middle;text-align:left;padding-left:1.1rem;"><h2 class="item_name_only">' + value.value + '</h2></td><td style="width:40px"><span class="cb-custom' + check_box + '" ></span></td></tr></table></a></li>';
                 });
                 $("#filter_prop_name").html(name);
                 $('#filter-props-values-listview').html(filter_items);
@@ -1479,31 +1477,43 @@ function SaveSelectedEnums() {
     ShowFilter(FilterEnums.active_link, true);
 }
 
-function ToggleEnums(enum_item) {
-    if ($(enum_item).attr("checked_box") == "Y") {
-        $(enum_item).attr("checked_box", "N");
-        $(enum_item).find(".check_img").attr("src", "img/png/checkbox_24x24.png")
+/**
+ * Toggle Enums checker
+ * @param {[type]} i [description]
+ */
+function ToggleEnums(i) {
+    var i = $(i);
+    if (i.attr("checked_box") == "Y") {
+        i.attr("checked_box", "N");
+        i.find(".cb-custom").removeClass('active');
     } else {
-        $(enum_item).attr("checked_box", "Y");
-        $(enum_item).find(".check_img").attr("src", "img/png/checkbox-hover_24x24.png")
+        i.attr("checked_box", "Y");
+        i.find(".cb-custom").addClass('active');
     }
 }
 
+/**
+ * Event sort clicked
+ * @param {[type]} radio [description]
+ */
 function Sort_Radio_Click(radio) {
     var sort = $(radio).attr("sort");
     FilterEnums.active_sort_temp = sort;
-    $(".radio_img").attr("src", "img/png/radiobutton_24x24.png");
-    $(radio).find(".radio_img").attr("src", "img/png/radiobutton-hover_24x24.png");
+    $(".sort_radio").removeClass('active');
+    $(radio).find(".sort_radio").addClass('active');
 }
 
+/**
+ * Loading sort items
+ */
 function LoadSortItems() {
     var sort_items = "";
     for (key in FilterEnums.sort_values) {
-        var radio_box = "radiobutton_24x24";
+        var radio_box = "";
         if (key == FilterEnums.active_sort) {
-            radio_box = "radiobutton-hover_24x24";
+            radio_box = "active";
         }
-        sort_items += '<li ><a  class="ui-btn ui-btn-icon-right ui-icon-carat-r" sort="' + key + '" onclick="Sort_Radio_Click(this);"><table style="width:100%"><tbody><tr><td style="vertical-align:middle;text-align:left;padding-left:1.1rem;"> <h2 class="item_name_only">' + FilterEnums.sort_names[key] + '</h2>  </td><td style="width:40px">    <img class="radio_img"  src="img/png/' + radio_box + '.png" >   </td></tr></tbody></table></a></li>';
+        sort_items += '<li><a class="ui-btn ui-btn-icon-right ui-icon-carat-r" sort="' + key + '" onclick="Sort_Radio_Click(this);"><table style="width:100%"><tbody><tr><td style="vertical-align:middle;text-align:left;padding-left:1.1rem;"><h2 class="item_name_only">' + FilterEnums.sort_names[key] + '</h2></td><td style="width:40px"><span name="sort_radio" class="rb-custom sort_radio '+radio_box+'"></span></td></tr></tbody></table></a></li>';
     }
     $('#sort-listview').html(sort_items);
     $.mobile.changePage('#sort-page', {
@@ -2162,7 +2172,7 @@ function LoadWishAddPage(id, type, datas) {
             if (json.user_wishes != null && json.user_wishes != undefined && json.user_wishes.length > 0) {
                 var output = "";
                 $.each(json.user_wishes, function(key, item) {
-                    output += '<li><a class="ui-btn ui-btn-icon-right ui-icon-carat-r-no no-border-top check_wish_list" onclick="ToggleEnums(this);" checked_box="N" value="' + item.wishlist_id + '" ><table style="width:100%"><tr><td style="vertical-align:middle;text-align:left;"><h2 class="item_name_only">' + item.wishlist_name + '</h2></td><td style="width:40px"><img class="check_img" src="img/png/checkbox_24x24.png"></td></tr></table></a></li>';
+                    output += '<li><a class="ui-btn ui-btn-icon-right ui-icon-carat-r-no no-border-top check_wish_list" onclick="ToggleEnums(this);" checked_box="N" value="' + item.wishlist_id + '" ><table style="width:100%"><tr><td style="vertical-align:middle;text-align:left;"><h2 class="item_name_only">' + item.wishlist_name + '</h2></td><td style="width:40px"><span class="cb-custom" ></span></td></tr></table></a></li>';
                 });
                 $('#user_wishes_list').html(output);
             }
