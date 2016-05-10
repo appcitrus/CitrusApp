@@ -1680,12 +1680,6 @@ ul#filter-props-values-listview .ui-icon-carat-r:after, ul#sort-listview .ui-ico
     padding-right: 4rem;
 }
 
-#wishEditButton {
-    margin: 0!important;
-    padding: 0.2rem 2rem!important;
-    border-bottom: none;
-}
-
 #page-wish li:last-child a.ui-btn, #personal_user_wishes_list li:last-child a {
     border-bottom: 1px solid #ddd;
 }
@@ -2991,14 +2985,6 @@ ul#filter-props-values-listview .ui-icon-carat-r:after, ul#sort-listview .ui-ico
     padding: 0 0.3rem;
 }
 
-#wishEditButton {
-    float: right;
-    font-weight: 400!important;
-    padding: 0.5rem 0.7rem!important;
-    font-size: 0.7rem!important;
-    padding-bottom: 1.5rem!important;
-}
-
 .rb-custom, .cb-custom {
     background-color: #ddd;
     background-image: -webkit-linear-gradient(0deg, transparent 20%, hsla(0,0%,100%,.7), transparent 80%),
@@ -3133,4 +3119,15 @@ ul#filter-props-values-listview .ui-icon-carat-r:after, ul#sort-listview .ui-ico
 
 .content_detail_map .green_btn{
     font-size: 1rem;
+}
+
+#wishEditButton {
+    float: right;
+    font-weight: 400!important;
+    font-size: 0.7rem!important;
+    
+    padding-bottom: 1.5rem!important;
+    margin: 0!important;
+    padding: 0.2rem 2rem!important;
+    border-bottom: none;
 }
