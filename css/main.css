@@ -1680,11 +1680,11 @@ ul#filter-props-values-listview .ui-icon-carat-r:after, ul#sort-listview .ui-ico
     padding-right: 4rem;
 }
 
-#page-wish a.ui-btn {
+/*#page-wish a.ui-btn {
     margin: 0!important;
     padding: 0.2rem 2rem!important;
     border-bottom: none;
-}
+}*/
 
 #page-wish li:last-child a.ui-btn, #personal_user_wishes_list li:last-child a {
     border-bottom: 1px solid #ddd;
