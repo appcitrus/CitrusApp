@@ -2996,6 +2996,7 @@ ul#filter-props-values-listview .ui-icon-carat-r:after, ul#sort-listview .ui-ico
     font-weight: 400!important;
     padding: 0.5rem 0.7rem!important;
     font-size: 0.7rem!important;
+    margin-bottom: 1rem!important;
 }
 
 .rb-custom, .cb-custom {
