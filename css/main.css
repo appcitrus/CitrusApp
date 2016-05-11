@@ -3131,3 +3131,7 @@ ul#filter-props-values-listview .ui-icon-carat-r:after, ul#sort-listview .ui-ico
     padding: 0.2rem 2rem!important;
     border-bottom: none;
 }
+
+#page-wish li a{
+    margin: 0!important;
+}

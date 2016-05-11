@@ -1710,7 +1710,7 @@ function getUserWishContentList(json) {
         if (json.wish !== undefined) {
             json.wish.wishlist_summ = parseFloat(json.wish.wishlist_summ).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
             output += '<div class=wish_content_detail><span class="wish_name"><b>' + json.wish.wishlist_name + '</b></span>';
-            output += '<br /><span class="wish_count">Количество товаров: ' + json.wish.wishlist_count + '</span><br/><span class="wish_summ">Сумма: <span class="wish_summa">' + json.wish.wishlist_summ + ' грн.</span></span>';
+            output += '<br /><span class="wish_count">Количество товаров: <span class=wish_count_cnt>' + json.wish.wishlist_count + '</span></span><br/><span class="wish_summ">Сумма: <span class="wish_summa">' + json.wish.wishlist_summ + ' грн.</span></span>';
             output += '</div><div class=wish_content_detail_list>';
             $('.wish_full_page').attr("wish_full_page", json.wish.wishlist_url);
         }
@@ -2247,6 +2247,12 @@ function DeleteWishItem(item){
         box.animate({
             width: "0%"
         }, 200).remove();
+
+        var wish_count = parseInt($('.wish_count_cnt').html());
+            wish_count --;
+        if(wish_count<0){wish_count=0;}
+        $('.wish_count_cnt').html(wish_count);
+
         if (wish_id = getPageIdByUri()) {
             var data = {};
             data.wish_id = wish_id;
