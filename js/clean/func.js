@@ -182,7 +182,7 @@ function LoadDefaultCatalog(category, position, count) {
                 });
             } else {
                 showFootbar = true;
-                output = '<li><a><table style="width:100%"><tr><td style="vertical-align: middle;text-align:center;width:64px" class="first"></td><td style="vertical-align:middle;text-align:left;padding-left:1.1rem;"><h2 class="item_name_only ">Ничего не найдено....</h2></td><td style="width:25px"></td></tr></table></a></li>';
+                output = '<p class="nothing_found">Ничего не найдено....</p>';
             }
             if (position > 0 && position != null) {
                 output = $('#products-listview').html() + output;
@@ -1553,7 +1553,7 @@ function Enums() {
         2: "От дешевых к дорогим",
         3: "От дорогих к дешевым",
         4: "Сначала новинки",
-        5: "по алфавиту"
+        5: "По алфавиту"
     };
     this.active_sort = "0";
     this.active_sort_temp = "0";

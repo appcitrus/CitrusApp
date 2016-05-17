@@ -89,6 +89,10 @@
     margin-bottom: -3px;
 }
 
+.c_basket_green {
+    background-image: url(../img/svg/busket-icon-green.svg);
+}
+
 .c_basket_gray {
     background-image: url(../img/svg/gray/ico-04.svg);
 }
