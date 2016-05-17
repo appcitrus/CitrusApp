@@ -720,6 +720,7 @@ function loadProductCard(id, owl){
             } else {
                 document.location.href = "index.html";
             }
+            $('.ui-loader').css('display','none');
             $.mobile.loading("hide");
         },
         timeout: 25000,

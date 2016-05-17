@@ -181,8 +181,8 @@ $(document).on("pageshow", "#shoplist-page", function() {
 var owlcarouselproductcard = undefined;
 
 $(document).on("pagebeforeshow", "#product-card", function(event, data) {
-    ShowLoading();
     $('#product-card-content').hide();
+    $('.ui-loader').css('display','block');
 });
 
 $(document).on("pageshow", "#product-card", function() {
