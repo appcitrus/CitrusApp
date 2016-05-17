@@ -3,8 +3,7 @@ var app_ver = '110',
     product_list_offset = [],
     main_page_load = false,
     main_images = false,
-    eventstring = (!navigator.userAgent.match(/(iPad|iPhone|iPod touch);.*CPU.*OS 7_\d/i))?"vclick":"tap";
-
+    eventstring = (!navigator.userAgent.match(/(iPad|iPhone|iPod touch);.*CPU.*OS 7_\d/i)) ? "vclick" : "tap";
 /**
  * Main page
  *
@@ -108,7 +107,6 @@ function LoadMainPageData() {
         $.mobile.loading("hide");
     }
 }
-
 /**
  * The Main catalog
  * @param {[type]} category [description]
@@ -157,12 +155,11 @@ function LoadDefaultCatalog(category, position, count) {
         success: function(json) {
             var output = "",
                 count = 0;
-
             //if need redirect
-            if(!!json.redirect && json.redirect.length>2){
-                window.open(json.redirect, '_system', 'location=yes'); return;
+            if (!!json.redirect && json.redirect.length > 2) {
+                window.open(json.redirect, '_system', 'location=yes');
+                return;
             }
-
             if (json.items != undefined && json.items.length > 0) {
                 $.each(json.items, function(key, value) {
                     var url,
@@ -178,7 +175,9 @@ function LoadDefaultCatalog(category, position, count) {
                         $("#CatalogBack").html(json.parameters.parent_name);
                     }
                     output += generateSectionProductItem(value, lazy);
-                    if(value.id>0){showFootbar = true;}
+                    if (value.id > 0) {
+                        showFootbar = true;
+                    }
                 });
             } else {
                 showFootbar = true;
@@ -242,7 +241,6 @@ function LoadDefaultCatalog(category, position, count) {
         }
     });
 }
-
 /**
  * Checking SVG support
  * @return {[type]} [description]
@@ -250,7 +248,6 @@ function LoadDefaultCatalog(category, position, count) {
 function supportsSVG() {
     return !!document.createElementNS && !!document.createElementNS('http://www.w3.org/2000/svg', "svg").createSVGRect;
 }
-
 /**
  * Loading js/css files
  * @param  {[type]} filename [description]
@@ -354,7 +351,6 @@ function InitScrollElementVisability(id, scrollposition) {
         }
     });
 }
-
 // The directory selection on the basis of the page address
 function showCategory(urlObj, options) {
     var categoryName = "";
@@ -432,14 +428,13 @@ function InitCatalog() {
 }
 
 function DelegateMenu(page) {}
-
 /**
  * Product card
  * @param  {[type]} id  [description]
  * @param  {[type]} owl [description]
  * @return {[type]}     [description]
  */
-function loadProductCard(id, owl){
+function loadProductCard(id, owl) {
     //Проверка на Распродажу
     var sale_uri = ($.mobile.path.parseUrl(document.URL).href.search("sale=1") !== -1) ? '&sale=1' : '';
     ShowLoading();
@@ -458,6 +453,7 @@ function loadProductCard(id, owl){
                 $('#current_product_idd').val(json.idd);
                 $('#product-card-name').html(json.name);
                 $("#state_and_specbonus").html("");
+                $("#bundle_block, #accs_container, #product-card-info-viewed-product").hide();
                 if (json.state != null && json.state != undefined) {
                     $('#state_and_specbonus').html("<div id='box_state'>" + json.state + '</div><br/>');
                 }
@@ -465,18 +461,20 @@ function loadProductCard(id, owl){
                     $("#box_bonus_spec").remove();
                     $("#state_and_specbonus").append("<div id='box_bonus_spec'><div id='product-card-bonus_spec'>Бонус: " + json.bonus_spec + " грн</div></div>");
                 }
-
                 $('#sticker_img').html(json.sticker_img);
                 $('#product-card-code').html(json.idd);
                 $('#product-card-info-block-content,#product-card-chars-block-content').hide().html("");
                 $('#product-card-info-block-content').parent().removeClass("module-open").addClass("module-close");
-                $('#product-card').attr({"info_load": "N","chars_load": "N","product_id": parseInt(id)});
+                $('#product-card').attr({
+                    "info_load": "N",
+                    "chars_load": "N",
+                    "product_id": parseInt(id)
+                });
                 $('#card_dmode_link').attr("href", "http://m.citrus.ua/go.php?id=" + id);
                 $('#citrus_club').hide();
                 if (json.bonuses != undefined && parseInt(json.bonuses.summ) > 2) {
                     $('#citrus_club').html("<div>Возвращаем <b>" + json.bonuses.summ + " грн</b> на бонусный счет</div>").show();
                 }
-
                 $('#product-card-info-link').unbind().on("click", function(event) {
                     var loc = $.mobile.path.parseLocation();
                     $.mobile.changePage("#text-page?id=" + id, {
@@ -485,20 +483,17 @@ function loadProductCard(id, owl){
                     });
                     event.preventDefault();
                 });
-
                 $('#product-card-reviews-link').unbind().on("click", function(event) {
                     $('#reviews-page-content').html('');
                     var loc = $.mobile.path.parseLocation();
                     window.open("http://m.citrus.ua/#reviews-page?id=" + id, '_system', 'location=yes');
                     event.preventDefault();
                 });
-
                 $('#product-card-wish-add-link').unbind().on("click", function(event) {
                     var loc = $.mobile.path.parseLocation();
                     window.location = "#wish-add-page?id=" + id;
                     event.preventDefault();
                 });
-
                 $('#product-card-props-link').unbind().on("click", function(event) {
                     var loc = $.mobile.path.parseLocation();
                     $.mobile.changePage("#text-page?id=" + id + "&detail_text=Y", {
@@ -507,38 +502,33 @@ function loadProductCard(id, owl){
                     });
                     event.preventDefault();
                 });
-
                 //event sample buy button
                 $('#product-card-buy-btn').unbind().on("vclick", function() {
                     StartBuyProduct(id);
                 });
-
                 //event CO button
                 $('#product-card-co-buy-btn').unbind().on("vclick", function() {
                     StartBuyProductCO(id);
                 });
-
                 //event sale buy
                 $('#product-card-sale-buy-btn').unbind().on("vclick", function() {
                     StartBuyProductSale(id);
                 });
-
                 //show/hide buy buttons
                 $('.g_menu_payment_parts,#product-card-buy-btn,#product-card-pre-btn,#product-card-sale-buy-btn, .free_shipping, .delivery-selected-city-selector').hide();
                 $('.change_city').html('Изменить');
-                if(!!json.can_buy){
+                if (!!json.can_buy) {
                     //if sale
-                    if (json.can_buy == "Y" && !!json.sale && json.sale=='1') {
+                    if (json.can_buy == "Y" && !!json.sale && json.sale == '1') {
                         $('#product-card-sale-buy-btn').show();
                     } else if (json.can_buy == "Y") {
                         $('#product-card-buy-btn, .g_menu_payment_parts, .free_shipping').show();
                         $('#product-card-status').hide();
-                    } else if (json.can_buy != "N"){
+                    } else if (json.can_buy != "N") {
                         $('#product-card-pre-btn, #product-card-status').show();
                     }
                     $('#product-card-status').html(json.can_buy_status).show();
                 }
-
                 //show mini propertys
                 if (json.mini_property !== undefined) {
                     $('#product-card-chars-block-content').html(json.mini_property);
@@ -561,16 +551,16 @@ function loadProductCard(id, owl){
                             product_not_available = 'product_not_available';
                         }
                         var active = "";
-                        if (item_value.active == "Y"){
+                        if (item_value.active == "Y") {
                             var active = "active";
                         }
-                        if (item_value.type == "color"){
+                        if (item_value.type == "color") {
                             variations += '<div class="v_volor_item"><div class="v_color_p v_color_c ' + active + '"><div class="v_color_w"><a product_id="' + item_value.id + '" class="vclick_link_product"><div class="v_color" style="background-color:' + item_value.value + '"></div></a></div></div></div>';
                         }
-                        if (item_value.type == "img_color"){
+                        if (item_value.type == "img_color") {
                             variations += '<div class="v_volor_item"><div class="v_color_p v_color_c ' + active + '"><div class="v_color_w"><a product_id="' + item_value.id + '" class="vclick_link_product"><div class="v_color img_color" style="background:url(' + item_value.value + ')"></div></a></div></div></div>';
                         }
-                        if (item_value.type == "text"){
+                        if (item_value.type == "text") {
                             variations += '<div class="v_color_p v_color_p_text ' + active + '"><div class="v_color_w v_color_w_text ' + product_not_available + '"><a   product_id="' + item_value.id + '"  class="vclick_link_product"><div class="v_color v_color_text ' + product_not_available + '">' + item_value.value + '</div></a></div></div>';
                         }
                     });
@@ -594,73 +584,18 @@ function loadProductCard(id, owl){
                     }
                     $("#current_product_price").val(json.prices[0].price);
                     json.prices[0].price = json.prices[0].price.replace(/\B(?=(\d{3})+(?!\d))/g, " ");
-                    if(!!json.sale_price){
-                        if(!!json.sale_old_price){
+                    if (!!json.sale_price) {
+                        if (!!json.sale_old_price) {
                             $("#product-card-old_prices").html(json.sale_old_price);
                         }
                         prices += '<div class="prices_item_cr"><div class="prices_item">цена распродажи</div><div class="prices_item_value"><div class="pre_sup_text">' + json.sale_price + '</div><div class="pre_sup">грн</div></div></div>';
-                    }else{
+                    } else {
                         prices += '<div class="prices_item_cr"><div class="prices_item">' + json.prices[0].name + '</div><div class="prices_item_value"><div class="pre_sup_text">' + json.prices[0].price + '</div><div class="pre_sup">грн</div></div></div>';
                     }
                 }
                 $("#product-card-prices").html(prices);
                 $("#product-card-old_prices").html(json.old_price);
-                //bundle
-                var output = "";
-                $("#bundle_block").hide();
-                if (json.bundle !== undefined && json.bundle != null) {
-                    if (json.bundle.bundle !== undefined) {
-                        $.each(json.bundle.bundle, function(key, bundle_item) {
-                            if (bundle_item != null) {
-                                diskount_block = (bundle_item.old_price > 0) ? '<div class="bundle_item_skidka"><span class="bundle_strong">-' + bundle_item.diskount + '</span><span>' + bundle_item.diskount_type + '</span></div>' : '';
-                                price_class = (bundle_item.old_price > 0) ? 'old_price_yes_new' : '';
-                                output += '<li><a data-transition="slide" data-ajax=false bundle_id="' + bundle_item.id + '" class="vclick_bundle"><table style="width:100%"><tr><td class="first aligntab64"><div class="bundle_item ' + price_class + '"><img src="' + json.bundle.main.image + '"><br /><div class="price">' + json.bundle.main.price_print + 'грн</div></div></td><td class="aligntab64 bundle_plus">+</td><td class="aligntab64"><div class="bundle_item">' + diskount_block + '<img src="' + bundle_item.image + '"><br /> <div class="binline bindlecross"><div class="price pricegray">' + bundle_item.old_price_print + '</div></div><div class="price binline">' + bundle_item.price_print + ' грн</div> </div></td><td width="10"></td></tr></table></a></li>';
-                            }
-                        });
-                    }
-                    if (json.bundle.bundle2 !== undefined) {
-                        $.each(json.bundle.bundle2, function(key, bundle_items) {
-                            output += '<li><a data-transition="slide" data-ajax=false bundle_id="' + bundle_items.id + '" class="vclick_bundle"><table style="width:100%"><tr>';
-                            if (bundle_items.items != null) {
-                                var i = 0;
-                                $.each(bundle_items.items, function(key, bundle_item) {
-                                    diskount_block = (bundle_item.DISCOUNT_PERCENT > 0) ? '<div class="bundle_item_skidka"><span class="bundle_strong">-' + bundle_item.DISCOUNT_PERCENT + '</span><span>%</span></div>' : '';
-                                    price_class = (bundle_item.old_price > 0) ? 'old_price_yes_new' : '';
-                                    output += '<td class="aligntab64"><div class="bundle_item ' + price_class + ' ">' + diskount_block + '<img src="' + bundle_item.image + '"><br /><div class="binline bindlecross"><div class="price pricegray">' + bundle_item.old_price_print + '</div></div><div class="price binline">' + bundle_item.price_print + ' грн</div></div></td>';
-                                    if (i == 0) {
-                                        output += '<td class="aligntab64 bundle_plus">+</td>';
-                                        i = 1;
-                                    }
-                                });
-                            }
-                            output += '<td width="10"></td></tr></table></a></li>';
-                        });
-                    }
-                    if (output != '') {
-                        $("#bundle_block").show();
-                    }
-                    $('#bundle-listview').html(output).listview("refresh");
-                }
-                if (!!json.accs) {
-                    var output = "";
-                    $.each(json.accs, function(key, value) {
-                        if (value != null) {
-                            var url;
-                            url = "#product-card?product-id=" + value.id;
-                            var row2 = '';
-                            row2 = '<div class="price">' + value.price + ' грн</div>';
-                            var prop = "";
-                            if (value.props != undefined) {
-                                prop = value.props;
-                            }
-                            output += '<li class=""><a data-transition="slide" data-ajax=false product_id="' + value.id + '" class="vclick_link_product"><table style="width:100%"><tr><td style="vertical-align: middle;text-align:center;width:64px" class="first"><img src="' + value.image + '" ></td><td style="vertical-align:middle;text-align:left;padding-left:1.1rem;"><h2 class="item_name_only product">' + value.name + '</h2>' + row2 + '</div></td><td style="width:25px"></td></tr></table></a></li>';
-                        }
-                    });
-                    $("#accs_container").show();
-                    $('#accs-listview').html(output).listview("refresh");
-                } else {
-                    $("#accs_container").hide();
-                }
+
                 if (!!owlreinit && owlreinit == true) {
                     ReinitowlProductCard();
                 }
@@ -678,28 +613,26 @@ function loadProductCard(id, owl){
                 } else {
                     $("#product_actions_block").hide();
                 }
-
                 //countdown
                 var pcb = $("#product_countdown_block"),
                     output = "";
-                    pcb.hide();
+                pcb.hide();
                 if (!!json.product_countdowns) {
                     //$.getScript("/jquery/jquery.countdown.min.js").done(function() {});
                     countdowns_items = [];
                     $.each(json.product_countdowns, function(key, item) {
                         output += '<li class="item">' + item.content + '</li>';
-                        output += '<div class="scountdown countdown"><div class="contdown_text">Спеши! До конца акции осталось:</div><span class="countd" id="countd'+item.finish+'"></span></div>';
-                        countdowns_items[item.finish]=item.finish_date;
+                        output += '<div class="scountdown countdown"><div class="contdown_text">Спеши! До конца акции осталось:</div><span class="countd" id="countd' + item.finish + '"></span></div>';
+                        countdowns_items[item.finish] = item.finish_date;
                     });
                     pcb.show();
                     $('#product-countdown-listview').html(output).listview("refresh");
                     for (key in countdowns_items) {
-                        setCountdown(key,countdowns_items[key]);
+                        setCountdown(key, countdowns_items[key]);
                     }
                 }
-
                 MobileUser.basket.getViewedProducts(showViewedProductsOnProduct);
-                                //get delivery city
+                //get delivery city
                 delivery_city = MobileUser.GetStorage('delivery_city');
                 delivery_city_id = MobileUser.GetStorage('delivery_city_id');
                 if (!!delivery_city && !!delivery_city_id) {
@@ -710,24 +643,100 @@ function loadProductCard(id, owl){
                     getShopsByProduct(delivery_city_id);
                 } else {
                     //set json by shops 
-                    setDeliveryCity(false,false,getShopsByProduct);
+                    setDeliveryCity(false, false, getShopsByProduct);
                 }
                 //init for city autocomplete
                 InitCityAutocomplete();
-
                 $('#product-card-content').show();
                 ProssedTapEvents();
             } else {
                 document.location.href = "index.html";
             }
-            $('.ui-loader').css('display','none');
+            $('.ui-loader').css('display', 'none');
             $.mobile.loading("hide");
+            //extended ajax call for product async
+            setTimeout(function() {
+                loadProductCardExtend(id, json, sale_uri);
+            }, 500);
         },
         timeout: 25000,
         error: function(jqXHR, status, errorThrown) { //the status returned will be "timeout" 
             ShowMessage(1);
         }
     });
+}
+/**
+ * Additional blocks on the product page Bundles/Accessories
+ * @param  {[type]} id   [description]
+ * @param  {[type]} json [description]
+ * @return {[type]}      [description]
+ */
+function loadProductCardExtend(id, json, sale_uri) {
+    $.ajax({
+        url: "http://m.citrus.ua/ajax/product_extended.php?ht=a&id=" + parseInt(id) + sale_uri,
+        dataType: 'json',
+        async: false,
+        success: function(json) {
+            //bundle
+            var output = "";
+            if (json.bundle !== undefined && json.bundle != null) {
+                if (json.bundle.bundle !== undefined) {
+                    $.each(json.bundle.bundle, function(key, bundle_item) {
+                        if (bundle_item != null) {
+                            diskount_block = (bundle_item.old_price > 0) ? '<div class="bundle_item_skidka"><span class="bundle_strong">-' + bundle_item.diskount + '</span><span>' + bundle_item.diskount_type + '</span></div>' : '';
+                            price_class = (bundle_item.old_price > 0) ? 'old_price_yes_new' : '';
+                            output += '<li><a data-transition="slide" data-ajax=false bundle_id="' + bundle_item.id + '" class="vclick_bundle"><table style="width:100%"><tr><td class="first aligntab64"><div class="bundle_item ' + price_class + '"><img src="' + json.bundle.main.image + '"><br /><div class="price">' + json.bundle.main.price_print + 'грн</div></div></td><td class="aligntab64 bundle_plus">+</td><td class="aligntab64"><div class="bundle_item">' + diskount_block + '<img src="' + bundle_item.image + '"><br /> <div class="binline bindlecross"><div class="price pricegray">' + bundle_item.old_price_print + '</div></div><div class="price binline">' + bundle_item.price_print + ' грн</div> </div></td><td width="10"></td></tr></table></a></li>';
+                        }
+                    });
+                }
+                if (json.bundle.bundle2 !== undefined) {
+                    $.each(json.bundle.bundle2, function(key, bundle_items) {
+                        output += '<li><a data-transition="slide" data-ajax=false bundle_id="' + bundle_items.id + '" class="vclick_bundle"><table style="width:100%"><tr>';
+                        if (bundle_items.items != null) {
+                            var i = 0;
+                            $.each(bundle_items.items, function(key, bundle_item) {
+                                diskount_block = (bundle_item.DISCOUNT_PERCENT > 0) ? '<div class="bundle_item_skidka"><span class="bundle_strong">-' + bundle_item.DISCOUNT_PERCENT + '</span><span>%</span></div>' : '';
+                                price_class = (bundle_item.old_price > 0) ? 'old_price_yes_new' : '';
+                                output += '<td class="aligntab64"><div class="bundle_item ' + price_class + ' ">' + diskount_block + '<img src="' + bundle_item.image + '"><br /><div class="binline bindlecross"><div class="price pricegray">' + bundle_item.old_price_print + '</div></div><div class="price binline">' + bundle_item.price_print + ' грн</div></div></td>';
+                                if (i == 0) {
+                                    output += '<td class="aligntab64 bundle_plus">+</td>';
+                                    i = 1;
+                                }
+                            });
+                        }
+                        output += '<td width="10"></td></tr></table></a></li>';
+                    });
+                }
+                if (output != '') {
+                    $("#bundle_block").show();
+                }
+                $('#bundle-listview').html(output).listview("refresh");
+            }
+            if (!!json.accs) {
+                var output = "";
+                $.each(json.accs, function(key, value) {
+                    if (value != null) {
+                        var url;
+                        url = "#product-card?product-id=" + value.id;
+                        var row2 = '';
+                        row2 = '<div class="price">' + value.price + ' грн</div>';
+                        var prop = "";
+                        if (value.props != undefined) {
+                            prop = value.props;
+                        }
+                        output += '<li class=""><a data-transition="slide" data-ajax=false product_id="' + value.id + '" class="vclick_link_product"><table style="width:100%"><tr><td style="vertical-align: middle;text-align:center;width:64px" class="first"><img src="' + value.image + '" ></td><td style="vertical-align:middle;text-align:left;padding-left:1.1rem;"><h2 class="item_name_only product">' + value.name + '</h2>' + row2 + '</div></td><td style="width:25px"></td></tr></table></a></li>';
+                    }
+                });
+                $("#accs_container").show();
+                $('#accs-listview').html(output).listview("refresh");
+            }
+        },
+        timeout: 25000,
+        error: function(jqXHR, status, errorThrown) { //the status returned will be "timeout" 
+            ShowMessage(1);
+        }
+    });
+    return true;
 }
 
 function ShowMessage(type) {
@@ -858,8 +867,8 @@ function DoLoadBasketItems(json) {
             var dop_class = " product",
                 url = "#product-card?product-id=" + value.id,
                 row2 = '';
-            if(!!value.sale && value.sale=='Y'){
-                url = url+"&sale=1";
+            if (!!value.sale && value.sale == 'Y') {
+                url = url + "&sale=1";
             }
             if (parseInt(value.price) > 1 && value.can_buy == "Y") {
                 var count_string = "";
@@ -1192,54 +1201,45 @@ function StartMakePreOrderTry() {
         tel = $("#preorder_tel").val(),
         city = $("#preorder_city").val(),
         email = $("#preorder_email").val();
-
     u = $.mobile.path.parseUrl(document.URL);
-    if(u.href.search("id=")!== -1){
-        if(u.hash != undefined){                                         
-            var product_id = u.hash.replace( /.*id=/, "" );    
+    if (u.href.search("id=") !== -1) {
+        if (u.hash != undefined) {
+            var product_id = u.hash.replace(/.*id=/, "");
         }
     }
-
     if (fio != "") {
         GA_event('send', 'event', 'Preorder', 'Preorderform-name', fio);
-    }else{
+    } else {
         $("#preorder_fio").closest('.ui-input-text').addClass('bred');
     }
-
     if (tel != "") {
         GA_event('send', 'event', 'Preorder', 'Preorderform-phone', tel);
-    }else{
+    } else {
         $("#preorder_tel").closest('.ui-input-text').addClass('bred');
     }
-
     if (city != "") {
         GA_event('send', 'event', 'Preorder', 'Preorderform-city', city);
-    }else{
+    } else {
         $("#preorder_city").closest('.ui-input-text').addClass('bred');
     }
-
     if (email != "") {
         GA_event('send', 'event', 'Preorder', 'Preorderform-mail', email);
-    }else{
+    } else {
         $("#preorder_email").closest('.ui-input-text').addClass('bred');
     }
-
-    if(!$("#igreed").prop('checked')){
+    if (!$("#igreed").prop('checked')) {
         $("#page-preorder .forigreed").addClass('red');
     }
-
     if (fio != "" && tel != "" && city != "" && email != "" && product_id != "" && (email.search(/^[-\w.]+@([A-z0-9-]+\.)+[A-z]{2,4}$/i) == 0) && ($("#igreed").prop('checked'))) {
         $('#preorder-make-btn').hide();
         $('.preorder_message').html('Подождите идет оформление ...');
         MobileUser.basket.preOrder(fio, email, city, product_id, $("#preorder_comment").val(), tel, OnMakePreOrderDone);
     } else {
         message = "Пожалуйста заполните обязательные поля !";
-        $('.preorder_message').html('<span class=red>'+message+'</span>');
+        $('.preorder_message').html('<span class=red>' + message + '</span>');
         alert(message);
     }
-
 }
-
 /**
  * Finish create preorder
  * @param {[type]} json [description]
@@ -1273,7 +1273,7 @@ function DeleteItem(item) {
     }
 }
 
-function afterDeleteItem(){}
+function afterDeleteItem() {}
 
 function EnableBasketEditMode() {
     if ($("#cart-list").hasClass("edit_mode")) {
@@ -1495,7 +1495,6 @@ function SaveSelectedEnums() {
     FilterEnums.Set(emuns_array);
     ShowFilter(FilterEnums.active_link, true);
 }
-
 /**
  * Toggle Enums checker
  * @param {[type]} i [description]
@@ -1510,7 +1509,6 @@ function ToggleEnums(i) {
         i.find(".cb-custom").addClass('active');
     }
 }
-
 /**
  * Event sort clicked
  * @param {[type]} radio [description]
@@ -1521,7 +1519,6 @@ function Sort_Radio_Click(radio) {
     $(".sort_radio").removeClass('active');
     $(radio).find(".sort_radio").addClass('active');
 }
-
 /**
  * Loading sort items
  */
@@ -1532,7 +1529,7 @@ function LoadSortItems() {
         if (key == FilterEnums.active_sort) {
             radio_box = "active";
         }
-        sort_items += '<li><a class="ui-btn ui-btn-icon-right ui-icon-carat-r" sort="' + key + '" onclick="Sort_Radio_Click(this);"><table style="width:100%"><tbody><tr><td style="vertical-align:middle;text-align:left;padding-left:1.1rem;"><h2 class="item_name_only">' + FilterEnums.sort_names[key] + '</h2></td><td style="width:40px"><span name="sort_radio" class="rb-custom sort_radio '+radio_box+'"></span></td></tr></tbody></table></a></li>';
+        sort_items += '<li><a class="ui-btn ui-btn-icon-right ui-icon-carat-r" sort="' + key + '" onclick="Sort_Radio_Click(this);"><table style="width:100%"><tbody><tr><td style="vertical-align:middle;text-align:left;padding-left:1.1rem;"><h2 class="item_name_only">' + FilterEnums.sort_names[key] + '</h2></td><td style="width:40px"><span name="sort_radio" class="rb-custom sort_radio ' + radio_box + '"></span></td></tr></tbody></table></a></li>';
     }
     $('#sort-listview').html(sort_items);
     $.mobile.changePage('#sort-page', {
@@ -1706,7 +1703,7 @@ function getUserWishesList(json) {
 
 function getUserWishContentList(json) {
     ShowLoading();
-    if (json){
+    if (json) {
         var output = "";
         if (json.wish !== undefined) {
             json.wish.wishlist_summ = parseFloat(json.wish.wishlist_summ).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
@@ -2001,7 +1998,6 @@ function getUserBonusPanel() {
         $('#user_bonus_panel').addClass('active').html('<span class="title"><i class="c_icon c_catalog gray c_club"></i>На счету:</span><span class="items">' + user_bonus_panel + '</span>');
     }
 }
-
 /**
  * Redirect to a detailed page with a map
  * @param {[type]} id      [description]
@@ -2013,12 +2009,12 @@ function ShowDetailGoogleMape(id, type, city_id, idd) {
     $('#text-page-content').html("");
     window.open("http://m.citrus.ua/#detail-googlemap?id=" + id + ((!!type) ? "&type=" + type + "&city_id=" + city_id + "&idd=" + idd : ""), '_system', 'location=yes');
     // window.location = "#detail-googlemap?id=" + id + ((!!type) ? "&type=" + type + "&city_id=" + city_id + "&idd=" + idd : "");
-/*    if (isIOS()) {
-        window.open('http://m.citrus.ua/#detail-googlemap?id=' + id, '_system', 'location=yes');
-    } else {
-        $('#text-page-content').html("");
-        window.location = "#detail-googlemap?id=" + id;
-    }*/
+    /*    if (isIOS()) {
+            window.open('http://m.citrus.ua/#detail-googlemap?id=' + id, '_system', 'location=yes');
+        } else {
+            $('#text-page-content').html("");
+            window.location = "#detail-googlemap?id=" + id;
+        }*/
 }
 
 function LoadDetailPageMap(id) {
@@ -2149,6 +2145,7 @@ function showViewedProducts(datas, products_name) {
             output += generateSectionProductItem(value, '');
         });
         products_wrap.html(output).listview("refresh").show();
+        $('#product-card-info-viewed-'+products_name).show();
     } else {
         products_wrap.hide();
     }
@@ -2240,7 +2237,7 @@ function getPageIdByUri() {
     }
 }
 
-function DeleteWishItem(item){
+function DeleteWishItem(item) {
     var box = $(item).closest('.section-product-item'),
         title = box.find('h2').html();
     if (confirm('Вы уверены,что хотите удалить товар "' + title + '" из списка?')) {
@@ -2248,12 +2245,12 @@ function DeleteWishItem(item){
         box.animate({
             width: "0%"
         }, 200).remove();
-
         var wish_count = parseInt($('.wish_count_cnt').html());
-            wish_count --;
-        if(wish_count<0){wish_count=0;}
+        wish_count--;
+        if (wish_count < 0) {
+            wish_count = 0;
+        }
         $('.wish_count_cnt').html(wish_count);
-
         if (wish_id = getPageIdByUri()) {
             var data = {};
             data.wish_id = wish_id;
@@ -2291,15 +2288,12 @@ function FillPreorderPageFields(json) {
     if (json.IsAuthorized != "Y") {
         MobileUser.LoginPromt();
     }
-
     //clear tags from error styles
-    $.each($('#page-preorder .red, #page-preorder .bred'), function(key, val){
+    $.each($('#page-preorder .red, #page-preorder .bred'), function(key, val) {
         $(val).removeClass('red bred');
     });
-
     $('.preorder_message').html('');
     $('#preorder-make-btn').show();
-
     if (json.user_datas != undefined) {
         var output = '';
         if (json.user_datas.NameF != undefined) {
@@ -2320,7 +2314,6 @@ function FillPreorderPageFields(json) {
         }
     }
 }
-
 /**
  * Confirmation of selected city
  * @param  {[type]} city_id   [description]
@@ -2336,7 +2329,8 @@ function selectCity(city_id, city_name, region, np, mp, np1, mp2, el) {
     $("#preorder_city, #page-preorder-content .ui-input-search input,#personal_city, #page-personal .ui-input-search input, #delivery_city").val(city_name);
     $('#preorder_city_id, #personal_city, #delivery_city_id').val(city_id);
     $('#preorder_city_autocomplete,#personal_city_autocomplete,#delivery_city_autocomplete,#page-preorder-content .ui-input-clear,#page-personal .ui-input-clear').hide();
-    $('.delivery-selected-city-selector').hide(); $('.change_city').html('Изменить');
+    $('.delivery-selected-city-selector').hide();
+    $('.change_city').html('Изменить');
     $('#Region').val(region);
     get_shops_in_city(city_id);
     id = $(el).closest('.ui-content').attr('id');
@@ -2351,7 +2345,7 @@ function selectCity(city_id, city_name, region, np, mp, np1, mp2, el) {
  * @param  {[type]} lazy  [description]
  * @return {[type]}       [description]
  */
-function generateSectionProductItem(value,lazy) {
+function generateSectionProductItem(value, lazy) {
     var url = "category-items=" + value.link,
         text_flag = (value.text_flag != null && value.text_flag != false) ? value.text_flag : '',
         text_props = (value.text_props != null && value.text_props != false) ? value.text_props : '',
@@ -2363,7 +2357,6 @@ function generateSectionProductItem(value,lazy) {
         value.price = value.price.toString().replace(/[^-0-9]/gim, '');
         var old_price = (value.old_price != null) ? value.old_price : '';
         dop_class = dop_class + " product";
-
         var row2 = '',
             payment_parts = '';
         value.price_print = parseFloat(value.price).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
@@ -2375,55 +2368,45 @@ function generateSectionProductItem(value,lazy) {
         } else if (!!value.can_buy_status) {
             row2 = '<div class="status">' + value.can_buy_status + '</div>';;
         }
-
         url = "#product-card?product-id=" + value.id;
-        if(!!value.sale&&value.sale=='Y'){
-            url = url+"&sale=1";
+        if (!!value.sale && value.sale == 'Y') {
+            url = url + "&sale=1";
             payment_parts = '';
         }
-
         var prop = (value.props != undefined) ? value.props : "",
             bonuses = (value.bonuses != undefined && parseInt(value.bonuses) > 5) ? '<div class="props">+' + parseInt(value.bonuses) + ' грн на бонусный счет</div>' : '';
         prop = (text_props != '') ? text_props : prop;
-        return '<li class="section-product-item section-product-item-new ' + lazy + '" item_id="' + value.id + '"><a data-transition="slide" data-ajax=false class="'+value.aclass+'" link="' + url + '" product_id="' + value.id + '"><table style="width:100%"><tr><td style="vertical-align: middle;text-align:center;width:64px" class="first"><img src="' + value.image + '" ></td><td style="vertical-align:middle;text-align:left;padding-left:1.1rem;"><div class="box_catalog_status">' + text_flag + ' </div><h2 class="item_name_only ' + dop_class + '">' + value.name + '</h2><div class="props">' + prop + '</div>' + row2 + bonuses + payment_parts + '</td><td style="width:25px"></td>' + delete_td + '</tr></table></a></li>';
+        return '<li class="section-product-item section-product-item-new ' + lazy + '" item_id="' + value.id + '"><a data-transition="slide" data-ajax=false class="' + value.aclass + '" link="' + url + '" product_id="' + value.id + '"><table style="width:100%"><tr><td style="vertical-align: middle;text-align:center;width:64px" class="first"><img src="' + value.image + '" ></td><td style="vertical-align:middle;text-align:left;padding-left:1.1rem;"><div class="box_catalog_status">' + text_flag + ' </div><h2 class="item_name_only ' + dop_class + '">' + value.name + '</h2><div class="props">' + prop + '</div>' + row2 + bonuses + payment_parts + '</td><td style="width:25px"></td>' + delete_td + '</tr></table></a></li>';
     } else {
-
-        if(!!value.sale && value.sale=='Y'){
-           url = "category-items=sale&sale_category=" + value.link;
+        if (!!value.sale && value.sale == 'Y') {
+            url = "category-items=sale&sale_category=" + value.link;
         }
-
-        return '<li class="section-product-item section-product-item-new ' + lazy + '" item_id="' + value.id + '"><a data-transition="slide" data-ajax=false class="'+value.aclass+' section-product-item" link="#products-list?' + url + '"><table style="width:100%"><tr><td style="vertical-align: middle;text-align:center;width:64px" class="first"><img src="' + value.image + '" ></td><td style="vertical-aling:middle;text-align:left;padding-left:1.1rem;"><div class="box_catalog_status">' + text_flag + ' </div><h2 class="item_name_only ' + dop_class + '">' + value.name + '</h2></td><td style="width:25px"></td>' + delete_td + '</tr></table></a></li>';
+        return '<li class="section-product-item section-product-item-new ' + lazy + '" item_id="' + value.id + '"><a data-transition="slide" data-ajax=false class="' + value.aclass + ' section-product-item" link="#products-list?' + url + '"><table style="width:100%"><tr><td style="vertical-align: middle;text-align:center;width:64px" class="first"><img src="' + value.image + '" ></td><td style="vertical-aling:middle;text-align:left;padding-left:1.1rem;"><div class="box_catalog_status">' + text_flag + ' </div><h2 class="item_name_only ' + dop_class + '">' + value.name + '</h2></td><td style="width:25px"></td>' + delete_td + '</tr></table></a></li>';
     }
 }
-
 /**
  * set countdown for product card
  * @param {[type]} id [description]
  */
-function setCountdown(id,finish_date){
-    $('#countd'+id).countdown(new Date(finish_date))
-     .on('update.countdown', function(event) {
-       var format = '<span class=cndH>%H</span><span class=colon>:</span><span class=cndM>%M</span><span class=colon>:</span><span class=cndS>%S</span>';
-       if(event.offset.totalDays > 0) {
-         format = '<span class=cndd>'+event.offset.totalDays+'</span><span class=colon>:</span>' + format;
-       }
-       $(this).html(event.strftime(format));
-     })
-     .on('finish.countdown', function(event) {
-       $(this).html('Акция закончилась!')
-         .parent().addClass('disabled');
-     });
+function setCountdown(id, finish_date) {
+    $('#countd' + id).countdown(new Date(finish_date)).on('update.countdown', function(event) {
+        var format = '<span class=cndH>%H</span><span class=colon>:</span><span class=cndM>%M</span><span class=colon>:</span><span class=cndS>%S</span>';
+        if (event.offset.totalDays > 0) {
+            format = '<span class=cndd>' + event.offset.totalDays + '</span><span class=colon>:</span>' + format;
+        }
+        $(this).html(event.strftime(format));
+    }).on('finish.countdown', function(event) {
+        $(this).html('Акция закончилась!').parent().addClass('disabled');
+    });
 }
-
 /**
  * CloudFlare Image cache
  */
-function CFimagesClear(){
-    $.each($('img[data-cfsrc]'), function(key, val){
-        $(val).attr('src',$(val).data('cfsrc')).css('visibility','visible').show().data('cfsrc',''); 
+function CFimagesClear() {
+    $.each($('img[data-cfsrc]'), function(key, val) {
+        $(val).attr('src', $(val).data('cfsrc')).css('visibility', 'visible').show().data('cfsrc', '');
     });
 }
-
 /**
  * Checks if a value exists in an array
  * @param  {[type]} needle   [description]
@@ -2432,7 +2415,8 @@ function CFimagesClear(){
  * @return {[type]}          [description]
  */
 function in_array(needle, haystack, strict) {
-    var found = false, key, strict = !!strict;
+    var found = false,
+        key, strict = !!strict;
     for (key in haystack) {
         if ((strict && haystack[key] === needle) || (!strict && haystack[key] == needle)) {
             found = true;
@@ -2441,7 +2425,6 @@ function in_array(needle, haystack, strict) {
     }
     return found;
 }
-
 /**
  * Get datas about geo position by ip
  * set options at site
@@ -2454,7 +2437,7 @@ function setDeliveryCity(city_name, city_id, callback) {
             url: "/api/phone.php?json_datas=1",
             success: function(data) {
                 var datas = JSON.parse(data);
-                if(!!callback){
+                if (!!callback) {
                     callback(datas.cid);
                 }
                 return setDeliveryCityValue(datas.city, datas.cid);
@@ -2501,7 +2484,6 @@ function getShopsByProduct(city_id) {
         $('.delivery-availableoptions').html(output);
     });
 }
-
 /**
  * Open own list with the stores
  * @param  {[type]} city_id [description]
@@ -2512,7 +2494,6 @@ function getShopsByProduct(city_id) {
 function openShopList(city_id, type, idd) {
     window.location = "#shoplist-page?city_id=" + city_id + "&type=" + type + "&product_idd=" + idd;
 }
-
 /**
  * get getJSONShopList request
  * @param  {Function} callback    [description]
@@ -2523,37 +2504,35 @@ function openShopList(city_id, type, idd) {
  * @param  {[type]}   map         [description]
  * @return {[type]}               [description]
  */
-function getDetailPageMap(callback, id, type, city_id, product_idd, map){
+function getDetailPageMap(callback, id, type, city_id, product_idd, map) {
     $.getJSON("http://m.citrus.ua/api/shops.php?getJSONShopList=1", {
         id: city_id,
         product: product_idd
     }, function(data) {
-        if (!!data[type]){
+        if (!!data[type]) {
             //get one item value
-            if(id>0){
+            if (id > 0) {
                 for (item_key in data[type]) {
                     var item = data[type][item_key];
-                    if(item.id==id){
+                    if (item.id == id) {
                         callback(item, map, type, city_id, product_idd);
                     }
                 }
-            }else{
+            } else {
                 //get array of items
                 callback(data[type], map, type, city_id, product_idd);
             }
         }
     });
 }
-
 /**
  * Add product to order with delivery options
  */
-function addToCartbyDelivery(){
+function addToCartbyDelivery() {
     ShowLoading();
     ga('send', 'event', 'OrderCreate', 'addToCartbyDelivery', $('#current_product_id').val(), $('#current_product_price').val().replace(/[^\d,+]/g, ""));
-
     //set props for order
-    if(type = getHashValue('type')){
+    if (type = getHashValue('type')) {
         switch (type) {
             case "shop":
                 d_id = 1;
@@ -2569,99 +2548,82 @@ function addToCartbyDelivery(){
         }
         MobileUser.SetStorage('order_prop_delivery_id', d_id);
     }
-
-    if(id = getHashValue('id')){
+    if (id = getHashValue('id')) {
         MobileUser.SetStorage('order_prop_store_id', id);
     }
-
-    if(city_id = getHashValue('city_id')){
+    if (city_id = getHashValue('city_id')) {
         MobileUser.SetStorage('order_prop_city_id', city_id);
     }
-
     MobileUser.basket.addToCartDelivery(getHashValue('idd'), AfterBuyProduct);
 }
-
 /**
  * Add product to cart by Kurier
  */
-function addToCartbyKurier(){
-    
-    if($('#kurier_street').val()==''||$('#kurier_house').val()==''){
+function addToCartbyKurier() {
+    if ($('#kurier_street').val() == '' || $('#kurier_house').val() == '') {
         $('#kurier_street,#kurier_house').closest('.ui-input-text').addClass('error');
         $('#kurier_message').html('<span class="red">Заполните обязательные поля</span>');
         return false;
     }
-
     MobileUser.SetStorage('order_prop_delivery_id', 2);
-
-    if(id = getHashValue('id')){
+    if (id = getHashValue('id')) {
         MobileUser.SetStorage('order_prop_store_id', id);
     }
-
-    if(id = getHashValue('city_id')){
+    if (id = getHashValue('city_id')) {
         MobileUser.SetStorage('order_prop_city_id', id);
     }
-
-    if(kurier_street = $('#kurier_street').val()){
+    if (kurier_street = $('#kurier_street').val()) {
         MobileUser.SetStorage('order_prop_kurier_street', kurier_street);
     }
-
-    if(kurier_house = $('#kurier_house').val()){
+    if (kurier_house = $('#kurier_house').val()) {
         MobileUser.SetStorage('order_prop_kurier_house', kurier_house);
     }
-
-    if(kurier_case = $('#kurier_case').val()){
+    if (kurier_case = $('#kurier_case').val()) {
         MobileUser.SetStorage('order_prop_kurier_case', kurier_case);
     }
-    
-    if(kurier_apartment = $('#kurier_apartment').val()){
+    if (kurier_apartment = $('#kurier_apartment').val()) {
         MobileUser.SetStorage('order_prop_kurier_apartment', kurier_apartment);
     }
-
     MobileUser.basket.addToCartDelivery(getHashValue('idd'), AfterBuyProduct);
 }
-
 /**
  * Converts some field on map
  * @param  {[type]} item [description]
  * @return {[type]}      [description]
  */
-function convertFields(item){
+function convertFields(item) {
     work_hours = htmlDecode(item.time ? item.time : item.weekday_work_hours);
     phone = htmlDecode(item.Phone ? item.Phone : item.phone);
-    item.adress_print = htmlDecode(item.adress ? item.adress : (item.addressRu?item.addressRu:item.DescriptionRu));
+    item.adress_print = htmlDecode(item.adress ? item.adress : (item.addressRu ? item.addressRu : item.DescriptionRu));
     item.city = htmlDecode(item.cityRu ? item.cityRu : item.city);
     item.city_print = htmlDecode(item.CityDescriptionRu ? item.CityDescriptionRu : item.city);
     item.work_hours_print = htmlDecode(work_hours ? 'Время работы: ' + work_hours : '');
-    item.phone_print = htmlDecode(phone ? 'Телефон: '+ phone : '');
+    item.phone_print = htmlDecode(phone ? 'Телефон: ' + phone : '');
     item.time_print = htmlDecode(item.time ? item.time : '');
-
     //revers coordinates for NP
     if (item.addressRu) {
         tmp_x = item.x;
         item.x = item.y;
         item.y = tmp_x;
     }
-
     return item;
 }
-
 /**
  * Generage hashCode by string value
  * @param  {[type]} val [description]
  * @return {[type]}     [description]
  */
 function hashCode(val) {
-    var hash = 0, i, chr, len;
+    var hash = 0,
+        i, chr, len;
     if (val.length === 0) return hash;
     for (i = 0, len = val.length; i < len; i++) {
-        chr   = val.charCodeAt(i);
-        hash  = ((hash << 5) - hash) + chr;
+        chr = val.charCodeAt(i);
+        hash = ((hash << 5) - hash) + chr;
         hash |= 0;
     }
     return hash;
 };
-
 /**
  * get value parametr from hash
  * @param  {[type]} key [description]
@@ -2692,16 +2654,15 @@ function DrawShopList(json) {
     $.mobile.loading("hide");
     ProssedTapEvents();
 }
-
 /**
  * Result of Detail ShopList
  * @param {[type]} items [description]
  */
-function LoadDetailShopList(items, map, type, city_id, product_idd){
+function LoadDetailShopList(items, map, type, city_id, product_idd) {
     output = '',
         count = 0;
-    if (!!items){
-        for (item_key in items){
+    if (!!items) {
+        for (item_key in items) {
             var item = items[item_key],
                 url,
                 image = '<img src="http://m.citrus.ua/img/svg/shop-list-icon-' + type + '.svg" />';
@@ -2716,16 +2677,16 @@ function LoadDetailShopList(items, map, type, city_id, product_idd){
 /**
  * Initializing automatch cities
  */
-function InitCityAutocomplete(){
-    $("#preorder_city_autocomplete, #personal_city_autocomplete, #delivery_city_autocomplete").on("listviewbeforefilter", function ( e, data ) {
+function InitCityAutocomplete() {
+    $("#preorder_city_autocomplete, #personal_city_autocomplete, #delivery_city_autocomplete").on("listviewbeforefilter", function(e, data) {
         var $ul = $(this),
-            $input = $( data.input ),
+            $input = $(data.input),
             value = $input.val(),
             html = "";
-        $ul.html( "" );
-        if ( value && value.length > 2 ) {
-            $ul.html( "<li><div class='ui-loader'><span class='ui-icon ui-icon-loading'></span></div></li>" );
-            $ul.listview( "refresh" );
+        $ul.html("");
+        if (value && value.length > 2) {
+            $ul.html("<li><div class='ui-loader'><span class='ui-icon ui-icon-loading'></span></div></li>");
+            $ul.listview("refresh");
             $.ajax({
                 url: "http://m.citrus.ua/api/delivery-autocomplete.php",
                 dataType: "json",
@@ -2733,12 +2694,11 @@ function InitCityAutocomplete(){
                 data: {
                     term: $input.val()
                 }
-            })
-            .then( function ( json ) {
-                if(!!json){
+            }).then(function(json) {
+                if (!!json) {
                     $('#preorder_city_autocomplete').show();
-                    $.each( json, function ( i, item ) {
-                        html += '<li class=""><a data-ajax=false onclick="selectCity(\''+item.id+'\',\''+item.city_name+'\')"><table style="width:100%"><tr><td class="suggeintem"><h2 class="item_name_only ">' + item.value + '</h2></td><td style="width:25px"></td></tr></table></a></li>';
+                    $.each(json, function(i, item) {
+                        html += '<li class=""><a data-ajax=false onclick="selectCity(\'' + item.id + '\',\'' + item.city_name + '\')"><table style="width:100%"><tr><td class="suggeintem"><h2 class="item_name_only ">' + item.value + '</h2></td><td style="width:25px"></td></tr></table></a></li>';
                     });
                     $ul.html(html).listview("refresh").trigger("updatelayout");
                 }
