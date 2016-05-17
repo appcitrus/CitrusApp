@@ -631,7 +631,6 @@ function loadProductCard(id, owl) {
                         setCountdown(key, countdowns_items[key]);
                     }
                 }
-                MobileUser.basket.getViewedProducts(showViewedProductsOnProduct);
                 //get delivery city
                 delivery_city = MobileUser.GetStorage('delivery_city');
                 delivery_city_id = MobileUser.GetStorage('delivery_city_id');
@@ -673,7 +672,7 @@ function loadProductCard(id, owl) {
  */
 function loadProductCardExtend(id, json, sale_uri) {
     $.ajax({
-        url: "http://m.citrus.ua/ajax/product_extended.php?ht=a&id=" + parseInt(id) + sale_uri,
+        url: "http://m.citrus.ua/ajax/product_extended.php?ht=a&id=" + parseInt(id) + sale_uri + "&iblock_id=" + json.iblock_id,
         dataType: 'json',
         async: false,
         success: function(json) {
@@ -730,6 +729,7 @@ function loadProductCardExtend(id, json, sale_uri) {
                 $("#accs_container").show();
                 $('#accs-listview').html(output).listview("refresh");
             }
+            MobileUser.basket.getViewedProducts(showViewedProductsOnProduct);
         },
         timeout: 25000,
         error: function(jqXHR, status, errorThrown) { //the status returned will be "timeout" 
