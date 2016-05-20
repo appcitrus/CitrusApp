@@ -1,5 +1,5 @@
-var app_ver = '110',
-    app_ver_print = '1.1',
+var app_ver = '111',
+    app_ver_print = '1.1.1',
     product_list_offset = [],
     main_page_load = false,
     main_images = false,
@@ -12,7 +12,7 @@ function LoadMainPageData() {
     if (!main_page_load) {
         var device = isIOS() ? "apple" : "3";
         $.ajax({
-            url: "http://m.citrus.ua/ajax/main.php?app=" + device + "&bb=1",
+            url: "http://m.citrus.ua/ajax/main.php?app=" + device + "&bb=1&ver=" + app_ver,
             dataType: 'json',
             async: true,
             success: function(json) {

@@ -6,7 +6,7 @@
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id        = "ua.citrus.app.shop"
-        version   = "1.1.0">
+        version   = "1.1.1">
 
     <name>Цитрус</name>
 
@@ -125,7 +125,7 @@
 
 
     <gap:config-file platform="ios" parent="CFBundleVersion">
-        <string>110</string>
+        <string>111</string>
     </gap:config-file>
 
     <!--
