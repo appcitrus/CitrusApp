@@ -6,7 +6,7 @@
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id        = "ua.citrus.app.shop"
-        version   = "1.1.1">
+        version   = "1.1.2">
 
     <name>Цитрус</name>
 
