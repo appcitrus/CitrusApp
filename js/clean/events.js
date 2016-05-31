@@ -684,14 +684,14 @@ $(document).on('click', '.vclick_viewed', function(event) {
     location.reload();
 });
 
-$('.vclick_bundle').unbind().on(eventstring, function(event) {
+$(document).on('click', '.vclick_bundle', function(event) {
     event.stopPropagation();
     event.preventDefault();
     window.location = "#bundle?bundle_id=" + $(this).attr('bundle_id');
     window.scrollTo(0, 0);
 });
 
-$('.vclick_link_product').unbind().on(eventstring, function(event) {
+$(document).on('click', '.vclick_link_product', function(event) {
     event.stopPropagation();
     event.preventDefault();
     loadProductCard($(this).attr('product_id'), true);
