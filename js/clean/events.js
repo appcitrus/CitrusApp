@@ -684,6 +684,20 @@ $(document).on('click', '.vclick_viewed', function(event) {
     location.reload();
 });
 
+$('.vclick_bundle').unbind().on(eventstring, function(event) {
+    event.stopPropagation();
+    event.preventDefault();
+    window.location = "#bundle?bundle_id=" + $(this).attr('bundle_id');
+    window.scrollTo(0, 0);
+});
+
+$('.vclick_link_product').unbind().on(eventstring, function(event) {
+    event.stopPropagation();
+    event.preventDefault();
+    loadProductCard($(this).attr('product_id'), true);
+    window.scrollTo(0, 0);
+});
+
 $(document).on('click', '.change_city', function() {
     var mp = $(this),
         dsc = mp.closest('.delivery-selected-city').find('.delivery-selected-city-selector');
