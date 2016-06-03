@@ -2284,6 +2284,10 @@ function DeleteWishItem(item) {
         if (wish_count < 0) {
             wish_count = 0;
         }
+
+        total = $('.wish_summa').html().toString().replace(/[^-0-9]/gim, '')-$(item).attr('price').toString().replace(/[^-0-9]/gim, '');
+        $('.wish_summa').html(total + ' грн.');
+
         $('.wish_count_cnt').html(wish_count);
         if (wish_id = getPageIdByUri()) {
             var data = {};
