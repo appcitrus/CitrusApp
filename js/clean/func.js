@@ -965,7 +965,7 @@ function LoadTextPageExtends(id, data) {
         count = 0,
         lazy = '';
     $.ajax({
-        url: "ajax/on/text-page-extends.php?id=" + id + send_data,
+        url: "http://m.citrus.ua/ajax/on/text-page-extends.php?id=" + id + send_data,
         dataType: 'json',
         beforeSend: function(xhr) {
             ShowLoading();
