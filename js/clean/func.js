@@ -939,13 +939,57 @@ function LoadTextPage(id, data) {
         }
     }).done(function(data) {
         $.mobile.loading("hide");
-        $('#text-page-content').html(data);
+        $('#action_main_image').remove();
+        $('#text-page-content').html(data).before($('#action_main_image'));
         CFimagesClear();
         if ($("div").is(".social-likes")) {
             $('.social-likes').socialLikes();
         }
     });
+
+    if ($("div").is("#text-page-extends")) {
+        LoadTextPageExtends(id,send_data);
+    }
+
     initSubmitWebForm();
+}
+
+/**
+ * Extends goods for action text page
+ * @param {[type]} id   [description]
+ * @param {[type]} data [description]
+ */
+function LoadTextPageExtends(id, data) {
+    var send_data = data || "",
+        output = "",
+        count = 0,
+        lazy = '';
+    $.ajax({
+        url: "ajax/on/text-page-extends.php?id=" + id + send_data,
+        dataType: 'json',
+        beforeSend: function(xhr) {
+            ShowLoading();
+        }
+    }).done(function(json) {
+        if (json != null && !!json) {
+            $.each(json, function(extends_key, extends_goods_item) {
+                if (!extends_key) {
+                    return;
+                }
+                if (extends_goods_item != null && extends_goods_item.items != null && !!extends_goods_item.items && extends_goods_item.items.length > 0) {
+                    $.each(extends_goods_item.items, function(key, value) {
+                        count = count + 1;
+                        output += generateSectionProductItem(value, lazy)
+                    });
+                }
+            });
+
+        output = '<div class="product-card-module-cr last module-open promo-selector-title"> <div id="product-card-info" class="product-card-module main-module" onclick="moduletoggle(this);"><i class="c_icon c_lider gray main_page_icon"></i>Товары, учавствующие в акции</div> <div class="product-card-info-content"><ul data-role="listview" data-theme="b" data-2inset="true" class="ui-listview ui-group-theme-b">' + output + '</ul></div> </div>';
+        }
+        $('#socialLikesBlock').before($('#text-page-extends').html(output));
+        ProssedTapEvents();
+        product_list_page_loded = true;
+    });
 }
 
 function MakeOrder() {

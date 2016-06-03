@@ -3084,6 +3084,33 @@ ul#filter-props-values-listview .ui-icon-carat-r:after, ul#sort-listview .ui-ico
     font-size: 1.4rem!important;
 }
 
+#action_main_image{
+    width: 100%!important;
+}
+
+#text-page-extends{
+    margin-top: 15px;
+}
+
+.action_conditions{
+    font-size: 10px;
+    color: #c3c3c3;
+    margin-top: 15px;
+}
+
+#text-page-content{
+    padding-left: 0!important;
+    padding-right: 0!important;
+}
+
+.text_page_content,
+#text-page-content .web-form,
+#text-page-content .action_conditions,
+#text-page-content #socialLikesBlock,
+#text-page-content #disqus_thread{
+    padding-left: 16px!important;
+    padding-right: 16px!important;
+}
 
 /** СТИЛИ ДОЖНЫ БЫТЬ В НИЗУ **/
 
