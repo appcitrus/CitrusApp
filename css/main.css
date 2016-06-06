@@ -3098,6 +3098,14 @@ ul#filter-props-values-listview .ui-icon-carat-r:after, ul#sort-listview .ui-ico
     margin-top: 15px;
 }
 
+.social-likes__counter{
+    display: inline-block!important;
+}
+
+.social-likes__counter_empty{
+    display: none!important;
+}
+
 #text-page-content{
     padding-left: 0!important;
     padding-right: 0!important;
