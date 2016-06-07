@@ -2765,7 +2765,7 @@ ul#filter-props-values-listview .ui-icon-carat-r:after, ul#sort-listview .ui-ico
 
 .web-form .element-form .input-group label {
     display: inline-block;
-    min-width: 35px;
+    /*min-width: 35px;*/
     text-align: right;
 }
 

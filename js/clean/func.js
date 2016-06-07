@@ -983,8 +983,9 @@ function LoadTextPageExtends(id, data) {
                     });
                 }
             });
-
-        output = '<div class="product-card-module-cr last module-open promo-selector-title"> <div id="product-card-info" class="product-card-module main-module" onclick="moduletoggle(this);"><i class="c_icon c_lider gray main_page_icon"></i>Товары, учавствующие в акции</div> <div class="product-card-info-content"><ul data-role="listview" data-theme="b" data-2inset="true" class="ui-listview ui-group-theme-b">' + output + '</ul></div> </div>';
+            if(output!=''){
+                output = '<div class="product-card-module-cr last module-open promo-selector-title"> <div id="product-card-info" class="product-card-module main-module" onclick="moduletoggle(this);"><i class="c_icon c_lider gray main_page_icon"></i>Товары, учавствующие в акции</div> <div class="product-card-info-content"><ul data-role="listview" data-theme="b" data-2inset="true" class="ui-listview ui-group-theme-b">' + output + '</ul></div> </div>';
+            }
         }
         $('#socialLikesBlock').before($('#text-page-extends').html(output));
         ProssedTapEvents();
