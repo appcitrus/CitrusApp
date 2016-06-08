@@ -686,13 +686,13 @@ function loadProductCardExtend(id, json, sale_uri) {
                             diskount_block = (bundle_item.old_price > 0) ? '<div class="bundle_item_skidka"><span class="bundle_strong">-' + bundle_item.diskount + '</span><span>' + bundle_item.diskount_type + '</span></div>' : '';
                             price_class = (bundle_item.old_price > 0) ? 'old_price_yes_new' : '';
                             price_class_main = (bundle_item.main.old_price > 0) ? 'old_price_yes_new' : '';
-                            output += '<li><a data-transition="slide" data-ajax=false bundle_id="' + bundle_item.id + '" class="vclick_bundle"><table style="width:100%"><tr><td class="first aligntab64"><div class="bundle_item">' + diskount_block_main + '<img src="' + json.bundle.main.image + '"><br /><span class="bundle_old_price ' + price_class_main + '"><span class="bundle_price">' + bundle_item.main.old_price_print + '</span></span><span class="bundle_price">' + bundle_item.main.price_print + 'грн</span></div></td><td class="aligntab64 bundle_plus">+</td><td class="aligntab64"><div class="bundle_item">' + diskount_block + '<img src="' + bundle_item.image + '"><br /><span class="bundle_old_price ' + price_class + '"><span class="bundle_price">' + bundle_item.old_price_print + '</span></span><span class="bundle_price">' + bundle_item.price_print + ' грн</span></div></td><td width="10"></td></tr></table></a></li>';
+                            output += '<li><a data-transition="slide" x-apple-data-detectors="false" data-ajax=false bundle_id="' + bundle_item.id + '" class="vclick_bundle"><table style="width:100%"><tr><td class="first aligntab64"><div class="bundle_item">' + diskount_block_main + '<img src="' + json.bundle.main.image + '"><br /><span class="bundle_old_price ' + price_class_main + '"><span class="bundle_price">' + bundle_item.main.old_price_print + '</span></span><span class="bundle_price">' + bundle_item.main.price_print + 'грн</span></div></td><td class="aligntab64 bundle_plus">+</td><td class="aligntab64"><div class="bundle_item">' + diskount_block + '<img src="' + bundle_item.image + '"><br /><span class="bundle_old_price ' + price_class + '"><span class="bundle_price">' + bundle_item.old_price_print + '</span></span><span class="bundle_price">' + bundle_item.price_print + ' грн</span></div></td><td width="10"></td></tr></table></a></li>';
                         }
                     });
                 }
                 if (json.bundle.bundle2 !== undefined) {
                     $.each(json.bundle.bundle2, function(key, bundle_items) {
-                        output += '<li><a data-transition="slide" data-ajax=false bundle_id="' + bundle_items.id + '" class="vclick_bundle"><table style="width:100%"><tr>';
+                        output += '<li><a data-transition="slide" x-apple-data-detectors="false" data-ajax=false bundle_id="' + bundle_items.id + '" class="vclick_bundle"><table style="width:100%"><tr>';
                         if (bundle_items.items != null) {
                             var i = 0;
                             $.each(bundle_items.items, function(key, bundle_item) {
