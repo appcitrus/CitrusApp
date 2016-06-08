@@ -3120,6 +3120,15 @@ ul#filter-props-values-listview .ui-icon-carat-r:after, ul#sort-listview .ui-ico
     padding-right: 16px!important;
 }
 
+a[x-apple-data-detectors] {
+    color: inherit !important;
+    text-decoration: none !important;
+    font-size: inherit !important;
+    font-family: inherit !important;
+    font-weight: inherit !important;
+    line-height: inherit !important;
+}
+
 /** СТИЛИ ДОЖНЫ БЫТЬ В НИЗУ **/
 
 .rb-custom, .cb-custom {
