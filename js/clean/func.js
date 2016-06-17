@@ -203,6 +203,7 @@ function LoadDefaultCatalog(category, position, count) {
             var images = "",
                 owlcs = $(".owl-carousel-section");
             owlcs.html('');
+            console.log(json.banner);
             if (json.banner != undefined) {
                 $.each(json.banner, function(key, value) {
                     var link = "";
