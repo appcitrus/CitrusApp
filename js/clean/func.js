@@ -220,10 +220,7 @@ function LoadDefaultCatalog(category, position, count) {
                     }
                     images += '<div class="item"><a ' + link + ' data-ajax=false><img class="owl-lazy gas" gac="InnerBanner" gaa="TopSliderClick" gam="' + value.name + '"  data-src="' + value.image + '"></a></div>';
                 });
-                console.log(owlcs);
-                console.log(owlcs.find("div").length);
-                console.log(images);
-                if (!!owlcs && owlcs.find("div").length > 1) {
+                if (!!owlcs && images != '') {
                     owlcs.html(images).trigger('destroy.owl.carousel').owlCarousel({
                         items: 1,
                         lazyLoad: true,
