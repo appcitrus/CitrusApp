@@ -203,7 +203,6 @@ function LoadDefaultCatalog(category, position, count) {
             var images = "",
                 owlcs = $(".owl-carousel-section");
             owlcs.html('');
-            console.log(json.banner);
             if (json.banner != undefined) {
                 $.each(json.banner, function(key, value) {
                     var link = "";
@@ -221,6 +220,9 @@ function LoadDefaultCatalog(category, position, count) {
                     }
                     images += '<div class="item"><a ' + link + ' data-ajax=false><img class="owl-lazy gas" gac="InnerBanner" gaa="TopSliderClick" gam="' + value.name + '"  data-src="' + value.image + '"></a></div>';
                 });
+                console.log(owlcs);
+                console.log(owlcs.find("div").length);
+                console.log(images);
                 if (!!owlcs && owlcs.find("div").length > 1) {
                     owlcs.html(images).trigger('destroy.owl.carousel').owlCarousel({
                         items: 1,
