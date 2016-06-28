@@ -1478,13 +1478,15 @@ function ShowFilterEnums(id, name, section_id) {
             if (!!json && json.length > 0) {
                 FilterEnums.active_prop_id = id;
                 $.each(json, function(key, value) {
-                    var check_box = "",
-                        check_box_ch = "N";
-                    if ($.inArray(value.id, FilterEnums.enums) !== -1) {
-                        check_box = "active";
-                        check_box_ch = "Y";
+                    if(!!value.usage && value.usage=="1"){
+                        var check_box = "",
+                            check_box_ch = "N";
+                        if ($.inArray(value.id, FilterEnums.enums) !== -1) {
+                            check_box = "active";
+                            check_box_ch = "Y";
+                        }
+                        filter_items += '<li><a class="ui-btn ui-btn-icon-right ui-icon-carat-r check_a" onclick="ToggleEnums(this);"  checked_box="' + check_box_ch + '"  enum_id="' + value.id + '"><table style="width:100%"><tr><td style="vertical-align:middle;text-align:left;padding-left:1.1rem;"><h2 class="item_name_only">' + value.value + '</h2></td><td style="width:40px"><span class="cb-custom' + check_box + '" ></span></td></tr></table></a></li>';
                     }
-                    filter_items += '<li><a class="ui-btn ui-btn-icon-right ui-icon-carat-r check_a" onclick="ToggleEnums(this);"  checked_box="' + check_box_ch + '"  enum_id="' + value.id + '"><table style="width:100%"><tr><td style="vertical-align:middle;text-align:left;padding-left:1.1rem;"><h2 class="item_name_only">' + value.value + '</h2></td><td style="width:40px"><span class="cb-custom' + check_box + '" ></span></td></tr></table></a></li>';
                 });
                 $("#filter_prop_name").html(name);
                 $('#filter-props-values-listview').html(filter_items);
