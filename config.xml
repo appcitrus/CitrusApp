@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- ios8 version -->
+<!-- config.xml reference: https://build.phonegap.com/docs/config-xml -->
+<widget xmlns     = "http://www.w3.org/ns/widgets"
+        xmlns:gap = "http://phonegap.com/ns/1.0"
+        id        = "ua.citrus.app.shop"
+        version   = "1.1.3">
+
+    <name>Цитрус</name>
+
+    <description>
+        Цитрус гаджеты и аксессуары – первая специализированная сеть гаджетов и аксессуаров.
+        Приложение «Цитрус» - яркий магазин гаджетов и аксессуаров в вашем смартфоне.
+        Удобная навигация, актуальный ассортимент и цены, акции, бонусная программа «Цитрус Клуб», карта с магазинами - все это и многое другое вы получите, установив приложение.
+    </description>
+
+    <author href="http://www.citrus.ua" email="hello@citrus.com.ua">
+        citrus.ua
+    </author>
+
+    <!--
+        Enable individual API permissions here.
+        The "device" permission is required for the 'deviceready' event.
+    -->
+    <feature name="http://api.phonegap.com/1.0/device" />
+
+    <!--
+        If you do not want any permissions to be added to your app, add the
+        following tag to your config.xml; you will still have the INTERNET
+        permission on your app, which PhoneGap requires.
+    -->
+    <preference name="permissions"                value="none"/>
+    
+    <!-- Do not auto hide splash on iOS -->
+    <preference name="AutoHideSplashScreen" value="false" />
+    <!-- Do not auto hide splash on Android -->
+    <preference name="SplashScreenDelay" value="25000"/>
+
+    <gap:plugin name="cordova-plugin-device" source="npm" />
+    <gap:plugin name="cordova-plugin-splashscreen" source="npm" />
+    <gap:plugin name="com.phonegap.plugins.pushplugin" version="2.5.0" />
+    <gap:plugin name="cordova-plugin-inappbrowser" source="npm" />
+    <gap:plugin name="com.phonegap.plugin.statusbar" version="1.1.0" />
+    <gap:plugin name="com.danielcwilson.plugins.googleanalytics" version="0.6.1" />
+    <gap:plugin name="com.bunkerpalace.cordova.youtubevideoplayer" version="1.0.1" />
+    <gap:plugin name="com.sharinglabs.cordova.plugin.datepicker" />
+
+    <gap:plugin name="nl.x-services.plugins.launchmyapp">
+        <param name="URL_SCHEME" value="citrus" />
+    </gap:plugin>
+
+    <gap:plugin name="cordova-plugin-whitelist" source="npm"/>
+
+    <gap:plugin name="com.vliesaputra.deviceinformation" version="1.0.1" />
+    
+    <preference name="android-build-tool" value="gradle" />
+
+    <preference name="StatusBarOverlaysWebView" value="false" />
+    <preference name="StatusBarStyle" value="default" />
+    <!--<preference name="StatusBarBackgroundColor" value="#000000" /> -->
+    
+    <!-- Customize your app and platform with the preference element. -->
+    <!-- <preference name="phonegap-version"      value="3.4.0" /> -->      <!-- all: current version of PhoneGap -->
+    <preference name="orientation"                value="portrait" />        <!-- all: default means both landscape and portrait are enabled -->
+    <preference name="target-device"              value="handset" />      <!-- all: possible values handset, tablet, or universal -->
+    <preference name="fullscreen"                 value="false" />           <!-- all: hides the status bar at the top of the screen -->
+    <preference name="webviewbounce"              value="true" />           <!-- ios: control whether the screen 'bounces' when scrolled beyond the top -->
+    <preference name="prerendered-icon"           value="true" />           <!-- ios: if icon is prerendered, iOS will not apply it's gloss to the app's icon on the user's home screen -->
+    <preference name="stay-in-webview"            value="false" />          <!-- ios: external links should open in the default browser, 'true' would use the webview the app lives in -->
+    <preference name="ios-statusbarstyle"         value="default" />   <!-- ios: black-translucent will appear black because the PhoneGap webview doesn't go beneath the status bar -->
+    <preference name="detect-data-types"          value="true" />           <!-- ios: controls whether data types (such as phone no. and dates) are automatically turned into links by the system -->
+    <preference name="exit-on-suspend"            value="false" />          <!-- ios: if set to true, app will terminate when home button is pressed -->
+    <preference name="show-splash-screen-spinner" value="true" />           <!-- ios: if set to false, the spinner won't appear on the splash screen during app loading -->
+    <preference name="auto-hide-splash-screen"    value="true" />           <!-- ios: if set to false, the splash screen must be hidden using a JavaScript API -->
+    <preference name="disable-cursor"             value="false" />          <!-- blackberry: prevents a mouse-icon/cursor from being displayed on the app -->
+    <preference name="android-minSdkVersion"      value="14" />              <!-- android: MIN SDK version supported on the target device. MAX version is blank by default. -->
+    <preference name="android-installLocation"    value="auto" />           <!-- android: app install location. 'auto' will choose. 'internalOnly' is device memory. 'preferExternal' is SDCard. -->
+    
+    <!-- Plugins can also be added here. -->
+    <!--
+        <gap:plugin name="Example" />
+        A list of available plugins are available at https://build.phonegap.com/docs/plugins
+    -->
+
+    <!-- Define app icon for each platform. -->
+    <icon src="icon.png" />
+    <icon src="res/icon/android/36.png"   gap:platform="android"    gap:density="ldpi" />
+    <icon src="res/icon/android/48.png"   gap:platform="android"    gap:density="mdpi" />
+    <icon src="res/icon/android/72.png"   gap:platform="android"    gap:density="hdpi" />
+    <icon src="res/icon/android/96.png"   gap:platform="android"    gap:density="xhdpi" />
+    
+    <icon src="res/icon/ios/Icon-57.png"            gap:platform="ios"        width="57" height="57" />
+    <icon src="res/icon/ios/Icon-60.png"            gap:platform="ios"        width="60" height="60" />
+    <icon src="res/icon/ios/Icon-72.png"            gap:platform="ios"        width="72" height="72" />
+    <icon src="res/icon/ios/Icon-57_2x.png"         gap:platform="ios"        width="114" height="114" />
+    <icon src="res/icon/ios/Icon-60_2x.png"         gap:platform="ios"        width="120" height="120" />
+    <icon src="res/icon/ios/Icon-72_2x.png"         gap:platform="ios"        width="144" height="144" />
+    
+    <icon src="res/icon/windows-phone/icon-48.png"  gap:platform="winphone" />
+    <icon src="res/icon/windows-phone/icon-173.png" gap:platform="winphone"   gap:role="background" />
+
+    <!-- Define app splash screen for each platform. -->
+    <gap:splash src="res/screen/android/screen-ldpi-portrait.png"  gap:platform="android" gap:density="ldpi" />
+    <gap:splash src="res/screen/android/screen-mdpi-portrait.png"  gap:platform="android" gap:density="mdpi" />
+    <gap:splash src="res/screen/android/screen-hdpi-portrait.png"  gap:platform="android" gap:density="hdpi" />
+    <gap:splash src="res/screen/android/screen-xhdpi-portrait.png" gap:platform="android" gap:density="xhdpi" />
+    
+    <gap:splash src="res/screen/android/screen-ldpi-landscape.png"  gap:platform="android" gap:qualifier="land-ldpi" />
+    <gap:splash src="res/screen/android/screen-mdpi-landscape.png"  gap:platform="android" gap:qualifier="land-mdpi" />
+    <gap:splash src="res/screen/android/screen-hdpi-landscape.png"  gap:platform="android" gap:qualifier="land-hdpi" />
+    <gap:splash src="res/screen/android/screen-xhdpi-landscape.png" gap:platform="android" gap:qualifier="land-xhdpi" />
+    
+    
+    <gap:splash src="res/screen/ios/screen-iphone-portrait.png"    gap:platform="ios"     width="320" height="480" />
+    <gap:splash src="res/screen/ios/screen-iphone-portrait-2x.png" gap:platform="ios"     width="640" height="960" />
+    <gap:splash src="res/screen/ios/screen-ipad-portrait.png"      gap:platform="ios"     width="768" height="1024" />
+    <gap:splash src="res/screen/ios/screen-ipad-landscape.png"     gap:platform="ios"     width="1024" height="768" />
+    
+    <gap:splash gap:platform="ios" height="1136" src="res/screen/ios/screen-iphone-portrait-568h-2x.png" width="640" />
+    
+    <gap:splash src="res/screen/windows-phone/screen-portrait.jpg" gap:platform="winphone" />
+
+
+    <gap:config-file platform="ios" parent="CFBundleVersion">
+        <string>113</string>
+    </gap:config-file>
+
+    <!--
+        Define access to external domains.
+
+        <access />            - a blank access tag denies access to all external resources.
+        <access origin="*" /> - a wildcard access tag allows access to all external resource.
+
+        Otherwise, you can specify specific domains:
+    -->
+    <access origin="http://127.0.0.1*"/> <!-- allow local pages -->
+
+    <access origin="//citrus.ua/*" subdomains="true"/>
+    <access origin="//www.citrus.ua/*" subdomains="true"/>
+    <access origin="//cdn1.citrus.ua/*" subdomains="true"/>
+    <access origin="//cdn2.citrus.ua/*" subdomains="true"/>
+    <access origin="//cdn3.citrus.ua/*" subdomains="true"/>
+    <access origin="//cdn4.citrus.ua/*" subdomains="true"/>
+    <access origin="//img.citrus.ua/*" subdomains="true"/>
+    <access origin="//www.citrus.ua/img/*" subdomains="true"/>
+    <access origin="//www.citrus.ua/img/png/*" subdomains="true"/>
+    <access origin="//www.citrus.ua/img/svg/*" subdomains="true"/>
+    <access origin="//www.citrus.ua/img/png/gray/*" subdomains="true"/>
+    <access origin="//www.citrus.ua/img/svg/gray/*" subdomains="true"/>
+    <access origin="//www.citrus.ua/img/png/white/*" subdomains="true"/>
+    <access origin="//www.citrus.ua/img/svg/white/*" subdomains="true"/>
+
+    <access origin="//m.citrus.ua/*" subdomains="true"/>
+    <access origin="//m.citrus.ua/css/*" subdomains="true"/>
+    <access origin="//m.citrus.ua/ajax/*" subdomains="true"/>
+    <access origin="//m.citrus.ua/ajax/on/*" subdomains="true"/>
+
+    <access origin="tel:0800207020" launch-external="yes" />
+    <access origin="geo:*" launch-external="yes" />
+
+    <allow-navigation href="*://*.citrus.ua/*" />   
+
+</widget>

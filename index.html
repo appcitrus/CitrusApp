@@ -1,0 +1,1325 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+
+    <meta property="og:title" content="Интернет магазин Цитрус. Гаджеты и аксессуары" />
+    <meta property="og:description" content="Эксперт на рынке смартфонов и планшетов." />
+    <meta property="og:image" content="http://www.citrus.ua/citrus-ua-og-image.jpg" />
+
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#D8601C">
+    <link rel="apple-touch-icon" href="/img/icons/logo-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/img/icons/logo-96x96.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/img/icons/logo-96x96.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/img/icons/logo-96x96.png">
+
+
+    <link href="/img/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link href="/img/favicon.ico" rel="icon" type="image/x-icon" />
+
+    <title>Интернет-магазин Цитрус — гаджеты и аксессуары.</title>
+
+    <link	rel="stylesheet" href="jquery/jquery.mobile-1.4.2.min.css" />
+    <link	rel="stylesheet" href="css/buttons/flat.css" />
+    <link	rel="stylesheet" href="css/main.css" />
+    <link   rel="stylesheet" href="css/owl.carousel.css" />
+    <link	rel="stylesheet" href="css/jqm-datebox.min.css" />
+    <link   rel="stylesheet" href="css/socialLikes.css" />
+
+    <script src="phonegap.js"></script>
+    <script src="js/clean/ga.js"></script>
+    <script src="js/clean/PushNotification.js"></script>
+    <script src="js/clean/PushNotificationClass.js"></script>
+    <script src="jquery/jquery.js"></script>
+    <script src="jquery/jquery.mobile-1.4.2.js"></script>
+    <script src="jquery/owl.carousel.min.js"></script>
+
+    <script src="js/clean/lazylist.js"></script>
+    <script src="js/clean/gmap.js"></script>
+    <script src="js/clean/func.js"></script>
+    <script src="js/clean/storage.js"></script>
+    <script src="js/clean/basket.js"></script>
+    <script src="js/clean/search.js"></script>
+    <script src="js/clean/news.js"></script>
+    <script src="js/clean/gadgets.js"></script>
+    <script src="js/clean/actions.js"></script>
+    <script src="js/clean/events.js"></script>
+    <script src="js/clean/socialLikes.min.js"></script>
+    <script src="jquery/jquery.countdown.min.js"></script>
+    <script src="http://m.citrus.ua/js/clean/messages.js"></script>
+
+</head>
+<body class="ui-mobile-viewport ui-overlay-a flat" id="ui-page-top">
+
+<!-- Панель меню Начало -->
+<div data-role="panel" data-display="push" data-theme="b"  id="nav-panel" class="jqm-navmenu-panel" data-position-fixed="true">
+    <ul data-role="listview"  data-inset="true">
+        <li><a href="#main" onclick="CheckHrefChange(this)"  data-role="button" class="panel-menu-item"  ><i class="c_icon c_home"></i><div class="text">Главная</div></a></li>
+        <li><a href="#page-personal" onclick="CheckHrefChange(this)"  data-role="button" class="panel-menu-item"><i class="c_icon c_user"></i><div class="text">Личный кабинет</div><div id="user_bonus_menu" class="user_bonus_menu"></div></a></li>
+        <li class="world"><a href="#products-list" onclick="CheckHrefChange(this)"   data-role="button"   class="panel-menu-item"   ><i class="c_icon c_catalog"></i><div class="text">Каталог товаров</div></a></li>
+        <li class="world"><a href="#products-list?category-items=sale" onclick="CheckHrefChange(this)" data-role="button" class="panel-menu-item"><i class="c_icon c_catalog_sale"></i><div class="text">Распродажа</div></a></li>
+        <li class="world"><a href="#search-page" onclick="CheckHrefChange(this)"    class="panel-menu-item"   data-role="button"  ><i class="c_icon c_search"></i><div class="text">Поиск</div></a></li>
+        <li class="world"><a href="#page-cart" onclick="CheckHrefChange(this)"   data-role="button"   class="panel-menu-item"    ><i class="c_icon c_basket_simple"></i><div class="text">Корзина</div></a></li>
+        <li class="world"><a href="#text-page?id=248917" onclick="CheckHrefChange(this)"   data-role="button"   class="panel-menu-item"><i class="c_icon c_basket_wallet_white"></i><div class="text">Оплата</div></a></li>
+        <li class="world"><a href="#text-page?id=154639" onclick="CheckHrefChange(this)"   data-role="button"   class="panel-menu-item"><i class="c_icon c_basket_logistics_white"></i><div class="text">Доставка</div></a></li>
+        <li class="world"><a href="#text-page?id=179990" onclick="CheckHrefChange(this)"   data-role="button"   class="panel-menu-item"><i class="c_icon c_basket_guarantee_white"></i><div class="text">Гарантия</div></a></li>
+        <li class="world"><a href="#services-page" onclick="CheckHrefChange(this)"   data-role="button"   class="panel-menu-item"><i class="c_icon c_news"></i><div class="text">Цитрус Сервисы</div></a></li>
+        <li class="world"><a href="#actions-page" onclick="CheckHrefChange(this)"    data-role="button"   class="panel-menu-item"><i class="c_icon c_action"></i><div class="text">Акции</div></a></li>
+        <li ><a href="#news-page" onclick="CheckHrefChange(this)"    data-role="button"   class="panel-menu-item"   ><i class="c_icon c_news"></i><div class="text">Новости</div></a></li>
+        <li class="world"><a href="#gadgets-page" onclick="CheckHrefChange(this)"    data-role="button"   class="panel-menu-item"   ><i class="c_icon c_gadgets"></i><div class="text">Гаджетариум</div></a></li>
+        <li><a onclick="Showtextpage(209622)" data-role="button" class="panel-menu-item"><i class="c_icon c_club"></i><div class="text">Цитрус Клуб</div></a></li>
+        <li><a href="#shoplist-page"  onclick="CheckHrefChange(this)"    data-role="button"   class="panel-menu-item"   ><i class="c_icon c_shops"></i><div class="text">Магазины Цитрус</div></a></li>
+        <li><a onclick="window.open('http://support.citrus.ua/', '_system', 'location=yes');return false;"  data-role="button"   class="panel-menu-item"  ><i class="c_icon c_contactus"></i><div class="text">Обратная связь</div></a></li>
+        <li><a  onclick="window.open('http://m.citrus.ua/online.html', '_system', 'location=yes');return false;"  target="_blank"  data-role="button"  class="panel-menu-item"  ><i class="c_icon c_online"></i><div class="text">Онлайн консультант</div></a></li>
+    </ul>
+</div>
+<!-- / Панель меню Конец-->
+
+<!-- Главная страница Начало -->
+<div data-role="page" id="main" class="app-page  ui-page ui-page-theme-a ui-page-footer-fixed">
+    <div data-role="header" data-position="fixed" id="header" class="jqm-header" data-tap-toggle="false" data-theme="b">
+        <a link="#nav-panel" data-iconpos="notext"  class="ui-noshadow cit_panel_href c_icon_contr" >
+            <i class="c_icon c_menu"></i>
+        </a>
+        <h1><div class="c_main_logo"></div></h1>
+        <div class="bnt-menu-panel-right">
+            <a href="#page-personal" onclick="CheckHrefChange(this)" data-role="button" class="panel-menu-item"><i class="c_icon c_user"></i></a>
+            <a link="#page-cart" data-role="button" class="ui-noshadow vclick_link c_icon_contr world"><i class="c_icon c_basket"></i></a>    
+        </div>
+    </div>
+
+    <div data-role="content">
+        <div id="search_contaner" class="world">
+            <i class="c_icon search-input-icon"></i>
+            <input type="text" class="search-input" id="main-search-input" autocomplete="off" name="password" id="search" value="" placeholder="Поиск">
+            <i class="c_icon voice-input-icon"></i>
+        </div>
+        <div class="owl-carousel-main"></div>
+        <ul data-role="listview" data-theme="b" data-2inset="true" id="main-listview"></ul>
+        <div id="user_bonus_panel" onclick="window.location='#page-personal'"></div>
+        <div class="product-card-module-cr world">
+            <a href="#products-list"><div id="product-card-info" class="product-card-module main-module module first link"><i class="c_icon c_catalog gray main_page_icon"></i>Все товары</div></a>
+        </div>
+        <div class="product-card-module-cr world">
+            <div id="product-card-info" class="product-card-module main-module module load-promos" onclick="LoadPromos('lider');"><i class="c_icon c_lider gray main_page_icon"></i>Лидеры продаж</div>
+            <div class="product-card-info-content">
+                <ul data-role="listview" data-theme="b" data-2inset="true" id="main-listview-main_page_lider"></ul>
+            </div>
+        </div>
+        <div class="product-card-module-cr world" >
+            <div id="product-card-info" class="product-card-module main-module load-promos" onclick="LoadPromos('super');"><i class="c_icon c_super gray main_page_icon"></i>Суперцена</div>
+            <div class="product-card-info-content">
+                <ul data-role="listview" data-theme="b" data-2inset="true" id="main-listview-main_page_super"></ul>
+            </div>
+        </div>
+        <div class="product-card-module-cr world" >
+            <div id="product-card-info" class="product-card-module main-module load-promos" onclick="LoadPromos('new');"><i class="c_icon c_new gray main_page_icon"></i>Новинки</div>
+            <div class="product-card-info-content">
+                <ul data-role="listview" data-theme="b" data-2inset="true" id="main-listview-main_page_new"></ul>
+            </div>
+        </div>
+        <div class="product-card-module-cr last world" >
+            <div id="product-card-info" class="product-card-module main-module load-promos" onclick="LoadPromos('soon');"><i class="c_icon c_soon gray main_page_icon"></i>Скоро в продаже</div>
+            <div class="product-card-info-content">
+                <ul data-role="listview" data-theme="b" data-2inset="true" id="main-listview-main_page_soon"></ul>
+            </div>
+        </div>
+       <div class="product-card-module-cr last module-open world">
+            <div id="product-card-info" class="product-card-module main-module"  onclick="moduletoggle(this);"><i class="c_icon ricent_viewes_home gray main_page_icon"></i>Ранее просматривали</div>
+            <div class="product-card-info-content">
+                <ul data-role="listview" data-theme="b" data-2inset="true" id="main-listview-viewed-products"></ul>
+            </div>
+        </div>
+        <div class="product-card-module-cr world">
+            <a href="#actions-page"><div  class="product-card-module main-module module link"><i class="c_icon c_action gray main_page_icon"></i>Наши акции</div></a>
+        </div>
+        <div class="product-card-module-cr last">
+            <a href="#news-page"><div  class="product-card-module main-module module link"><i class="c_icon c_news gray main_page_icon"></i>Новости</div></a>
+        </div>
+        <div class="product-card-module-cr world">
+            <a href="#gadgets-page"><div class="product-card-module main-module module link"><i class="c_icon c_gadgets gray main_page_icon"></i>Гаджетариум</div></a>
+        </div>
+        <div class="product-card-module-cr world last">
+            <a href="#services-page"><div class="product-card-module main-module module link"><i class="c_icon c_news gray main_page_icon"></i>Цитрус Сервисы</div></a>
+        </div>
+        <div class="product-card-module-cr last">
+            <a onclick="Showtextpage(209590)"><div class="product-card-module main-module module link"><i class="c_icon c_career gray main_page_icon"></i>Цитрус Карьера</div></a>
+        </div>
+        <div class="product-card-module-cr last">
+            <a href="#shoplist-page"><div  class="product-card-module main-module module link"><i class="c_icon c_shops gray main_page_icon"></i>Наши магазины</div></a>
+        </div>
+        <div class="product-card-module-cr last">
+            <a onclick="Showtextpage(209622)"><div class="product-card-module main-module module link"><i class="c_icon c_club gray main_page_icon"></i>Цитрус Клуб</div></a>
+        </div>
+        <div class="product-card-module-cr last">
+            <a  onclick="window.open('http://m.citrus.ua/online.html', '_system', 'location=yes');return false;"><div  class="product-card-module main-module module link  external-link-icon"><i class="c_icon c_online gray main_page_icon"></i>Онлайн консультант</div></a>
+        </div>
+        <div class="product-card-module-cr last">
+            <a  onclick="window.open('http://support.citrus.ua/', '_system', 'location=yes');return false;"><div  class="product-card-module main-module module link external-link-icon"><i class="c_icon c_contactus gray main_page_icon"></i>Обратная связь</div></a>
+        </div>
+        <div style="text-align: center;padding:16px">
+            <h2>Горячая линия:</h2>
+            <a  onclick="SupportCall();" class="ui-link external-link-icon"><button id="product-card-tel-btn" class="btn big tel_btn ui-btn ui-corner-all"><i class="c_icon c_phone c_ibtn"></i>0 (800) 20-70-20 </button></a>
+        </div>
+        <div class="notes_phone">
+            Бесплатно с любых номеров<br/>
+            Работаем для вас с 9:00 до 21:00            
+        </div>
+          
+    <div class="copy_links copy"></div>
+    <div class="copy footer_copy"></div>
+    </div>
+</div>
+<!-- / Главная страница Конец-->
+
+<!-- Каталог товаров Начало -->
+<div data-role="page" id="products-list" class="app-page  ui-page ui-page-theme-a ui-page-footer-fixed">
+    <div data-role="header" data-position="fixed" id="header" class="jqm-header" data-tap-toggle="false" data-theme="b">
+        <a data-iconpos="notext"  class="ui-noshadow cit_panel_href BackButton" onclick="$.mobile.back();" >
+            <i class="c_icon c_back" ></i>
+            <span id="CatalogBack"></span>
+        </a>
+
+        <div class="bnt-menu-panel-right">
+            <a link="#main"  data-role="button"   class="ui-noshadow vclick_link c_icon_contr ui-btn-inline" style="height: 30px;">
+                <i class="c_icon c_home"></i>
+            </a>
+        </div>
+    </div>
+    <div class="navPanelChild" id="nav-panel-products-list"></div>
+
+    <div data-role="content">
+        <div class="owl-carousel-section"></div>
+        <ul data-role="listview" data-theme="b" data-2inset="true" id="products-listview"></ul>
+    </div>
+    <div data-role="footer" data-position="fixed" id="catalog-footer" style="display: none">
+        <div data-role="navbar">
+            <ul>
+                <li><a onclick="LoadSortItems();" id="sort_btn"> <i class="c_icon  c_sort gray c_ibtn"> </i> Сортировка</a></li>
+                <li><a  id="filter_btn"> <i class="c_icon c_filter gray c_ibtn"></i>Фильтр</a></li>
+            </ul>
+        </div><!-- /navbar -->
+    </div><!-- /footer -->
+</div>
+<!-- / Каталог товаров Конец-->
+
+<!-- Сортировка товаров Начало -->
+<div data-role="page" id="sort-page" class="app-page  ui-page ui-page-theme-a ui-page-footer-fixed">
+    <div data-role="header" data-position="fixed" id="header" class="jqm-header" data-tap-toggle="false" data-theme="b">
+        <a data-iconpos="notext" data-rel="back"  class="ui-noshadow" >
+            <i class="c_icon c_left_arrow"></i>
+        </a>
+        <h1 class="leftsideh1"><a data-rel="back" id="sort-page-h1">Сортировка товаров</a></h1>
+    </div>
+    <div data-role="content" onclick="">
+        <ul data-role="listview" data-theme="b" data-2inset="true" id="sort-listview"></ul>
+    </div>
+    <div data-role="footer" data-position="fixed" id="sort-footer" >
+        <div data-role="navbar">
+            <ul>
+                <li><a onclick="FilterEnums.ClearSort();$.mobile.back();">Сбросить</a></li>
+                <li><a onclick="FilterEnums.ApplySort();$.mobile.back();">Применить</a></li>
+            </ul>
+        </div><!-- /navbar -->
+    </div><!-- /footer -->
+</div>
+<!-- / Сортировка товаров Конец-->
+
+<!-- Фильтр товаров Начало -->
+<div data-role="page" id="filter-page" class="app-page  ui-page ui-page-theme-a ui-page-footer-fixed">
+    <div data-role="header" data-position="fixed" id="header" class="jqm-header" data-tap-toggle="false" data-theme="b">
+        <a data-iconpos="notext" data-rel="back"  class="ui-noshadow" >
+            <i class="c_icon c_left_arrow"></i>
+        </a>
+        <h1 class="leftsideh1"><a data-rel="back" id="filter-page-h1">Фильтр товаров</a></h1>
+    </div>
+    <div data-role="content" onclick="">
+        <ul data-role="listview" data-theme="b" data-2inset="true" id="filter-listview">
+        </ul>
+    </div>
+    <div data-role="footer" data-position="fixed" id="filter-footer" >
+        <div data-role="navbar">
+            <ul>
+                <li><a onclick="FilterEnums.Clear();$.mobile.back();"> Сбросить</a></li>
+                <li><a onclick="$.mobile.back();"> Применить</a></li>
+            </ul>
+        </div><!-- /navbar -->
+    </div><!-- /footer -->
+</div>
+<!-- / Фильтр товаров Конец-->
+
+<!-- Фильтр товаров значения свойств Начало -->
+<div data-role="page" id="filter-values-page" class="app-page  ui-page ui-page-theme-a ui-page-footer-fixed">
+    <div data-role="header" data-position="fixed" id="header" class="jqm-header" data-tap-toggle="false" data-theme="b">
+        <a data-iconpos="notext" data-rel="back"  class="ui-noshadow" >
+            <i class="c_icon c_left_arrow"></i>
+        </a>
+        <h1 class="leftsideh1"><a data-rel="back" id="filter_prop_name">Фильтр товаров: свойства</a></h1>
+    </div>
+    <div data-role="content" onclick="">
+        <ul data-role="listview" data-theme="b"  data-2inset="true"   id="filter-props-values-listview">
+        </ul>
+    </div>
+    <div data-role="footer" data-position="fixed" id="filter-values-footer" >
+        <div data-role="navbar">
+            <ul>
+                <li><a onclick="$.mobile.back();"> Отмена</a></li>
+                <li><a onclick="SaveSelectedEnums();"> ОК</a></li>
+            </ul>
+        </div><!-- /navbar -->
+    </div><!-- /footer -->
+</div>
+<!-- Фильтр товаров значения свойств Начало -->
+
+<!-- Карточка товара Начало -->
+<div data-role="page" id="product-card" class="app-page  ui-page ui-page-theme-a ui-page-footer-fixed">
+    <div data-role="header" data-position="fixed" id="header" class="jqm-header" data-tap-toggle="false" data-theme="b">
+        <a data-iconpos="notext"  class="ui-noshadow c_icon_contr BackButton" onclick="$.mobile.back();" >
+            <i class="c_icon c_back" ></i>
+        </a>
+        <h1><div class="c_main_logo"></div></h1>
+        <div class="bnt-menu-panel-right">
+            <a link="#page-cart"  data-role="button"   class="ui-noshadow vclick_link c_icon_contr world">
+                <i class="c_icon c_basket"></i>
+            </a>
+        </div>
+    </div>
+    <div class="navPanelChild" id="nav-panel-product-card"></div>
+    <div  id="product-card-content" data-role="content" >
+        <div class="content-padding">
+            <h2 id="product-card-name">Название товара</h2>
+            <div class="product-card-code-cr">
+                Код товара: <span id="product-card-code"></span>
+            </div>
+        </div>
+        <input type="hidden" id="current_product_id">
+        <input type="hidden" id="current_product_idd">
+        <input type="hidden" id="current_product_price">
+
+        <div id="general_owl_mob">
+            <div id="product-card-images-contaner"> </div>
+            <div id="state_and_specbonus"></div>
+            <div id="sticker_img"></div>
+        </div>
+
+        <div id="product-card-variations"></div>
+        <div class="content-padding">
+            <div id="product-card-prices-co-box">
+                <div id="product-card-prices-co"></div>
+                <button id="product-card-co-buy-btn" class="ui-btn ui-corner-all green_white_btn"><i class="c_icon c_basket_green c_ibtn"></i>   Купить</button>
+            </div>
+        </div>
+        <hr class="hr_co">
+        <div class="content-padding">
+            <div id="product-card-old_prices"></div>
+            <div id="product-card-prices"></div>
+            <div id="product-card-status"></div>
+            <div id="citrus_club" class="citrus_club"></div>
+            <button  id="product-card-buy-btn" class="ui-btn ui-corner-all btn big green_btn" style="display:none"><i class="c_icon c_basket_simple c_ibtn"></i>	 Купить</button>
+            <button id="product-card-sale-buy-btn" class="ui-btn ui-corner-all green_btn" style="display:none"><i class="c_icon c_basket_simple c_ibtn"></i>     Купить</button>
+            <button  id="product-card-pre-btn" class="ui-btn ui-corner-all btn big orange_btn" style="display:none" onclick="OpenPreorderPage()">	 Заказать</button>
+            <div id="product-card-delivery"></div>
+        </div>
+
+        <div class="line_gray"></div>
+
+        <div class="product-card-module-cr" id="product_countdown_block">
+            <div class="product-card-info-content">
+              <ul data-role="listview" data-theme="b" data-2inset="true" id="product-countdown-listview"></ul>
+            </div>
+        </div>
+
+        <div class="product-card-module-cr module-close" id="product_actions_block">
+            <div id="product-card-info" class="product-card-module main-module module action_titles" onclick="moduletoggle(this);">Акции и спецпредложения</div>
+            <div class="product-card-info-content">
+              <ul data-role="listview" data-theme="b" data-2inset="true" id="product-actions-listview"></ul>
+            </div>
+        </div>
+
+        <div class="product-card-module-cr module-close g_menu_payment_parts">
+                <div id="product-card-info" class="product-card-module main-module module menu_payment_parts" onclick="moduletoggle(this);"><p class="payment_parts_bg">Оплата частями</p></div>
+                <div class="product-card-info-content">
+                    <div class="box_payment_parts">
+                        <p>Покупайте этот товар в рассрочку «Оплата частями» без комиссий и переплат. Рассрочка доступна до 4 или 6 мес (срок зависит от модели, уточняйте у оператора контакт-центра). </p>
+                        <p>Все что вам нужно :</p>  
+                        <ul>
+                            <li>карта ПриватБанка «Универсальная Gold», «Универсальная» или элитная карта для VIP-клиентов</li>
+                            <li>достаточный кредитный лимит по карте (узнать ваш лимит можно, отправив SMS со словом chast на номер 10060)</li>
+                        </ul>
+                        <p>Заказывайте желанный гаджет сейчас, оплачивайте частями!</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card-module-cr module-open free_shipping">
+                <div id="product-card-info" class="product-card-module main-module module" onclick="moduletoggle(this);"><i class="c_icon c_shipping gray main_page_icon"></i>Доставка</div>
+                <div class="product-card-info-content">
+
+                    <div class="delivery-selected-city">
+                        Город: <span class="delivery_city">Киев</span><span class="change_city">Изменить</span>
+                        <div class="delivery-selected-city-selector">
+                            <div>
+                                <ul id="delivery_city_autocomplete" data-role="listview" data-inset="true" data-filter="true" data-filter-placeholder="Город" data-filter-theme="d"></ul>
+                                <div class="suggestions ui-listview suggestions_selector"></div>
+                                <input type="hidden" id="delivery_city" name="delivery_city">
+                                <input type="hidden" id="delivery_city_id" name="delivery_city_id"/>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="delivery-availableoptions"></div>
+                        
+                    <div class="product-card-module-cr module-close more_delivery">
+                        <div id="product-card-info" class="product-card-module main-module module" onclick="moduletoggle(this);">Подробнее о доставке</div>
+                        <div class="product-card-info-content">
+                            <ul>
+                                <li>в <a href="#shoplist-page">ближайший</a> магазин &laquo;Цитрус&raquo;</li>
+                                <li>курьером домой или в офис (Киев, Одесса) </li>
+                                <li>в почтомат ПриватБанка </li><br>
+                                <a onclick="Showtextpage(154639)">Подробнее о доставке »</a> 
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        <div class="product-card-module-cr">
+            <a data-transition="slide" id="product-card-wish-add-link"  data-ajax=false><div id="product-card-info" class="product-card-module main-module module link"><span class="wish_heartrose">В список желаний</span></div></a>
+        </div>
+            
+        <div class="product-card-module-cr ">
+            <a data-transition="slide" id="product-card-props-link"  data-ajax=false><div id="product-card-info" class="product-card-module main-module module link"><i class="c_icon c_features gray main_page_icon"></i>Характеристики</div></a>
+        </div>
+
+        <div class="product-card-module-cr ">
+            <a data-transition="slide" id="product-card-info-link" data-ajax=false><div id="product-card-info" class="product-card-module main-module module link"><i class="c_icon c_description gray main_page_icon"></i>Описание</div></a>
+        </div>
+
+        <div class="product-card-module-cr ">
+            <a data-transition="slide" id="product-card-reviews-link"  data-ajax=false><div id="product-card-info" class="product-card-module main-module module link external-link-icon"><i class="c_icon c_reviews gray main_page_icon"></i>Отзывы</div></a>
+        </div>
+
+        <div id="bundle_block">
+            <div class="list-head-module content-padding"><i class="c_icon c_bundle gray main_page_icon"></i>Вместе дешевле!</div>             
+                <ul data-role="listview" data-theme="b" data-2inset="true" id="bundle-listview"></ul>                
+        </div>
+
+        <div id="accs_container">
+            <div class="list-head-module content-padding"><i class="c_icon c_accessories gray main_page_icon"></i>Аксессуары</div>
+            <ul data-role="listview" data-theme="b" data-2inset="true" id="accs-listview"></ul>
+        </div>
+
+        <div class="product-card-module-cr last module-open recent_viewes_product" id="product-card-info-viewed-product">
+            <div id="product-card-info" class="product-card-module main-module" onclick="moduletoggle(this);"><i class="c_icon ricent_viewes gray main_page_icon"></i>Ранее просматривали</div>
+            <div class="product-card-info-content">
+                <ul data-role="listview" data-theme="b" data-2inset="true" id="main-listview-viewed-product"></ul>
+            </div>
+        </div>
+
+        <div style="text-align: center;" class="content-padding">
+            <h2>Горячая линия:</h2>
+            <a onclick="SupportCall();" class="ui-link"><button id="product-card-tel-btn" class="btn big tel_btn ui-btn ui-corner-all"><i class="c_icon c_phone c_ibtn"></i>0 (800) 20-70-20 </button></a>
+        </div>
+        <div class="notes_phone notes_phone_cards">
+            Бесплатно с любых номеров<br/>
+            Работаем для вас с 9:00 до 21:00            
+        </div>
+
+        <hr>
+        <div class="copy_links copy"></div>
+        <div class="copy footer_copy"></div>
+    </div>
+</div>
+<!-- / Карточка товара Конец-->
+
+<!-- Корзина товаров Начало -->
+<div data-role="page" id="page-cart" class="app-page  ui-page ui-page-theme-a ui-page-footer-fixed">
+    <div data-role="header" data-position="fixed" id="header" class="jqm-header" data-tap-toggle="false" data-theme="b">
+        <a data-iconpos="notext"  class="ui-noshadow  c_icon_contr BackButton" onclick="$.mobile.back();" >
+            <i class="c_icon c_back" ></i>
+        </a>
+        <h1><div class="c_main_logo"></div></h1>
+        <div class="bnt-menu-panel-right">
+            <a link="#main"  data-role="button"   class="ui-noshadow vclick_link c_icon_contr ui-btn-inline" style="height: 30px;">
+                <i class="c_icon c_home"></i>
+            </a>
+        </div>
+    </div>
+
+    <div class="navPanelChild" id="nav-panel-cart"></div>
+    <div data-role="content" >
+        <div class="content-padding basketBoxBlock">
+            <h2 style="float: left;">Моя корзина</h2>
+            <div class="total_price" id="total_price"></div>
+            <button class="ui-btn ui-corner-all  btn big green_btn" id="order-make-btn" onclick="MakeOrder()">Оформить заказ</button>
+            <div id="cart-status"></div>
+        </div>
+
+        <ul data-role="listview" data-theme="b" data-2inset="true" id="cart-list"></ul>
+        <div class="content-padding basketEditBlock">
+            <a href="#products-list" class="continueShopping"><div class="text">&larr; Продолжить покупки</div></a>
+            <a data-role="button" class="mini_btn blue basketEditButton" data-inline="true" onclick="EnableBasketEditMode()" id="cart_edit_button">Редактировать</a><br>
+        </div>
+        <hr><div class="copy_links copy"></div>
+        <div class="copy footer_copy"></div>  
+    </div>
+</div>
+<!-- / Корзина товаров Конец-->
+
+<!-- Оформление заказа Начало -->
+<div data-role="page" id="page-order" class="app-page  ui-page ui-page-theme-a ui-page-footer-fixed">
+    <div data-role="header" data-position="fixed" id="header" class="jqm-header" data-tap-toggle="false" data-theme="b">
+        <a data-iconpos="notext"  class="ui-noshadow  c_icon_contr BackButton" onclick="$.mobile.back();" >
+            <i class="c_icon c_back" ></i>
+        </a>
+        <h1><div class="c_main_logo"></div></h1>
+        <div class="bnt-menu-panel-right"></div>
+    </div>
+    <div class="navPanelChild" id="nav-panel-order"></div>
+
+    <div data-role="content" id="page-order-content">
+        <div class="content-padding">
+            <h2 style="">Оформление заказа</h2>
+        </div>
+
+        <div class="content-padding">
+            <div id="order_fio_name_contaner" style="display:none"><b>Здравствуйте, <span id="order_fio_name"></span>!</b> <br>Рады снова Вас видеть.</div>
+            <div id="order_fio_none_contaner"  style="display:none">
+                <div>Совершая покупку, Вы автоматически становитесь участником Цитрус Клуба</div>
+                <div>Получайте и накапливайте бонусные грн, используйте их на покупку товаров.</div>
+            </div>
+        </div>
+
+        <div class="content-padding" style="margin-top: 13px;">
+            <div style="color: #F6731B;">Ваши контактные данные:</div>
+            <div><input type="text" placeholder="ФИО" id="order_fio"  maxlength="40" autocomplete="on" ></div>
+            <div><input type="text" placeholder="Город" id="order_city"  maxlength="20" autocomplete="on" ></div>
+            <div><input type="text" placeholder="Телефон" id="order_tel"   autocomplete="on" disabled></div>
+            <div><input type="text" placeholder="Email" id="order_email"   autocomplete="on" ></div>
+            <button class="ui-btn ui-corner-all  btn big green_btn" id="order-make-btn" onclick="StartMakeOrderTry();">Заказать</button>
+        </div>
+        <hr>
+        <div class="copy_links copy"></div>
+        <div class="copy footer_copy"></div>
+    </div>
+</div>
+<!-- / Оформление заказа Конец-->
+
+<!-- Личный кабинет -->
+<div data-role="page" id="page-personal" class="app-page  ui-page ui-page-theme-a ui-page-footer-fixed">
+    <div data-role="header" data-position="fixed" id="header" class="jqm-header" data-tap-toggle="false" data-theme="b">
+        <a data-iconpos="notext" link="#nav-panel-personal" class="ui-noshadow cit_panel_href c_icon_contr" >           
+        <i class="c_icon c_menu"></i>           
+        </a>
+        <h1><div class="c_main_logo"></div></h1>
+        <div class="bnt-menu-panel-right">
+            <a href="#page-personal" onclick="CheckHrefChange(this)" data-role="button" class="panel-menu-item"><i class="c_icon c_user"></i></a>
+            <a link="#page-cart" data-role="button" class="ui-noshadow vclick_link c_icon_contr world"><i class="c_icon c_basket"></i></a> 
+        </div>  
+    </div>      
+ <div class="navPanelChild" id="nav-panel-personal"></div>
+        <div data-role="content" id="page-personal-content">
+            <div class="content-padding">
+                <div id="personal_fio_name_contaner" style="display:none"><b>Здравствуйте, <span id="personal_fio_name"></span>!</b> <br>Рады снова Вас видеть.</div>
+            </div>
+
+            <div class="content-padding" id="personal_user_bonus_box" style="margin-top: 13px;">
+                <div id="personal_user_bonus_boxes">
+                    <div class="onscore">На Вашем счету:</div>
+                    <a onclick="Showtextpage(187640,true)"><div id="personal_user_bonus_base_box" class="pub_box">Базовых бонусов:<div class="personal_user_bonus_center"><div id="personal_user_bonus_base"></div><span class="grn">грн</span></div></div></a>
+                    <a onclick="Showtextpage(187646,true)"><div id="personal_user_bonus_special_box" class="pub_box">Специальных бонусов:<div class="personal_user_bonus_center"><div id="personal_user_bonus_special"></div><span class="grn">грн</span></div></div></a>
+                </div>
+                <div id="personal_fio_none_contaner"  style="display:none">
+                    <div class="error">Воспользоваться бонусами можно<br/>после заполнения Вашей анкеты.</div>
+                </div>
+                <div id="personal_save_success" style="display:none">
+                    <div class="success">Анкета сохранена</div>
+                </div>
+            </div>
+            <div class="content-padding product-card-module-cr module-close">
+                <div id="product-card-info" class="personal-info-module personal-info-module-anketa product-card-module main-module"  onclick="moduletoggle(this);"><i class="c_icon gray main_page_icon"></i>Моя анкета</div>
+                <div class="product-card-info-content personal-info-content">
+                       <div id="personal_anketa_box">
+                            <div><input type="text" placeholder="Фамилия" id="personal_NameF" name="personal_NameF"  maxlength="40" autocomplete="on" rq='1'></div>
+                            <div><input type="text" placeholder="Имя" id="personal_NameI" name="personal_NameI"  maxlength="40" autocomplete="on" rq='1'></div>
+                            <div><input type="text" placeholder="Отчество" id="personal_NameO" name="personal_NameO"  maxlength="40" autocomplete="on" rq='1'></div>
+                            
+                            <div class="personal_radio_half">
+                                <input id="GenderF" value="1" type="radio" name="Gender" maxlength="40" autocomplete="on" ><label for="GenderF">Женский</label>
+                                <input id="GenderM" value="2" type="radio" name="Gender" maxlength="40" autocomplete="on" ><label for="GenderM">Мужской</label>
+                            </div>
+                            
+                            <div class="personal_datepicker"><input type="text" data-role="date" placeholder="Дата" id="personal_BirthDate" class="nativedatepicker" name="personal_BirthDate"  maxlength="40" autocomplete="on" rq='1'></div>
+
+                            <div><input type="text" placeholder="Email" id="personal_email" name="personal_email" autocomplete="on" rq='1'></div>
+                            
+                            <div><select class="bf_select reqs" name="Region" id="Region" onchange="get_city_in_region()"></select></div>
+                            <div><select class="bf_select reqs" name="City" id="City" onchange="get_shops_in_city()" rqq="1"></select></div>
+                            <div><input type="text" placeholder="Район" id="District" name="District"  maxlength="20" autocomplete="on" ></div>
+                            <div><select class="bf_select reqs" name="PointOfSaleCode" id="PointOfSaleCode"></select></div>
+                            
+                            <div><input type="text" placeholder="Улица" id="personal_AddressStreet" name="personal_AddressStreet"  maxlength="20" autocomplete="on" ></div>
+                            <div class="personal_input_half">
+                                <input type="text" placeholder="Дом" id="personal_AddressHomeNum" name="personal_AddressHomeNum"  maxlength="10" autocomplete="on" >
+                                <input type="text" placeholder="Квартира" id="personal_AddressRoomNum" name="personal_AddressRoomNum"  maxlength="10" autocomplete="on" >
+                            </div>
+                            <button class="ui-btn ui-corner-all orange_btn" id="personal-info-save-btn" onclick="UpdateUserInfoTry();">Сохранить анкету</button>
+                        </div>
+                </div>
+            </div>
+            <div class="product-card-module-cr last world">
+                <a href="#page-cart"><div class="product-card-module main-module module link personal-info-module" id="personal-mybasket-info"><i class="c_icon gray main_page_icon"></i>Моя корзина</div></a>
+            </div>
+            <div class="product-card-module-cr last world">
+                <a href="#page-orders"><div class="product-card-module main-module module link personal-info-module" id="personal-order-info"><i class="c_icon gray main_page_icon"></i>Мои заказы</div></a>
+            </div>
+            <div class="product-card-module-cr last world">
+                <a href="#page-preorders"><div class="product-card-module main-module module link personal-info-module" id="personal-order-info"><i class="c_icon gray main_page_icon"></i>Мои предзаказы</div></a>
+            </div>
+            <div class="product-card-module-cr last world">
+                <a href="#page-wishes"><div class="product-card-module main-module module link personal-info-module" id="personal-order-info"><i class="c_icon gray main_page_icon"></i>Мои желания</div></a>
+            </div>
+            <div class="product-card-module-cr last world">
+                <a href="#page-push"><div class="product-card-module main-module module link personal-info-module" id="personal-order-info"><i class="c_icon gray main_page_icon"></i>Архив сообщений</div></a>
+            </div>
+            <div class="footer_box" data-role="footer" data-position="fixed">
+                <div class="copy footer_copy"></div>  
+            </div>   
+        </div>  
+</div>
+<!-- / Личный кабинет -->
+
+<!-- Мои заказы Начало -->
+<div data-role="page" id="page-orders" class="app-page  ui-page ui-page-theme-a ui-page-footer-fixed">
+    <div data-role="header" data-position="fixed" id="header" class="jqm-header" data-tap-toggle="false" data-theme="b">
+        <a data-iconpos="notext"  class="ui-noshadow cit_panel_href c_icon_contr BackButton"onclick="$.mobile.back();" >
+            <i class="c_icon c_back" ></i>
+        </a>
+        <h1><div class="c_main_logo"></div></h1>
+        <div class="bnt-menu-panel-right">
+            <a href="#page-personal" onclick="CheckHrefChange(this)" data-role="button" class="panel-menu-item"><i class="c_icon c_user"></i></a>
+            <a link="#page-cart" data-role="button" class="ui-noshadow vclick_link c_icon_contr world"><i class="c_icon c_basket"></i></a>   
+        </div>
+    </div>      
+ <div class="navPanelChild" id="nav-panel-product-card"></div>
+        <div id="page-orders-content" data-role="content" >
+            <div class="content-padding">
+                 <h2 class="page-orders-name">Мои заказы</h2>   
+            </div>   
+            <div class="content-padding">   
+                <div id="personal_user_orders_list"></div>
+            </div>
+        <hr class="page-orders-hr">
+            <div class="copy_links copy"></div>  
+            <div class="copy footer_copy"></div>          
+        </div>  
+</div>
+<!-- / Мои заказы Конец-->
+
+<!-- Страница детальный заказ Начало -->
+<div data-role="page" id="order-page" class="app-page  ui-page ui-page-theme-a ui-page-footer-fixed">
+    <div data-role="header" data-position="fixed" id="header" class="jqm-header" data-tap-toggle="false" data-theme="b">
+        <a data-iconpos="notext"  class="ui-noshadow cit_panel_href c_icon_contr BackButton"onclick="$.mobile.back();" >
+            <i class="c_icon c_back" ></i>
+        </a>
+        <h1><div class="c_main_logo"></div></h1>
+        <a link="#page-cart"  data-role="button"   class="ui-noshadow vclick_link c_icon_contr world">            
+            <i class="c_icon c_basket"></i>         
+        </a>
+    </div>      
+ <div class="navPanelChild" id="nav-panel-order-page"></div>
+        <div data-role="content" class="content-padding" id="order-page-content"></div>      
+</div>
+<!-- / Страница детальный заказ Конец-->
+
+<!-- Мои предзаказы Начало -->
+<div data-role="page" id="page-preorders" class="app-page  ui-page ui-page-theme-a ui-page-footer-fixed">
+    <div data-role="header" data-position="fixed" id="header" class="jqm-header" data-tap-toggle="false" data-theme="b">
+        <a data-iconpos="notext"  class="ui-noshadow cit_panel_href c_icon_contr BackButton"onclick="$.mobile.back();" >
+            <i class="c_icon c_back" ></i>
+        </a>
+        <h1><div class="c_main_logo"></div></h1>
+        <div class="bnt-menu-panel-right">
+            <a href="#page-personal" onclick="CheckHrefChange(this)" data-role="button" class="panel-menu-item"><i class="c_icon c_user"></i></a>
+            <a link="#page-cart" data-role="button" class="ui-noshadow vclick_link c_icon_contr world"><i class="c_icon c_basket"></i></a>  
+        </div>
+    </div>      
+ <div class="navPanelChild" id="nav-panel-product-card"></div>
+        <div id="page-preorders-content" data-role="content" >
+            <h2 class="page-orders-name">Мои предзаказы</h2>    
+            <div class="product-card-module-cr  module-open">
+                <div id="preorders-canbuy-info" class="product-card-module main-module module"  onclick="moduletoggle(this);"><i class="c_icon c_basket_gray gray main_page_icon"></i>Доступные для покупки:</div>
+                <div class="product-card-info-content">
+                    <div id="preorders-buy-content"></div>
+                </div>
+            </div>
+
+            <div class="product-card-module-cr module-open">
+                <div id="preorders-cannotbuy-info" class="product-card-module main-module module"  onclick="moduletoggle(this);"><i class="c_icon c_soon gray main_page_icon"></i>Ожидаются в продаже:</div>
+                <div class="product-card-info-content">
+                    <div id="preorders-notbuy-content"></div>
+                </div>
+            </div>
+
+            <div class="product-card-module-cr module-open">
+                <div id="preorders-no"></div>
+            </div> 
+            <hr>
+            <div class="footer_box" data-role="footer" data-position="fixed">
+                <div class="copy footer_copy"></div>  
+            </div>        
+        </div>  
+</div>
+<!-- / Мои предзаказы Конец-->
+
+<!-- Страница спасибо оформленного заказа Начало -->
+<div data-role="page" id="order-done-page" class="app-page  ui-page ui-page-theme-a ui-page-footer-fixed">
+    <div data-role="header" data-position="fixed" id="header" class="jqm-header" data-tap-toggle="false" data-theme="b">
+        <a data-iconpos="notext" link="#nav-panel-order-done-page" class="ui-noshadow cit_panel_href" >
+            <i class="c_icon c_menu"></i>
+        </a>
+        <h1><div class="c_main_logo"></div></h1>
+    </div>
+    <div class="navPanelChild" id="nav-panel-order-done-page"></div>
+
+    <div data-role="content" >
+        <div class="content-padding">
+            <h2>Спасибо!</h2>
+            <div style="margin-bottom: 1rem;">Ваш заказ № B-<span id="order_done_page_order_id"></span> принят.</div>
+            <div style="margin-bottom: 1rem;">Для уточнения наличия товара пожалуйста дождитесь звонка от менеджера call-центра.</div>
+            <a href="#main" class="ui-link"><button id="product-card-tel-btn" class="  btn big green_btn ui-btn ui-corner-all">Продолжить покупки</button></a>
+        </div>
+        <hr>
+        <div class="copy_links copy"></div>
+        <div class="copy footer_copy"></div>
+    </div>
+</div>
+<!-- / Страница спасибо оформленного заказа Конец-->
+
+<!-- Оформление предзаказа Начало -->
+<div data-role="page" id="page-preorder" class="app-page  ui-page ui-page-theme-a ui-page-footer-fixed">
+    <div data-role="header" data-position="fixed" id="header" class="jqm-header" data-tap-toggle="false" data-theme="b">
+        <a data-iconpos="notext"  class="ui-noshadow  c_icon_contr BackButton" onclick="$.mobile.back();" >
+            <i class="c_icon c_back" ></i>
+        </a>
+        <h1><div class="c_main_logo"></div></h1>
+        <div class="bnt-menu-panel-right"></div>
+    </div>
+    <div class="navPanelChild" id="nav-panel-preorder"></div>
+
+    <div data-role="content" id="page-preorder-content">
+        <div class="content-padding">
+            <h2 style="">Оформление предзаказа</h2>
+        </div>
+
+        <div class="content-padding">
+            <div id="preorder_product_contaner"></div>
+        </div>
+
+        <input type="hidden"  id="preorder_product_id" >
+        <div class="content-padding" style="margin-top: 13px;">
+            <div style="color: #F6731B;">Ваши контактные данные:</div>
+            <div><input type="text" placeholder="Ваше имя" id="preorder_fio"  maxlength="40" autocomplete="on" ></div>
+            <div><input type="text" placeholder="Контактный телефон" id="preorder_tel"   autocomplete="on"></div>
+            <div>
+            <ul id="preorder_city_autocomplete" data-role="listview" data-inset="true" data-filter="true" data-filter-placeholder="Город" data-filter-theme="d"></ul>
+                <div class="suggestions ui-listview">
+                    <div class="suggestion-i" onclick="selectCity(908,'Киев','Киевская',1,1,1,4)"><a href="#">Киев</a></div>
+                    <div class="suggestion-i" onclick="selectCity(616,'Днепропетровск','Днепропетровская',1,0,true,1)"><a href="#">Днепропетровск</a></div>
+                    <div class="suggestion-i" onclick="selectCity(642,'Донецк','Киевская',1,0,1,2)"><a href="#">Донецк</a></div>
+                    <div class="suggestion-i" onclick="selectCity(1551,'Одесса','Одесская',1,1,1,10)"><a href="#">Одесса</a></div>
+                    <div class="suggestion-i" onclick="selectCity(502,'Горловка','Донецкая',1,0,1,29)"><a href="#">Горловка</a></div>
+                    <div class="suggestion-i" onclick="selectCity(742,'Запорожье','Запорожская',1,0,1,3)"><a href="#">Запорожье</a></div>
+                    <div class="suggestion-i" onclick="selectCity(815,'Измаил','Одесская',1,0,1,65)"><a href="#">Измаил</a></div>
+                    <div class="suggestion-i" onclick="selectCity(824,'Ильичевск','Одесская',1,0,1,54)"><a href="#">Ильичевск</a></div>
+                    <div class="suggestion-i" onclick="selectCity(1427,'Николаев','Николаевская',1,0,1,9)"><a href="#">Николаев</a></div>
+                    <div class="suggestion-i" onclick="selectCity(2249,'Харьков','Харьковская',1,0,1,13)"><a href="#">Харьков</a></div>
+                    <div class="suggestion-i" onclick="selectCity(2429,'Южный','Одесская',0,0,1,186)"><a href="#">Южный</a></div>
+                    <div class="suggestion-i"><a href="#">Введите другой город ...</a></div>
+                </div>
+                <input type="hidden" placeholder="Город" id="preorder_city"  maxlength="20" autocomplete="on" >
+            <input type="hidden" id="preorder_city_id" /></div>
+            <div><input type="email" placeholder="Ваш E-mail" id="preorder_email"   autocomplete="on" ></div>
+            <div><input type="text" placeholder="Примечание" id="preorder_comment"   autocomplete="on"></div>
+            <div><input id="igreed" type="checkbox" name="igreed"><span class="forigreed">Я согласен с тем, что цена товара на момент отгрузки может отличаться от цены, указанной в предзаказе</span></div>
+            <div class="preorder_message"></div>
+            <button class="ui-btn ui-corner-all  btn big orange_btn" id="preorder-make-btn" onclick="StartMakePreOrderTry();">Заказать</button>
+        </div>
+        <hr>
+        <div class="copy_links copy"></div>
+        <div class="copy footer_copy"></div>
+    </div>
+</div>
+<!-- / Оформление предзаказа Конец-->
+
+<!-- Страница спасибо оформленного предзаказа Начало -->
+<div data-role="page" id="preorder-done-page" class="app-page  ui-page ui-page-theme-a ui-page-footer-fixed">
+    <div data-role="header" data-position="fixed" id="header" class="jqm-header" data-tap-toggle="false" data-theme="b">
+        <a data-iconpos="notext" link="#nav-panel-preorder-done-page" class="ui-noshadow cit_panel_href" >
+            <i class="c_icon c_menu"></i>
+        </a>
+        <h1><div class="c_main_logo"></div></h1>
+    </div>
+    <div class="navPanelChild" id="nav-panel-preorder-done-page"></div>
+
+    <div data-role="content" >
+        <div class="content-padding">
+            <h2>Спасибо!</h2>
+            <div style="margin-bottom: 1rem;">Ваш предзаказ № <span id="order_done_page_preorder_id"></span> получен и отправлен в обработку! Мы свяжемся с Вами, как только товар появится в наличии.</div>
+            <a href="#main" class="ui-link"><button id="product-card-tel-btn" class="  btn big green_btn ui-btn ui-corner-all">Продолжить покупки</button></a>
+        </div>
+        <hr>
+        <div class="copy_links copy"></div>
+        <div class="copy footer_copy"></div>
+    </div>
+</div>
+<!-- / Страница спасибо оформленного заказа Конец-->
+
+<!-- Страница поиска товаров Начало -->
+<div data-role="page" id="search-page" class="app-page  ui-page ui-page-theme-a ui-page-footer-fixed">
+    <div data-role="header" data-position="fixed" id="header" class="jqm-header" data-tap-toggle="false" data-theme="b">
+        <a data-iconpos="notext"  class="ui-noshadow  c_icon_contr BackButton" onclick="$.mobile.back();" >
+            <i class="c_icon c_back" ></i>
+        </a>
+        <h1><div class="c_main_logo"></div></h1>
+        <div class="bnt-menu-panel-right">
+            <a link="#page-cart"  data-role="button"   class="ui-noshadow vclick_link c_icon_contr world">
+                <i class="c_icon c_basket"></i>
+            </a>
+        </div>
+    </div>
+
+    <div class="navPanelChild" id="nav-panel-search-page"></div>
+    <div data-role="content">
+        <div style="padding:0 0.3rem;" id="search_contaner">
+            <div class="s_button" id="seach-input-button">Искать</div>
+            <ul id="search_autocomplete" data-role="listview" data-inset="true" data-filter="true" data-filter-placeholder="Поиск" data-filter-theme="d"></ul>
+        </div>
+        <ul data-role="listview" data-theme="b" data-2inset="true" id="search-listview"></ul>
+    </div>
+</div>
+<!-- / Страница поиска товаров Конец-->
+
+<!-- Страница детальный текст Начало -->
+<div data-role="page" id="text-page" class="app-page  ui-page ui-page-theme-a ui-page-footer-fixed">
+    <div data-role="header" data-position="fixed" id="header" class="jqm-header" data-tap-toggle="false" data-theme="b">
+        <a data-iconpos="notext"  class="ui-noshadow  c_icon_contr BackButton" onclick="$.mobile.back();" >
+            <i class="c_icon c_back" ></i>
+        </a>
+        <h1><div class="c_main_logo"></div></h1>
+        <div class="bnt-menu-panel-right">
+            <a link="#page-cart"  data-role="button"   class="ui-noshadow vclick_link c_icon_contr world">
+                <i class="c_icon c_basket"></i>
+            </a>
+        </div>
+    </div>
+    <div class="navPanelChild" id="nav-panel-text-page"></div>
+    <div data-role="content" class="content-padding" id="text-page-content"></div>
+    <div data-role="content" class="" id="text-page-extends"></div>
+</div>
+<!-- / Страница детальный текст Конец-->
+
+<!-- Страница Отзывы Начало -->
+<div data-role="page" id="reviews-page" class="app-page  ui-page ui-page-theme-a ui-page-footer-fixed">
+    <div data-role="header" data-position="fixed" id="header" class="jqm-header" data-tap-toggle="false" data-theme="b">
+        <a data-iconpos="notext"  class="ui-noshadow  c_icon_contr BackButton" onclick="$.mobile.back();" >
+            <i class="c_icon c_back" ></i>
+        </a>
+        <h1><div class="c_main_logo"></div></h1>
+        <div class="bnt-menu-panel-right">
+            <a link="#page-cart"  data-role="button"   class="ui-noshadow vclick_link c_icon_contr world">
+                <i class="c_icon c_basket"></i>
+            </a>
+        </div>
+    </div>
+    <div class="navPanelChild" id="nav-panel-text-page"></div>
+    <div data-role="content" class="content-padding" id="disqus_thread"></div>
+    <div data-role="content" class="content-padding" id="reviews-page-content"></div>
+</div>
+<!-- / Страница Отзывы Конец-->
+
+<!-- Страница Авторизации  Начало -->
+<div data-role="page" id="login-page" class="app-page  ui-page ui-page-theme-a ui-page-footer-fixed">
+    <div data-role="header" data-position="fixed" id="header" class="jqm-header" data-tap-toggle="false" data-theme="b">
+        <a data-iconpos="notext" link="#nav-panel-login-page" class="ui-noshadow cit_panel_href c_icon_contr"><i class="c_icon c_menu"></i></a>
+        <h1><div class="c_main_logo"></div></h1>
+        <div class="bnt-menu-panel-right">
+            <a link="#main" onclick="CheckHrefChange(this)" data-role="button" class="ui-noshadow vclick_link c_icon_contr">           
+                <i class="c_icon c_home"></i>           
+            </a>
+        </div>
+    </div>
+    <div class="navPanelChild" id="nav-panel-login-page"></div>
+
+    <div data-role="content" class="content-padding" id="login-page-content">
+        <div class="screen-center">
+            <h3>Ваш номер мобильного телефона</h2>
+                <div class="phone_add"><input type="tel"  id="phone" maxlength="13" autocomplete="off"  value="+380" onkeyup="MobileUser.VerifyPhoneInput(this,'#sendCodeButton')"></div>
+                <button id="sendCodeButton" class="ui-btn ui-corner-all  btn big green_btn" onclick="MobileUser.Authorization_sendCode($('#phone').val());">Далее</button>
+        </div>
+    </div>
+</div>
+<!-- / Страница Авторизации текст Конец-->
+
+<!-- Страница ввода sms_code  Начало -->
+<div data-role="page" id="sms-page" class="app-page  ui-page ui-page-theme-a ui-page-footer-fixed">
+    <div data-role="header" data-position="fixed" id="header" class="jqm-header" data-tap-toggle="false" data-theme="b">
+        <a data-iconpos="notext"  class="ui-noshadow  c_icon_contr BackButton" onclick="$.mobile.back();" >
+            <i class="c_icon c_back" ></i>
+        </a>
+        <h1><div class="c_main_logo"></div></h1>
+        <div class="bnt-menu-panel-right">
+            <a link="#main" onclick="CheckHrefChange(this)" data-role="button" class="ui-noshadow vclick_link c_icon_contr">           
+                <i class="c_icon c_home"></i>           
+            </a>
+        </div>
+    </div>
+    <div class="navPanelChild" id="nav-panel-sms-page"></div>
+
+    <div data-role="content" class="content-padding" id="sms-page-content">
+        <h3>Введите код из SMS</h2>
+            <div><input type="tel" placeholder="" id="sms_code"  maxlength="4" autocomplete="off" ></div>
+            <button id="sms-code-btn" class="ui-btn ui-corner-all  btn big green_btn"  onclick="MobileUser.AuthorizeByCode($(this).attr('phone'),$('#sms_code').val());">Войти</button>
+            <div id="wrongCodeSms"></div>
+            <span class="send_more_code_message">Не получили SMS с кодом?<br/> <a href="#login-page" onclick="CheckHrefChange(this)" class="more_sms order_login_get_code">Отправить еще раз</a> или <a href="#login-page" onclick="CheckHrefChange(this)" class="order_login_get_new_phone">введите другой номер</a></span>
+    </div>
+</div>
+<!-- / Страница вода sms_code  текст Конец-->
+
+<!-- Страница новостей  Начало -->
+<div data-role="page" id="news-page" class="app-page  ui-page ui-page-theme-a ui-page-footer-fixed">
+    <div data-role="header" data-position="fixed" id="header" class="jqm-header" data-tap-toggle="false" data-theme="b">
+        <a data-iconpos="notext"  class="ui-noshadow  c_icon_contr BackButton" onclick="$.mobile.back();" >
+            <i class="c_icon c_back" ></i>
+        </a>
+        <h1><div class="c_main_logo"></div></h1>
+        <div class="bnt-menu-panel-right">
+            <a link="#page-cart"  data-role="button" class="ui-noshadow vclick_link c_icon_contr world">
+                <i class="c_icon c_basket"></i>
+            </a>
+        </div>
+    </div>
+    <div class="navPanelChild" id="nav-panel-news-page"></div>
+    <div data-role="content">
+        <ul data-role="listview" data-theme="b" data-2inset="true" id="news-listview"></ul>
+    </div>
+</div>
+<!-- / Страница новостей  Конец-->
+
+<!-- Страница Гаджетариум  Начало -->
+<div data-role="page" id="gadgets-page" class="app-page  ui-page ui-page-theme-a ui-page-footer-fixed">
+    <div data-role="header" data-position="fixed" id="header" class="jqm-header" data-tap-toggle="false" data-theme="b">
+        <a data-iconpos="notext"  class="ui-noshadow  c_icon_contr BackButton" onclick="$.mobile.back();" >
+            <i class="c_icon c_back" ></i>
+        </a>
+        <h1><div class="c_main_logo"></div></h1>
+        <div class="bnt-menu-panel-right">
+            <a link="#page-cart"  data-role="button"   class="ui-noshadow vclick_link c_icon_contr world">
+                <i class="c_icon c_basket"></i>
+            </a>
+        </div>
+    </div>
+    <div class="navPanelChild" id="nav-panel-gadgets-page"></div>
+    <div data-role="content">
+        <ul data-role="listview" data-theme="b" data-2inset="true" id="gadgets-listview"></ul>
+    </div>
+</div>
+<!-- / Страница Гаджетариум  Конец-->
+
+<!-- Страница акций  Начало -->
+<div data-role="page" id="actions-page" class="app-page  ui-page ui-page-theme-a ui-page-footer-fixed">
+    <div data-role="header" data-position="fixed" id="header" class="jqm-header" data-tap-toggle="false" data-theme="b">
+        <a data-iconpos="notext"  class="ui-noshadow  c_icon_contr BackButton" onclick="$.mobile.back();" >
+            <i class="c_icon c_back" ></i>
+        </a>
+        <h1><div class="c_main_logo"></div></h1>
+        <div class="bnt-menu-panel-right">
+            <a link="#page-cart"  data-role="button"   class="ui-noshadow vclick_link c_icon_contr world">
+                <i class="c_icon c_basket"></i>
+            </a>
+        </div>
+    </div>
+    <div class="navPanelChild" id="nav-panel-actions-page"></div>
+
+    <div data-role="content">
+        <ul data-role="listview" data-theme="b" data-2inset="true" id="actions-listview"></ul>
+    </div>
+</div>
+<!-- / Страница акций Конец-->
+
+<!-- Страница отсутствует соединение с интернетом... -->
+<div data-role="page" id="lost-connection-page" class="app-page  ui-page ui-page-theme-a ui-page-footer-fixed">
+    <div data-role="header" data-position="fixed" id="header" class="jqm-header" data-tap-toggle="false" data-theme="b">
+        <a data-iconpos="notext" link="#nav-panel-lost-connection-page" class="ui-noshadow cit_panel_href c_icon_contr" >
+            <i class="c_icon c_menu"></i>
+        </a>
+        <h1><div class="c_main_logo"></div></h1>
+    </div>
+    <div class="navPanelChild" id="nav-panel-lost-connection-page"></div>
+
+    <div data-role="content">
+        <div class="content-padding">
+            <h2>Отсутствует соединение с интернетом...</h2>
+            <img src="img/png/inet-line.png">
+            <div style="margin-bottom: 1rem;">Но вы можете оформить заказ или обратиться в службу поддержки клиентов по телефону</div>
+            <div style="text-align: center;">
+                <a onclick="SupportCall2();" class="ui-link"><button id="product-card-tel-btn" class="btn big tel_btn ui-btn ui-corner-all"><i class="c_icon c_phone c_ibtn"></i>0 (800) 20-70-30 </button></a>
+            </div>
+        </div>
+        <div class="copy" style="color: rgb(118, 118, 118);margin-bottom: 20px">Звонки с мобильных - по тарифам вашего оператора, звонки со стационарных - бесплатно</div>
+        <div class="content-padding" style="margin-bottom:20px">
+            <div>Также вы можете посмотреть</div>
+            <div><a href="#shoplist-page">Список наших магазинов</a></div>
+        </div>
+        <hr>
+        <div class="copy_links copy"></div>
+        <div class="copy footer_copy"></div>
+    </div>
+</div>
+<!-- / Страница отсутствует соединение с интернетом...-->
+
+<!-- Страница список магазинов  Начало -->
+<div data-role="page" id="shoplist-page" class="app-page  ui-page ui-page-theme-a ui-page-footer-fixed">
+    <div data-role="header" data-position="fixed" id="header" class="jqm-header" data-tap-toggle="false" data-theme="b">
+        <a data-iconpos="notext"  class="ui-noshadow  c_icon_contr BackButton" onclick="$.mobile.back();" >
+            <i class="c_icon c_back" ></i>
+        </a>
+        <h1><div class="c_main_logo"></div></h1>
+        <div class="bnt-menu-panel-right">
+            <a link="#page-cart"  data-role="button"   class="ui-noshadow vclick_link c_icon_contr world">
+                <i class="c_icon c_basket"></i>
+            </a>
+        </div>
+    </div>
+    <div class="navPanelChild" id="nav-panel-shoplist-page"></div>
+
+    <div data-role="content">
+        <ul data-role="listview" data-theme="b" data-2inset="true" id="shoplist-listview"></ul>
+    </div>
+</div>
+<!-- / Страница список магазинов Конец-->
+
+<!-- Страница Онлайн консультанта  Начало -->
+<div data-role="page" id="online-page" class="app-page  ui-page ui-page-theme-a ui-page-footer-fixed">
+    <div data-role="header" data-position="fixed" id="header" class="jqm-header" data-tap-toggle="false" data-theme="b">
+        <a data-iconpos="notext"  class="ui-noshadow  c_icon_contr BackButton" onclick="$.mobile.back();" >
+            <i class="c_icon c_back" ></i>
+        </a>
+        <h1><div class="c_main_logo"></div></h1>
+        <div class="bnt-menu-panel-right">
+            <a link="#page-cart"  data-role="button"   class="ui-noshadow vclick_link c_icon_contr world">
+                <i class="c_icon c_basket"></i>
+            </a>
+        </div>
+    </div>
+    <div class="navPanelChild" id="nav-panel-maps-page"></div>
+    <div data-role="content">
+        <div id="online_wrap"></div>
+    </div>
+</div>
+<!-- / Онлайн консультанта Конец-->
+
+<!-- Страница router Начало -->
+<div data-role="page" id="loader" class="app-page  ui-page ui-page-theme-a ui-page-footer-fixed">
+    <div data-role="content"></div>
+</div>
+<!-- / Страница router Конец-->
+
+<!-- Страница debug Начало -->
+<div data-role="page" id="debug" class="app-page  ui-page ui-page-theme-a ui-page-footer-fixed">
+    <div data-role="header" data-position="fixed" id="header" class="jqm-header" data-tap-toggle="false" data-theme="b">
+        <a data-iconpos="notext"  class="ui-noshadow  c_icon_contr BackButton" onclick="$.mobile.back();" >
+            <i class="c_icon c_back" ></i>
+        </a>
+        <h1><div class="c_main_logo"></div></h1>
+    </div>
+    <div data-role="content" id="console"></div>
+</div>
+<!-- / Страница debug Конец-->
+
+<!-- Страница Отзывы Начало -->
+<div data-role="page" id="reviews-page" class="app-page  ui-page ui-page-theme-a ui-page-footer-fixed">
+    <div data-role="header" data-position="fixed" id="header" class="jqm-header" data-tap-toggle="false" data-theme="b">
+        <a data-iconpos="notext"  class="ui-noshadow c_icon_contr BackButton" onclick="$.mobile.back();" >
+            <i class="c_icon c_back" ></i>
+        </a>
+        <h1><div class="c_main_logo"></div></h1>
+        <div class="bnt-menu-panel-right">
+            <a href="#page-personal" onclick="CheckHrefChange(this)" data-role="button" class="panel-menu-item"><i class="c_icon c_user"></i></a>
+            <a link="#page-cart" data-role="button" class="ui-noshadow vclick_link c_icon_contr world"><i class="c_icon c_basket"></i></a> 
+        </div>  
+    </div>      
+    <div class="navPanelChild" id="nav-panel-text-page"></div>
+    <div data-role="content" class="content-padding" id="reviews-page-content"></div>       
+</div>
+<!-- / Страница Отзывы Конец-->
+
+<!-- Страница promo Начало -->
+<div data-role="page" id="promo" class="app-page  ui-page ui-page-theme-a ui-page-footer-fixed">
+    <div data-role="header" data-position="fixed" id="header" class="jqm-header" data-tap-toggle="false" data-theme="b">
+        <a data-iconpos="notext"  class="ui-noshadow c_icon_contr BackButton" onclick="$.mobile.back();" >
+            <i class="c_icon c_back" ></i>
+        </a>
+        <h1><div class="c_main_logo"></div></h1>
+        <a link="#page-cart"  data-role="button" class="ui-noshadow vclick_link c_icon_contr world">          
+        <i class="c_icon c_basket"></i>         
+        </a>
+    </div>      
+ <div class="navPanelChild" id="nav-panel-promo-page"></div>
+        <div data-role="content" class="content-padding" id="promo-page-content">
+            <div class="promo-products-text"></div>
+            <ul data-role="listview" data-theme="b" data-2inset="true" id="promo-products-listview" class="ui-listview ui-group-theme-b"></ul>
+        </div>
+</div>
+<!-- / Страница promo Конец-->
+
+<!-- Страница pushList Начало -->
+<div data-role="page" id="page-push" class="app-page  ui-page ui-page-theme-a ui-page-footer-fixed">
+    <div data-role="header" data-position="fixed" id="header" class="jqm-header" data-tap-toggle="false" data-theme="b">
+        <a data-iconpos="notext"  class="ui-noshadow c_icon_contr BackButton" onclick="$.mobile.back();" >
+            <i class="c_icon c_back" ></i>
+        </a>
+        <h1><div class="c_main_logo"></div></h1>
+        <a link="#page-cart"  data-role="button" class="ui-noshadow vclick_link c_icon_contr world">          
+        <i class="c_icon c_basket"></i>         
+        </a>
+    </div>      
+ <div class="navPanelChild" id="nav-panel-promo-page"></div>
+        <div class="content-padding">
+            <h2 class="page-orders-name">Архив сообщений</h2>  
+        </div>
+        <div data-role="content" class="content-padding" id="push-page-content">
+        </div>      
+</div>
+<!-- / Страница pushList Конец-->
+
+<!-- Мои желания Начало -->
+<div data-role="page" id="page-wishes" class="app-page  ui-page ui-page-theme-a ui-page-footer-fixed">
+    <div data-role="header" data-position="fixed" id="header" class="jqm-header" data-tap-toggle="false" data-theme="b">
+        <a data-iconpos="notext"  class="ui-noshadow c_icon_contr BackButton" onclick="$.mobile.back();" >
+            <i class="c_icon c_back" ></i>
+        </a>
+        <h1><div class="c_main_logo"></div></h1>
+        <div class="bnt-menu-panel-right">
+            <a href="#page-personal" onclick="CheckHrefChange(this)" data-role="button" class="panel-menu-item"><i class="c_icon c_user"></i></a>
+            <a link="#page-cart" data-role="button" class="ui-noshadow vclick_link c_icon_contr world"><i class="c_icon c_basket"></i></a> 
+        </div>
+    </div>      
+ <div class="navPanelChild" id="nav-panel-product-card"></div>
+        <div id="page-orders-content" data-role="content" >
+            <div class="content-padding">
+                 <h2 class="page-orders-name">Мои желания</h2>  
+            </div>   
+            <div class="content-padding">   
+                <div id="personal_user_wishes_list"></div>
+            </div>
+        <hr class="page-orders-hr">
+            <div class="footer_box" data-role="footer" data-position="fixed">
+                <div class="copy footer_copy"></div>
+            </div>
+        </div>  
+</div>
+<!-- / Мои желания Конец-->
+
+<!-- Страница детальное желания Начало -->
+<div data-role="page" id="page-wish" class="app-page  ui-page ui-page-theme-a ui-page-footer-fixed">
+    <div data-role="header" data-position="fixed" id="header" class="jqm-header" data-tap-toggle="false" data-theme="b">
+        <a data-iconpos="notext"  class="ui-noshadow c_icon_contr BackButton" onclick="$.mobile.back();" >
+            <i class="c_icon c_back" ></i>
+        </a>
+        <h1><div class="c_main_logo"></div></h1>
+        <div class="bnt-menu-panel-right">
+            <a href="#page-personal" onclick="CheckHrefChange(this)" data-role="button" class="panel-menu-item"><i class="c_icon c_user"></i></a>
+            <a link="#page-cart" data-role="button" class="ui-noshadow vclick_link c_icon_contr world"><i class="c_icon c_basket"></i></a> 
+        </div>
+    </div>    
+ <div class="navPanelChild" id="nav-panel-wish-page"></div>
+    <div data-role="content">
+        <ul data-role="listview" data-theme="b" data-2inset="true" id="wish-listview"></ul>
+        <div class="footer_box" data-role="footer" data-position="fixed">
+        <div class="content-padding wishEditBlock">
+            <span class="removeWishList">Удалить список</span>
+            <a data-role="button" class="mini_btn blue wishEditButton" data-inline="true" onclick="EnableWishEditMode()" id="wishEditButton">Редактировать</a><br><br><br>
+        </div>  
+            <div class="copy footer_copy"></div>    
+        </div>      
+    </div>
+</div>
+<!-- / Страница детальное желание Конец-->
+
+<!-- Цитрус Сервисы Начало -->
+<div data-role="page" id="services-page" class="app-page  ui-page ui-page-theme-a ui-page-footer-fixed">
+    <div data-role="header" data-position="fixed" id="header" class="jqm-header" data-tap-toggle="false" data-theme="b">
+        <a data-iconpos="notext" class="ui-noshadow BackButton" onclick="$.mobile.back();">
+            <i class="c_icon c_back"></i>
+            <span id="CatalogBack"></span>
+        </a>
+        <div class="bnt-menu-panel-right"></div>        
+    </div>  
+<div class="navPanelChild" id="nav-panel-products-list"></div>
+    <div data-role="content">
+        <ul data-role="listview" data-theme="b" data-2inset="true" id="services-listview" class="ui-listview ui-group-theme-b">
+            <li class="ui-first-child"><a onclick="Showtextpage(213206)"><table style="width:100%"><tbody><tr><td class="service_td_64"><img src="http://cdn1.citrus.ua/img/png/citrus-ua-circle-master.png"></td><td class="service_td"><div class="box_catalog_status"></div><h2 class="item_name_only">Цитрус Мастер</h2></td><td style="width:25px"></td></tr></tbody></table></a></li>
+            <li class="ui-first-child"><a onclick="Showtextpage(213210)"><table style="width:100%"><tbody><tr><td class="service_td_64"><img src="http://cdn1.citrus.ua/img/png/citrus-ua-circle-obmen.png"></td><td class="service_td"><div class="box_catalog_status"></div><h2 class="item_name_only">Цитрус Обмен</h2></td><td style="width:25px"></td></tr></tbody></table></a></li>
+            <li class="ui-first-child"><a onclick="Showtextpage(213340)"><table style="width:100%"><tbody><tr><td class="service_td_64"><img src="http://cdn1.citrus.ua/img/png/citrus-ua-circle-zaschita.png"></td><td class="service_td"><div class="box_catalog_status"></div><h2 class="item_name_only">Цитрус Защита</h2></td><td style="width:25px"></td></tr></tbody></table></a></li>
+            <li class="ui-first-child"><a onclick="Showtextpage(232066)"><table style="width:100%"><tbody><tr><td class="service_td_64"><img src="http://cdn1.citrus.ua/img/png/citrus-ua-circle-kredity.png"></td><td class="service_td"><div class="box_catalog_status"></div><h2 class="item_name_only">Цитрус Кредиты</h2></td><td style="width:25px"></td></tr></tbody></table></a></li>
+            <li class="ui-first-child"><a onclick="Showtextpage(232183)"><table style="width:100%"><tbody><tr><td class="service_td_64"><img src="http://cdn1.citrus.ua/img/png/citrus-ua-circle-academy.png"></td><td class="service_td"><div class="box_catalog_status"></div><h2 class="item_name_only">Цитрус Академия</h2></td><td style="width:25px"></td></tr></tbody></table></a></li>
+        </ul>
+        <div id="catalog-footer-load"></div>                
+    </div>      
+</div>
+<!-- / Цитрус Сервисы товаров Конец-->
+
+<!-- Страница детальная Google map-->
+<div data-role="page" id="detail-googlemap" class="app-page  ui-page ui-page-theme-a ui-page-footer-fixed">
+    <div data-role="header" data-position="fixed" id="header" class="jqm-header" data-tap-toggle="false" data-theme="b">
+        <a data-iconpos="notext"  class="ui-noshadow c_icon_contr BackButton" onclick="$.mobile.back();" >
+            <i class="c_icon c_back" ></i>
+        </a>
+        <h1><div class="c_main_logo"></div></h1>
+        <div class="bnt-menu-panel-right">
+            <a link="#nav-panel" data-iconpos="notext"  class="ui-noshadow  ui-btn-inline  c_icon_contr" onclick="MobileUser.LoginPromt()">         
+            <i class="c_icon c_user"></i>           
+            </a>
+            <a link="#page-cart"  data-role="button"   class=" c_menu_btn ui-noshadow  vclick_link ui-btn-inline  c_icon_contr">            
+            <i class="c_icon c_basket"></i>         
+            </a>
+        </div>  
+    </div>      
+ <div class="navPanelChild" id="nav-panel-text-page"></div>
+        <div data-role="content" class="content-padding" id="content-Google-map">
+            <div class="g_content_detail_map">
+                <div id="map_canvas"></div>
+                <div id="toggleStreetView">Назад</div>
+                <div id="pano"></div>
+                    <div class="content_detail_map"></div>
+            </div>
+        </div>      
+</div>
+<!-- / Страница детальная Google map Конец-->
+
+<div id="global-up-button"></div>
+
+<!-- Страница bundle Начало -->
+<div data-role="page" id="bundle" class="app-page  ui-page ui-page-theme-a ui-page-footer-fixed">
+    <div data-role="header" data-position="fixed" id="header" class="jqm-header" data-tap-toggle="false" data-theme="b">
+        <a data-iconpos="notext" class="ui-noshadow c_icon_contr BackButton" onclick="$.mobile.back();"><i class="c_icon c_back"></i></a>
+        <h1><div class="c_main_logo"></div></h1>
+        <a link="#page-cart"  data-role="button" class="ui-noshadow vclick_link c_icon_contr"><i class="c_icon c_basket"></i></a>
+    </div>      
+ <div class="navPanelChild" id="nav-panel-bundle-page"></div>
+        <div data-role="content" class="content-padding" id="bundle-page-content">
+            <div class="bundle-text"></div>
+            <h1>Комплект</h1>
+            <ul data-role="listview" data-theme="b" data-2inset="true" id="bundle-content-listview" class="ui-listview ui-group-theme-b"></ul>
+            <hr class="bundle_hr"/>
+            <div class="bundle_total_price_block"><span class="bundle_old_price"><span class="bundle_price bundle_old_price_sum"></span><br/></span><span class="bundle_price bundle_price_sum"></span><sub class="pre_sup">грн</sub></div>
+            <div class="you_econom">Вы экономите <strong><span class="bundle_econom"></span> грн</strong></div>
+            <button id="bundle-card-buy-btn" class="ui-btn ui-corner-all green_btn"><i class="c_icon c_basket_simple c_ibtn"></i>    Купить комплект</button>
+        </div>      
+</div>
+<!-- / Страница bundle Конец-->
+
+<!-- Страница Добавления списка желаний Начало -->
+<div data-role="page" id="wish-add-page" class="app-page  ui-page ui-page-theme-a ui-page-footer-fixed">
+    <div data-role="header" data-position="fixed" id="header" class="jqm-header" data-tap-toggle="false" data-theme="b">
+        <a link="#nav-panel" data-iconpos="notext" class="ui-noshadow cit_panel_href c_icon_contr"><i class="c_icon c_menu"></i></a>
+        <h1><div class="c_main_logo"></div></h1>
+        <div class="bnt-menu-panel-right">
+            <a link="#nav-panel" data-iconpos="notext" class="ui-noshadow  ui-btn-inline  c_icon_contr" onclick="MobileUser.LoginPromt()"><i class="c_icon c_user"></i></a>
+            <a link="#page-cart" data-role="button" class=" c_menu_btn ui-noshadow  vclick_link ui-btn-inline c_icon_contr"><i class="c_icon c_basket"></i></a>
+        </div>  
+    </div>      
+    <div class="navPanelChild" id="nav-panel-text-page"></div>
+    <div data-role="content" class="content-padding" id="wish-add-page-content">
+    <div class="wish-add-page-content">
+        <div class="wish_add_chose_text">Выберите список для добавления товара</div>
+    </div>
+    <ul data-role="listview" data-theme="b" data-2inset="true" id="user_wishes_list"></ul>
+    <div class="wish-add-page-content">
+        <div class="make_wish_list_text">Создать новый список:</div>
+        <input type="text" placeholder="Дайте название новому списку" id="wish-add-new-list">
+        <button id="wish-add-tolist-btn" class="ui-btn ui-corner-all green_btn">OK</button>
+    </div>
+        <div class="footer_box" data-role="footer" data-position="fixed">
+            <div class="copy footer_copy"></div>
+        </div>
+    </div>      
+</div>
+<!-- / Страница Добавления списка желаний Конец-->
+
+<!-- Страница Список желаний DONE Начало -->
+<div data-role="page" id="wish-done-page" class="app-page  ui-page ui-page-theme-a ui-page-footer-fixed">
+    <div data-role="header" data-position="fixed" id="header" class="jqm-header" data-tap-toggle="false" data-theme="b">
+        <a link="#nav-panel" data-iconpos="notext" class="ui-noshadow cit_panel_href c_icon_contr"><i class="c_icon c_menu"></i></a>
+        <h1><div class="c_main_logo"></div></h1>
+        <div class="bnt-menu-panel-right">
+            <a link="#nav-panel" data-iconpos="notext" class="ui-noshadow  ui-btn-inline  c_icon_contr" onclick="MobileUser.LoginPromt()"><i class="c_icon c_user"></i></a>
+            <a link="#page-cart" data-role="button" class=" c_menu_btn ui-noshadow  vclick_link ui-btn-inline c_icon_contr"><i class="c_icon c_basket"></i></a>
+        </div>  
+    </div>      
+    <div class="navPanelChild" id="nav-panel-text-page"></div>
+    <div data-role="content" class="content-padding" id="wish-done-page-content">
+        <h1 class="wish_h1">Список желаний</h1>
+        <div id="wish-done-one">
+            <p>Товар добавлен в список желаний. <br>Поделись им со своими друзьями</p><br>
+            <p><div class='social-likes-f' data-url='' data-counters='no'>
+                <div class='vkontakte' title='Поделиться в Вконтакте'></div>
+                <div class='facebook' title='Поделиться в Facebook'></div>
+                <div class='twitter' data-via='CitrusDiscount' title='Поделиться в Twitter'></div>
+                <div class='plusone' title='Поделиться в Google+'></div>
+            </div></p>
+            <a onclick="window.location='#page-wishes'" id="show-page-wish" class="show-page-wish">Смотреть список</a>
+        </div>
+
+        <div id="wish-done-multi">
+            <p>Спасибо! Товар был удачно добавлен в выбранные списки.</p><br>
+            <a onclick="window.location='#page-wishes'" class="show-page-wish">Смотреть списки</a>
+        </div>
+
+        <button id="wish-back-to-product-btn" class="ui-btn ui-corner-all green_btn">Вернуться к товару</button>
+    </div>      
+</div>
+<!-- / Страница Список желаний DONE Конец-->
+
+<!-- Страница kurier Начало -->
+<div data-role="page" id="page-kurier" class="app-page ui-page ui-page-theme-a ui-page-footer-fixed">
+    <div data-role="header" data-position="fixed" id="header" class="jqm-header" data-tap-toggle="false" data-theme="b">
+        <a data-iconpos="notext" class="ui-noshadow c_icon_contr BackButton" onclick="window.history.go(-2);"><i class="c_icon c_back"></i></a>
+        <h1><div class="fa_custom_logo"></div></h1>
+    </div>      
+ <div class="navPanelChild" id="kurier-page-content"></div>
+    <div data-role="content" >
+            <div class="content-padding">
+                <h1>Оформление доставки</h1>
+                <div id="kurier_message"></div>
+                <p>Доставка товаров в г.Киев и в г.Одесса</p>
+                <span>Введите адрес доставки</span>
+                <div><input type="text" disabled="disabled" id="kurier_city" name="kurier_city" maxlength="40" autocomplete="off"></div>
+                <div><input type="text" placeholder="улица" id="kurier_street" name="kurier_street" maxlength="40" autocomplete="off"></div>
+                <div><input type="text" placeholder="дом" id="kurier_house" name="kurier_house" maxlength="40" autocomplete="off"></div>
+                <div><input type="text" placeholder="корпус" id="kurier_case" name="kurier_case" maxlength="40" autocomplete="off"></div>
+                <div><input type="text" placeholder="квартира" id="kurier_apartment" name="kurier_apartment" maxlength="40" autocomplete="off"></div>
+                <button onclick="addToCartbyKurier()" id="kurier-card-buy-btn" class="ui-btn ui-corner-all green_btn"><i class="c_icon c_basket_simple c_ibtn"></i>  Заказать доставку</button>
+            </div>
+            <hr>
+        <div class="footer_box" data-role="footer" data-position="fixed">
+            <div class="copy footer_copy"></div>
+        </div> 
+    </div>  
+</div>
+<!-- / Страница kurier Конец-->
+
+<div data-role="dialog" id="timeout">Ошибка. Проверьте соединение с интернет ...</div>
+
+<div id="needUpdate"></div>
+<div id="needLogin"></div>
+
+<script>
+</script>
+</body>
+</html>

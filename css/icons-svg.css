@@ -1,0 +1,467 @@
+/* Icon classes for all  */
+
+.c_icon_contr {
+    font-size: 0 !important;
+}
+
+.c_icon {
+    margin: 0px;
+    padding: 0px;
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    background-repeat: no-repeat;
+}
+
+.main_page_icon {
+    margin-right: 5px;
+    background-size: 20px 20px;
+    width: 20px;
+    height: 20px;
+    display: block;
+    float: left;
+}
+
+.c_ibtn {
+    position: relative;
+    top: 3px;
+    margin-right: 9px;
+}
+
+
+/* Icon classes for HEADER  */
+
+.c_menu {
+    background-image: url(../img/svg/white/ico-32.svg);
+    position: relative;
+    top: 2px;
+    left: 2px;
+}
+
+.c_back {
+    background-image: url(../img/svg/white/ico-02_back.svg);
+    position: relative;
+    top: 2px;
+}
+
+.c_user {
+    background-image: url(../img/svg/white/ico-18.svg);
+    width: 20px;
+    height: 20px;
+    background-size: 20px 20px;
+    margin-top: 6px;
+    margin-right: 6px;
+}
+
+.c_payment {
+    background-image: url(../img/svg/payment-approve-icon.svg);
+    top: 9px;
+}
+
+.c_basket {
+    background-image: url(../img/svg/white/ico-04.svg);
+    background-color: #F8934F;
+    border-radius: 5px;
+    padding: 3px;
+    background-position: 2px 2px;
+}
+
+.c_need_update {
+    background-image: url(../img/svg/icon-update.svg);
+}
+
+.c_basket_simple {
+    background-image: url(../img/svg/white/ico-04.svg);
+}
+
+.c_basket_wallet_white {
+    background-image: url(../img/svg/white/wallet.svg);
+}
+
+.c_basket_logistics_white {
+    background-image: url(../img/svg/white/logistics.svg);
+    margin-bottom: -7px;
+    margin-top: 4px;
+}
+
+.c_basket_guarantee_white {
+    background-image: url(../img/svg/white/guarantee.svg);
+    margin-bottom: -3px;
+}
+
+.c_basket_green {
+    background-image: url(../img/svg/busket-icon-green.svg);
+}
+
+.c_basket_gray {
+    background-image: url(../img/svg/gray/ico-04.svg);
+}
+
+.c_home {
+    background-image: url(../img/svg/white/ico-22.svg);
+    position: relative;
+    top: 3px;
+}
+
+.c_catalog {
+    background-image: url(../img/svg/white/ico-10.svg);
+}
+
+.c_catalog.gray {
+    background-image: url(../img/svg/gray/ico-10.svg);
+}
+
+.c_search {
+    background-image: url(../img/svg/white/ico-31.svg);
+}
+
+.c_action {
+    background-image: url(../img/svg/white/ico-11.svg);
+}
+
+.c_action.gray {
+    background-image: url(../img/svg/gray/ico-11.svg);
+}
+
+.c_career {
+    background-image: url(../img/svg/career-white.svg);
+}
+
+.c_career.gray {
+    background-image: url(../img/svg/career-grey.svg);
+}
+
+.c_gadgets {
+    background-image: url(../img/svg/gadget-icon-white.svg);
+}
+
+.c_gadgets.gray {
+    background-image: url(../img/svg/gadget-icon.svg);
+}
+
+.c_news {
+    background-image: url(../img/svg/white/ico-27.svg);
+}
+
+.c_news.gray {
+    background-image: url(../img/svg/gray/ico-27.svg);
+}
+
+.c_club {
+    background-image: url(../img/svg/white/ico-13.svg);
+}
+
+.c_club.gray {
+    background-image: url(../img/svg/gray/ico-13.svg);
+}
+
+.c_shops {
+    background-image: url(../img/svg/white/ico-33.svg);
+}
+
+.c_shops.gray {
+    background-image: url(../img/svg/gray/ico-33.svg);
+}
+
+.c_contactus {
+    background-image: url(../img/svg/white/ico-29.svg);
+}
+
+.c_contactus.gray {
+    background-image: url(../img/svg/gray/ico-29.svg);
+}
+
+.c_online {
+    background-image: url(../img/svg/white/ico-28.svg);
+}
+
+.c_online.gray {
+    background-image: url(../img/svg/gray/ico-28.svg);
+}
+
+.c_lider {
+    background-image: url(../img/svg/white/ico-09.svg);
+}
+
+.c_lider.gray {
+    background-image: url(../img/svg/gray/ico-09.svg);
+}
+
+.c_super {
+    background-image: url(../img/svg/white/ico-05.svg);
+}
+
+.c_super.gray {
+    background-image: url(../img/svg/gray/ico-05.svg);
+}
+
+.c_new {
+    background-image: url(../img/svg/white/ico-25.svg);
+}
+
+.c_new.gray {
+    background-image: url(../img/svg/gray/ico-25.svg);
+}
+
+.ricent_viewes_home {
+    background-image: url(../img/svg/gray/ricent-viewes.svg);
+}
+
+.ricent_viewes {
+    background-image: url(../img/svg/prev_viewed.svg);
+}
+
+.c_accessories {
+    background-image: url(../img/svg/accessories.svg);
+}
+
+.c_bundle {
+    background-image: url(../img/svg/bundle.svg);
+}
+
+.c_reviews {
+    background-image: url(../img/svg/reviews.svg);
+}
+
+.c_description {
+    background-image: url(../img/svg/description.svg);
+}
+
+.c_features {
+    background-image: url(../img/svg/features.svg);
+}
+
+.c_shipping {
+    background-image: url(../img/svg/shipping.svg);
+}
+
+.c_soon {
+    background-image: url(../img/svg/white/ico-17.svg);
+}
+
+.c_soon.gray {
+    background-image: url(../img/svg/gray/ico-17.svg);
+}
+
+.c_phone {
+    background-image: url(../img/svg/white/ico-30.svg);
+}
+
+.c_phone.gray {
+    background-image: url(../img/svg/gray/ico-30.svg);
+}
+
+.c_left_arrow {
+    background-image: url(../img/svg/white/ico-34.svg);
+}
+
+.c_left_arrow.gray {
+    background-image: url(../img/svg/gray/ico-34.svg);
+}
+
+.c_sort {
+    background-image: url(../img/svg/white/ico-16.svg);
+}
+
+.c_sort.gray {
+    background-image: url(../img/svg/gray/ico-16.svg);
+}
+
+.c_filter {
+    background-image: url(../img/svg/white/ico-20.svg);
+}
+
+.c_filter.gray {
+    background-image: url(../img/svg/gray/ico-20.svg);
+}
+
+.search-input-icon {
+    position: absolute;
+    color: #B2B2B2;
+    left: 1rem;
+    top: 1.2rem;
+    background-image: url(../img/svg/gray/ico-31.svg);
+    background-repeat: no-repeat;
+    height: 13px;
+    width: 13px;
+    background-size: 13px 13px;
+}
+
+.voice-input-icon {
+    position: absolute;
+    color: #B2B2B2;
+    right: 1rem;
+    top: 0.7rem;
+    background-image: url(../img/svg/gray/ico-24.svg);
+    background-repeat: no-repeat;
+    height: 25px;
+    width: 15px;
+    background-size: 15px 25px;
+    display: none;
+}
+
+.c_main_logo {
+    background-image: url(../img/svg/logo_main.svg);
+    background-repeat: no-repeat;
+    width: 108px;
+    height: 20px;
+    display: inline-block;
+    position: relative;
+    top: 3px;
+}
+
+.product-card-module:after, .ui-icon-carat-r:after, .ui-showarrow:after{
+    content: "";
+    background-image: url(../img/svg/gray/arrow.svg);
+    background-repeat: no-repeat;
+    background-color: transparent;
+    position: absolute;
+    top: 50%;
+    right: 16px;
+    height: 22px;
+    width: 22px;
+    margin-top: -8px;
+}
+
+.module-open .product-card-module:after {
+    background-image: url(../img/svg/gray/arrow_up.svg);
+    margin-top: -5px;
+    right: 19px;
+}
+
+.module-close .product-card-module:after {
+    background-image: url(../img/svg/gray/arrow_down.svg);
+    margin-top: -5px;
+    right: 19px;
+}
+
+.external-link-icon:after {
+    background-image: url(../img/svg/external-link-icon.svg);
+    position: absolute;
+    right: 20px;
+}
+
+
+/* Icons class for FOOTER  */
+
+
+/*.product-card-module .fa {
+	min-width: 18px;
+}
+.fa-phone{
+	margin-right: 0.2rem;
+	position: relative;
+	top: 1px;
+}
+*/
+
+
+/*.ui-panel .ui-listview .fa
+{
+margin-right:0rem;
+width: 2rem;
+color:#FFFFFF;
+}
+ .main-module .fa {
+margin-right: 1rem;
+}*/
+
+.wicon {
+    color: white;
+    cursor: pointer;
+}
+
+.ui-header .fa {
+    color: #FFFFFF;
+}
+
+
+/*i.fa.fa-chevron-left.fa-2x:before {
+top: 5px;
+position: relative;
+}*/
+
+.fa_custom_search {
+    background-image: url(../img/svg/searc.svg);
+    background-repeat: no-repeat;
+    background-position-y: 0.4rem;
+    background-position-x: 0.3rem;
+    background-color: #F8934F;
+}
+
+.fa_custom_arrow_right {
+    background-image: url(../img/svg/searc.svg);
+    background-repeat: no-repeat;
+    background-position-y: 0.4rem;
+    background-position-x: 0.3rem;
+    background-color: #F8934F;
+}
+
+.fa_custom_logo {
+    background-image: url(../img/svg/logo.svg);
+    background-repeat: no-repeat;
+    width: 108px;
+    height: 20px;
+    display: inline-block;
+}
+
+.fa_custom_user {
+    background-image: url(../img/svg/user.svg);
+    background-repeat: no-repeat;
+    background-color: #F8934F;
+    background-position: 0.4rem 0.3rem;
+    border-radius: 5px;
+}
+
+.fa_custom_sort {
+    background-image: url(../img/svg/user.svg);
+    background-repeat: no-repeat;
+    background-color: #F8934F;
+    background-position: 0.4rem 0.3rem;
+    border-radius: 5px;
+}
+
+.fa_custom_filter {
+    background-image: url(../img/svg/user.svg);
+    background-repeat: no-repeat;
+    background-color: #F8934F;
+    background-position: 0.4rem 0.3rem;
+    border-radius: 5px;
+}
+
+.fa_custom_basket {
+    background-image: url(../img/svg/basket.svg);
+    background-repeat: no-repeat;
+    background-color: #F8934F;
+    background-position: 0.25rem 0.38rem;
+    border-radius: 5px;
+}
+
+.fa_custom_basket_btn {
+    background-image: url(../img/svg/basket.svg);
+    background-repeat: no-repeat;
+    border-radius: 5px;
+    padding: 0;
+    height: 20px;
+    width: 24px;
+    margin-right: 0.2rem;
+    position: relative;
+    top: 2px;
+}
+
+.section-product-item:after {
+    content: ""!important;
+    background-image: url(/img/svg/gray/arrow.svg)!important;
+    background-repeat: no-repeat!important;
+    background-color: transparent!important;
+    position: absolute!important;
+    top: 50%!important;
+    right: 16px!important;
+    height: 22px!important;
+    width: 22px!important;
+    margin-top: -8px!important;
+}
+
+.section-product-item a:after {
+    display: none;
+}
