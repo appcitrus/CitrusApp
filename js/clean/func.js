@@ -463,6 +463,7 @@ function loadProductCard(id, owl) {
                 }
                 $('#sticker_img').html(json.sticker_img);
                 $('#product-card-code').html(json.idd);
+                getGaUid();
                 $('#product-card-info-block-content,#product-card-chars-block-content').hide().html("");
                 $('#product-card-info-block-content').parent().removeClass("module-open").addClass("module-close");
                 $('#product-card').attr({
@@ -2749,3 +2750,24 @@ function InitCityAutocomplete() {
         }
     });
 }
+
+function getGaUid(){
+    var gast = MobileUser.GetStorage('_ga'),
+        gau = MobileUser.GetStorage('gau');
+
+    if(gau != undefined){
+        $('#product-card-code').html(gau+'-'+$('#current_product_idd').val());
+    }else{
+        $.ajax({
+            type: "GET",
+            url: 'https://my.citrus.ua/ga_id?_ga='+gast,
+            dataType: "html",
+            success: function(gau){
+                if(gau!=''){
+                    $('#product-card-code').html(gau+'-'+$('#current_product_idd').val());
+                    MobileUser.SetStorage('gau', gau);
+                }
+            }
+        });
+    }
+} 
