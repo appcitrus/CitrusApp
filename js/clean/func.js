@@ -996,7 +996,7 @@ function LoadTextPageExtends(id, data) {
     });
 }
 
-function MakeOrder() {
+/*function MakeOrder() {
     if (MobileUser.IsAuthorized) {
         GA_event('OrderCreate', 'MakeOrder');
         $.mobile.changePage("#page-order", {
@@ -1004,6 +1004,27 @@ function MakeOrder() {
         });
     } else {
         MobileUser.LoginPromt();
+    }
+}*/
+
+function MakeOrder() {
+    if (MobileUser.IsAuthorized) {
+        ShowLoading();
+        GA_event('OrderCreate', 'MakeOrder');
+        MobileUser.basket.sendOrder(OnMakeSendOrderDone)
+    } else {
+        MobileUser.LoginPromt();
+    }
+}
+
+function OnMakeSendOrderDone(json){
+    if(json.checkout_redirect != undefined) {
+        window.location = json.checkout_redirect;
+    }else{
+        alert("Приносим свои изменения. При сохранение произошла ошибка. Попробуйте позже еще раз.");
+        $.mobile.changePage("#main", {
+            changeHash: true
+        });
     }
 }
 
