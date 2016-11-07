@@ -88,7 +88,7 @@
     -->
 
     <!-- Define app icon for each platform. -->
-    <icon src="icon.png" />
+    <icon src="res/icon/ios/Icon-72_2x.png" />
     <icon src="res/icon/android/36.png"   gap:platform="android"    gap:density="ldpi" />
     <icon src="res/icon/android/48.png"   gap:platform="android"    gap:density="mdpi" />
     <icon src="res/icon/android/72.png"   gap:platform="android"    gap:density="hdpi" />
@@ -127,7 +127,7 @@
 
 
     <gap:config-file platform="ios" parent="CFBundleVersion">
-        <string>115</string>
+        <string>1151</string>
     </gap:config-file>
 
     <!--
