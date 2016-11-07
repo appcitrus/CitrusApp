@@ -1,5 +1,5 @@
-var app_ver = '113',
-    app_ver_print = '1.1.3',
+var app_ver = '114',
+    app_ver_print = '1.1.4',
     product_list_offset = [],
     main_page_load = false,
     main_images = false,
@@ -995,17 +995,6 @@ function LoadTextPageExtends(id, data) {
         product_list_page_loded = true;
     });
 }
-
-/*function MakeOrder() {
-    if (MobileUser.IsAuthorized) {
-        GA_event('OrderCreate', 'MakeOrder');
-        $.mobile.changePage("#page-order", {
-            changeHash: true
-        });
-    } else {
-        MobileUser.LoginPromt();
-    }
-}*/
 
 function MakeOrder() {
     if (MobileUser.IsAuthorized) {
