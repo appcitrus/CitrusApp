@@ -41,7 +41,7 @@
 
     <gap:plugin name="cordova-plugin-device" source="npm" />
     <gap:plugin name="cordova-plugin-splashscreen" source="npm" />
-    <gap:plugin name="com.phonegap.plugins.pushplugin" version="2.5.0" />
+    <gap:plugin name="com.phonegap.plugins.pushplugin" spec="2.5.0" source="pgb" />
     <gap:plugin name="cordova-plugin-inappbrowser" source="npm" />
     <gap:plugin name="com.phonegap.plugin.statusbar" version="1.1.0" />
     <gap:plugin name="com.danielcwilson.plugins.googleanalytics" version="0.6.1" />
