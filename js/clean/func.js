@@ -1,5 +1,5 @@
-var app_ver = '114',
-    app_ver_print = '1.1.4',
+var app_ver = '115',
+    app_ver_print = '1.1.5',
     product_list_offset = [],
     main_page_load = false,
     main_images = false,
