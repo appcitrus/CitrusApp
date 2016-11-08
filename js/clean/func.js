@@ -1008,11 +1008,11 @@ function MakeOrder() {
 
 function OnMakeSendOrderDone(json){
     if(json.checkout_redirect != undefined) {
-        window.open(json.checkout_redirect, '_system', 'location=yes');
+/*        window.open(json.checkout_redirect, '_system', 'location=yes');
          $.mobile.changePage("#main", {
             changeHash: true
-        });
-        // window.location = json.checkout_redirect;
+        });*/
+        window.location = json.checkout_redirect;
     }else{
         alert("Приносим свои изменения. При сохранение произошла ошибка. Попробуйте позже еще раз.");
         $.mobile.changePage("#main", {
