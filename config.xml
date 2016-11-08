@@ -147,6 +147,7 @@
     <access origin="//cdn3.citrus.ua/*" subdomains="true"/>
     <access origin="//cdn4.citrus.ua/*" subdomains="true"/>
     <access origin="//my.citrus.ua/*" subdomains="true"/>
+    <access origin="//app.citrus.ua/*" subdomains="true"/>
     <access origin="//img.citrus.ua/*" subdomains="true"/>
     <access origin="//www.citrus.ua/img/*" subdomains="true"/>
     <access origin="//www.citrus.ua/img/png/*" subdomains="true"/>
