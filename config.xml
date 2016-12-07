@@ -53,8 +53,8 @@
     <!-- <gap:plugin name="com.sharinglabs.cordova.plugin.datepicker" spec="1.1.3" source="pgb" /> -->
     <gap:plugin name="phonegap-datepicker-sneo" source="npm" />
 
-    <gap:plugin name="nl.x-services.plugins.launchmyapp">
-        <param name="URL_SCHEME" value="citrus" />
+    <gap:plugin name="cordova-plugin-customurlscheme" source="npm">
+      <param name="URL_SCHEME" value="citrus" />
     </gap:plugin>
 
     <gap:plugin name="cordova-plugin-whitelist" source="npm"/>
