@@ -48,7 +48,8 @@
     <gap:plugin name="org.apache.cordova.statusbar" source="npm" />
     <!-- <gap:plugin name="com.danielcwilson.plugins.googleanalytics" version="0.6.1" /> -->
     <gap:plugin name="com.cmackay.plugins.googleanalytics" source="npm"/>
-    <gap:plugin name="com.bunkerpalace.cordova.youtubevideoplayer" version="1.0.1" />
+    <!-- <gap:plugin name="com.bunkerpalace.cordova.youtubevideoplayer" version="1.0.1" /> -->
+    <gap:plugin name="remcob00-cordova-youtube-android-player-api" source="npm" />
     <!-- <gap:plugin name="com.sharinglabs.cordova.plugin.datepicker" spec="1.1.3" source="pgb" /> -->
     <gap:plugin name="phonegap-datepicker-sneo" source="npm" />
 
