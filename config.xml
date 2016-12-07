@@ -57,7 +57,7 @@
 
     <gap:plugin name="cordova-plugin-whitelist" source="npm"/>
 
-    <gap:plugin name="com.vliesaputra.deviceinformation" version="1.0.1" />
+    <!-- <gap:plugin name="com.vliesaputra.deviceinformation" version="1.0.1" /> -->
     
     <preference name="android-build-tool" value="gradle" />
 
