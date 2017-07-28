@@ -5,9 +5,9 @@
 <!-- config.xml reference: https://build.phonegap.com/docs/config-xml -->
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
-        id        = "ua.citrus.app.shop"
-        versionCode = "13090"
-        version   = "1.1.6">
+        id        = "com.citrus.app.temporary"
+        versionCode = "13091"
+        version   = "1.0">
 
     <name>Цитрус</name>
 
