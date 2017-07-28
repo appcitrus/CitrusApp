@@ -40,7 +40,7 @@
     <!-- Do not auto hide splash on Android -->
     <preference name="SplashScreenDelay" value="25000"/>
 
-    <gap:plugin name="cordova-plugin-device" source="npm" />
+    <gap:plugin name="cordova-plugin-device" spec="1.1.6" source="npm" />
     <gap:plugin name="cordova-plugin-splashscreen" source="npm" />
     <!-- <gap:plugin name="phonegap-plugin-push" source="npm" /> -->
     <!-- <gap:plugin name="com.phonegap.plugins.pushplugin" spec="2.5.0" source="pgb" /> -->
